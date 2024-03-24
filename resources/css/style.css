@@ -388,6 +388,7 @@ nav {
     position: fixed;
     z-index: 22;
     backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
     background: transparent;
     display: none;
     left: 0px;
