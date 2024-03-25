@@ -11,7 +11,7 @@ class PageController extends Controller
         return view('homepage');
     }
     public function catalogo() {
-        return view('catalogo');
+        return view('announcements.index ');
       }
 }
 

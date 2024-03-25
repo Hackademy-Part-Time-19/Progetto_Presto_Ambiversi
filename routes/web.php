@@ -17,5 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get(  '/', [PageController::class, 'home'])->name('homepage');
 Route::get( '/catalogo', [PageController::class, 'catalogo'])->name('catalogo');
+Route::get('/category', function () { return view('categoryShow');});
+Route::get('/profilo', function () { return view('auth.profiloUser');})->name('profilo');
+
 
 Route::get('/nuovo-annuncio',[AnnouncementController::class, 'createAnnouncement'])->middleware('auth')->name('announcements.create');
