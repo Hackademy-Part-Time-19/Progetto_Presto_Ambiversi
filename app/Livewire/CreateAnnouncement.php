@@ -27,6 +27,7 @@ class CreateAnnouncement extends Component
     ];
 
     public function store(){
+        $this->validate();
         $category = Category::find($this->category);
         $announcement = $category->announcements()->create([
             'title'=>$this->title,
@@ -35,14 +36,8 @@ class CreateAnnouncement extends Component
         ]);
 
         Auth::user()->announcements()->save($announcement);
-
-        Announcement::create([
-            'title'=>$this->title,
-            'body'=>$this->body,
-            'price'=>$this->price,
-        ]);
-        session()->flash('success','Annuncio inserito con successo');
         $this->cleanForm();
+        redirect()->route('catalogo')->with('success', 'Annuncio inserito con successo');
     }
 
     public function updated($propertyName)
