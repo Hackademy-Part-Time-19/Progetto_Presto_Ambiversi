@@ -8,12 +8,29 @@ use Illuminate\Database\Eloquent\Model;
 class Announcement extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','body','price'];
-    public function category(){
+    protected $fillable = ['title', 'body', 'price'];
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
-    public function user(){
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
+<<<<<<< Updated upstream
+=======
+    public function setAccepted($value)
+    {
+        $this->is_accepted = $value;
+        $this->save();
+        return true;
+    }
+
+    public static function toBeRevisionedCount()
+    {
+        return Announcement::where('is_accepted', null)->count();
+    }
+>>>>>>> Stashed changes
 }
