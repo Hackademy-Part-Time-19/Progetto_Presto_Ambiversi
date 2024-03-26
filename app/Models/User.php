@@ -45,4 +45,13 @@ class User extends Authenticatable
     public function announcements(){
         return $this->hasMany(Announcement::class);
     }
+
+
+    public function isAdmin()
+    {
+       
+        return $this->is_revisor === 1;
+    }
+
+  
 }

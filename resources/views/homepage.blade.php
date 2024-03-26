@@ -1,9 +1,9 @@
 <x-layout>
-    
-    
+
+
 
     <div class="headerImage">
-        <img  src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
+        <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
         <div class="cerca">
             <form action="/action_page.php">
                 <input
@@ -23,34 +23,34 @@
         <div style="height: 100%; width: 100%; display: flex;">
             <div class="listaCategorie">
                 <ul>
-                    <li> <a onclick="Tech()" id="Tech" class="aMenuCategori"> <span>01. </span>Tech</a>
+                    <li> <a onclick="Tech(),TechLink()" id="Tech" class="aMenuCategori"> <span>01. </span>Tech</a>
                     </li>
                     <hr>
-                    <li> <a onclick="Donna()" id="Donna" class="aMenuCategori"> <span>02. </span>Donna</a></li>
+                    <li> <a onclick="Donna(),DonnaLink()" id="Donna" class="aMenuCategori"> <span>02. </span>Donna</a></li>
                     <hr>
-                    <li> <a onclick="Gioielli()" id="Gioielli" class="aMenuCategori"> <span>03. </span>Gioielli</a></li>
+                    <li> <a onclick="Gioielli(),GioielliLink()" id="Gioielli" class="aMenuCategori"> <span>03. </span>Gioielli</a></li>
                     <hr>
-                    <li> <a onclick="Uomo()" id="Uomo" class="aMenuCategori"> <span>04. </span>Uomo</a></li>
+                    <li> <a onclick="Uomo(),UomoLink()" id="Uomo" class="aMenuCategori"> <span>04. </span>Uomo</a></li>
                     <hr>
-                    <li> <a onclick="Giochi()" id="Giochi" class="aMenuCategori"> <span>05. </span>Giochi</a></li>
+                    <li> <a onclick="Giochi(),GiochiLink()" id="Giochi" class="aMenuCategori"> <span>05. </span>Giochi</a></li>
                     <hr>
-                    <li> <a onclick="Sport()" id="Sport" class="aMenuCategori"> <span>06. </span>Sport</a></li>
+                    <li> <a onclick="Sport(),SportLink()" id="Sport" class="aMenuCategori"> <span>06. </span>Sport</a></li>
                     <hr>
                     
-                    <li> <a onclick="Auto()" id="Auto" class="aMenuCategori"> <span>07. </span>Auto</a></li>
+                    <li> <a onclick="Auto(),AutoLink()" id="Auto" class="aMenuCategori"> <span>07. </span>Auto</a></li>
                     <hr>
-                    <li> <a onclick="Orologio()" id="Orologio" class="aMenuCategori"> <span>08. </span>Orologio</a></li>
+                    <li> <a onclick="Orologio(),OrologioLink()" id="Orologio" class="aMenuCategori"> <span>08. </span>Orologio</a></li>
                     <hr>
-                    <li> <a onclick="Film()" id="Film" class="aMenuCategori"> <span>09. </span>Film</a></li>
+                    <li> <a onclick="Film(),FilmLink()" id="Film" class="aMenuCategori"> <span>09. </span>Film</a></li>
                     <hr>
-                    <li> <a onclick="Musica()" id="Musica" class="aMenuCategori"> <span>10. </span>Musica</a></li>
+                    <li> <a onclick="Musica(),MusicaLink()" id="Musica" class="aMenuCategori"> <span>10. </span>Musica</a></li>
                     <hr>
                 </ul>
             </div>
             <div class="boxImagineCategoria">
                 <div  id="ImagineContainerCategory" class="img"></div>
                 <div class="buttonImg">
-                    <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>
+                 <a id="frecciaHref" href="" >   <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i></a>
                 </div>
 
             </div>
@@ -149,5 +149,5 @@
             </div>
         </div>
     </div>
-
+    <x-footer />
 </x-layout>

@@ -78,72 +78,70 @@
 
         function GioielliLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/1';
+            link.href = 'http://127.0.0.1:8001/categorie/1';
         }
 
         function DonnaLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/2';
+            link.href = 'http://127.0.0.1:8001/categorie/2';
         }
 
         function TechLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/3';
+            link.href = 'http://127.0.0.1:8001/categorie/3';
         }
 
         function UomoLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/4';
+            link.href = 'http://127.0.0.1:8001/categorie/4';
         }
 
         function GiochiLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/5';
+            link.href = 'http://127.0.0.1:8001/categorie/5';
         }
 
         function SportLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/6';
+            link.href = 'http://127.0.0.1:8001/categorie/6';
         }
 
         function AutoLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/7';
+            link.href = 'http://127.0.0.1:8001/categorie/7';
         }
 
         function OrologioLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/8';
+            link.href = 'http://127.0.0.1:8001/categorie/8';
         }
 
         function FilmLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/9';
+            link.href = 'http://127.0.0.1:8001/categorie/9';
         }
 
         function MusicaLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8000/categorie/9';
+            link.href = 'http://127.0.0.1:8001/categorie/9';
         }
 
 
-    function decreaseQuantity() {
-        var quantityInput = document.getElementById('quantityInput');
-        var currentQuantity = parseInt(quantityInput.value);
+        function decreaseQuantity() {
+            var quantityInput = document.getElementById('quantityInput');
+            var currentQuantity = parseInt(quantityInput.value);
 
-        if (currentQuantity > 1) {
-            quantityInput.value = currentQuantity - 1;
+            if (currentQuantity > 1) {
+                quantityInput.value = currentQuantity - 1;
+            }
         }
-    }
 
-    function increaseQuantity() {
-        var quantityInput = document.getElementById('quantityInput');
-        var currentQuantity = parseInt(quantityInput.value);
+        function increaseQuantity() {
+            var quantityInput = document.getElementById('quantityInput');
+            var currentQuantity = parseInt(quantityInput.value);
 
-        quantityInput.value = currentQuantity + 1;
-    }
-
-
+            quantityInput.value = currentQuantity + 1;
+        }
     </script>
 
 </body>

@@ -5,7 +5,8 @@
     <div class="bg"></div>
       
         <h1>Crea il tuo annuncio!</h1>
-        <form wire:submit.prevent="store">
+    
+        <form   wire:submit.prevent="store"   >
             @csrf
 
 
@@ -45,7 +46,8 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary shadow px-4 py-2"> Crea</button>
+            <button  type="submit" class="btn btn-primary shadow px-4 py-2"> Crea</button>
+
         </form>
 
 

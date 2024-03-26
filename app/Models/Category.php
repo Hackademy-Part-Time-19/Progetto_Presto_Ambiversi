@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $this->hasMany(Announcement::class);
     }
+
+    public function isRevised()
+    {
+          return $this->is_accepted == 1;
+    }
 }
