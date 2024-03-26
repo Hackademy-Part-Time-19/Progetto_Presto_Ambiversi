@@ -38,11 +38,7 @@ class CreateAnnouncement extends Component
 
         Auth::user()->announcements()->save($announcement);
 
-        Announcement::create([
-            'title' => $this->title,
-            'body' => $this->body,
-            'price' => $this->price,
-        ]);
+      
         session()->flash('success', 'Annuncio inserito con successo');
         $this->cleanForm();
     }
@@ -63,4 +59,8 @@ class CreateAnnouncement extends Component
     {
         return view('livewire.create-announcement');
     }
+
+
+
+    
 }

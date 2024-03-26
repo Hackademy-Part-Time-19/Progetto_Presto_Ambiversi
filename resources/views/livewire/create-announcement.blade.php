@@ -1,6 +1,11 @@
-<div>
+
+<div class="formCreate" style="width: 800px;">
+
+    <div class="bg"></div>
+
     <h1>Crea il tuo annuncio!</h1>
-    <form wire:submit.prevent="store">
+    <form  wire:submit.prevent="store" >
+
         @csrf
         <div class="mb-3">
             <input style="width: 100%"  placeholder="Titolo" wire:model="title" type="text" class="form-control @error('title') is-invalid @enderror">
@@ -9,7 +14,7 @@
             @enderror
         </div>
         <div class="mb-3">
-
+           
             <textarea  placeholder="Descrizione" wire:model="body" type="text" class="form-control @error('body') is-invalid @enderror"></textarea>
             @error('body')
                 {{ $message }}
@@ -21,7 +26,6 @@
                 {{ $message }}
             @enderror
         </div>
-
         <div class="mb-3">
             <label for="category">Categoria</label>
             <select wire:model.defer="category" id="category" class="form-control">
@@ -31,8 +35,10 @@
                 @endforeach
             </select>
         </div>
-
-
-        <button type="submit" class="btn btn-primary shadow px-4 py-2"> Crea</button>
+       
+        <button  type="submit" > Crea</button>
     </form>
+   
+
+
 </div>

@@ -1,40 +1,63 @@
 <x-layout>
-    <div class="container-fluid p-5 bg-gradient bg-success shadow mb-4">
-        <div class="row">
-            <div class="col-12 text-light p-5">
-                <h1 class="display-2">Annuncio {{$announcement->title}}</h1>
+    <x-nav></x-nav>
+    <x-success></x-success>
+    <div  class="containerCatalogo">
+
+
+        <div style=" padding: 80px 0px; " class="container text-center  ">
+           
+            <div  class="row  ">
+                <div style="padding-right: 50px" class="col-8 col-ml-8 col-md-8 col-sm-12  ">
+
+                    <div  class="BoxInformazioni2">
+                       <img style="object-fit: cover;" src="https://static.wixstatic.com/media/c837a6_c913b8b392b545a0b2dfe10cf783c951~mv2.jpg/v1/fill/w_1206,h_1608,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c837a6_c913b8b392b545a0b2dfe10cf783c951~mv2.jpg"
+                       width="100%" height="auto"  alt="">
+                    </div>
             </div>
-        </div>
-    </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div id="showCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-item active">
-                            <img src="https://picsum.photos/id/27/1200/200" alt="" class="img-fluid p-3 rounded">
+         
+            
+                <div   class="col-4 col-ml-4 col-md-4 col-sm-12 p-0 ">
+                 <div   class="BoxInformazioni2">
+                    <div style=" height: 100%; " class="ContainterShowDetail">
+                        <h2 style="font-family: CormorantGaramond;margin-bottom: 3px">{{$announcement->title}}</h2>
+                        <p style="font-size: 15px ;">STK: 004</p>
+                        <h4 style="font-family:'Times New Roman', Times, serif" >€ {{$announcement->price}}</h4>
+                        <p style="text-align: start;font-family: CormorantGaramond;margin-top: 20px">{{$announcement->body}}</p>
+                        <p  style="margin: 0px;font-family: CormorantGaramond;">
+                            Quantità</p>
+                        <div style="border-bottom: 1px solid grey; width: 150px;" class="input-group">
+                            <span class="input-group-btn">
+                                <button id="buttonMinus" style="border: none" type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity()">-</button>
+                            </span>
+                            <input style="background-color: rgba(255, 255, 255, 0); border:none" type="text" class="form-control text-center" value="1" id="quantityInput">
+                            <span class="input-group-btn">
+                                <button id="buttonPlus" style="border: none" type="button" class="btn btn-outline-secondary" onclick="increaseQuantity()">+</button>
+                            </span>
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/id/27/1200/200" alt="" class="img-fluid p-3 rounded">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/id/27/1200/200" alt="" class="img-fluid p-3 rounded">
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#showCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#showCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                      
+                   
+
+                    </div>
+                    <div class="boxShowButton" style="display: flex; justify-content: space-between ; margin-top: 30px;">
+                        <button style="width: 85%" >Aggiungi al carrello</button>
+                        <button>
+                            <i class="bi bi-heart"></i>
                         </button>
                     </div>
-                    <h5 class="card-title"> {{$announcement->title}} </h5>
-                    <p class="card-text"> {{$announcement->body}} </p>
-                    <p class="card-text"> €{{$announcement->price}} </p>
-                    <a class="btn btn-primary" href="{{route('announcements.show', compact('announcement'))}}">Visualizza</a>
-                    <a href="{{route('categoryShow',['category'=>$announcement->category])}}" class="my-2 border-top pt-2 border-dark card-link shadow btn btn-success">Categoria: {{$announcement->category->name}}</a>
-                    <p class="card-footer">Pubblicato il: {{$announcement->created_at->format('d/m/Y')}} - Autore {{$announcement->user->name ?? ''}} </p>
-                </div>
+               
+
+         </div>
             </div>
-        </div>
-    </x-layout>
+          </div>
+
+
+    
+      
+    
+    
+    
+            </div>
+    
+    </div>
+    <x-footer />
+</x-layout>
