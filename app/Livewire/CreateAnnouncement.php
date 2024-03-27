@@ -39,7 +39,7 @@ class CreateAnnouncement extends Component
         Auth::user()->announcements()->save($announcement);
 
         $this->cleanForm();
-        redirect()->route('catalogo')->with('success', 'Annuncio inserito con successo');
+        redirect()->route('announcements.create')->with('success', 'Annuncio inserito con successo');
     }
 
     public function updated($propertyName)
