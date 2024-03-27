@@ -6,9 +6,7 @@
         'reference' => '52d79c7091b2475ca6a765e1e024d8c74492f010',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
-        'aliases' => array(
-            0 => '10.x-dev',
-        ),
+        'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
@@ -414,9 +412,7 @@
             'reference' => '52d79c7091b2475ca6a765e1e024d8c74492f010',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
-            'aliases' => array(
-                0 => '10.x-dev',
-            ),
+            'aliases' => array(),
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
