@@ -1,4 +1,4 @@
-<x-layout>
+
     <nav>
         <!--Inizio Registrazione PopUp -->
         <div id="RegistrazioneUtente" class="RegistrazioneUtente">
@@ -126,7 +126,7 @@
         <!--Fine Registrazione PopUp -->
         <div class="menu">
             <a href="{{ route('homepage') }}">HOME</a>
-            <a href="{{ route('catalogo') }}">SHOP</a>
+            <a href="{{ route('announcements.index') }}">SHOP</a>
             @auth
                 <a href="{{ route('announcements.create') }}">INSERISCI ARTICOLO</a>
 
@@ -205,4 +205,4 @@
 
         </div>
     </nav>
-</x-layout>
+

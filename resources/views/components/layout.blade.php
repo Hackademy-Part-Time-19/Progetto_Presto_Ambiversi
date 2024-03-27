@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <x-navbar></x-navbar>
+    <x-success></x-success>
+    <x-delete></x-delete>
+    <x-warning></x-warning>
 
     {{ $slot }}
     @livewireScripts
@@ -122,7 +126,7 @@
             link.href = 'http://127.0.0.1:8000/categorie/9';
         }
 
-        
+
     function decreaseQuantity() {
         var quantityInput = document.getElementById('quantityInput');
         var currentQuantity = parseInt(quantityInput.value);

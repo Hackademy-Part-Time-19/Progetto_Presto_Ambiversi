@@ -1,5 +1,5 @@
 <x-layout>
-    <x-nav/>
+    
     <x-success></x-success>
     <div class="containerCatalogo">
 

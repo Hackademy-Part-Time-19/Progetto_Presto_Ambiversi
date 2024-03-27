@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Mockery\Matcher\Type;
 
 class Announcement extends Model
 {
@@ -19,8 +20,6 @@ class Announcement extends Model
         return $this->belongsTo(User::class);
     }
 
-<<<<<<< Updated upstream
-=======
     public function setAccepted($value)
     {
         $this->is_accepted = $value;
@@ -32,5 +31,4 @@ class Announcement extends Model
     {
         return Announcement::where('is_accepted', null)->count();
     }
->>>>>>> Stashed changes
 }

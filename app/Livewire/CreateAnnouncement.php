@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use App\Models\Category;
 use App\Models\Announcement;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CreateAnnouncement extends Component
 {
@@ -15,20 +15,20 @@ class CreateAnnouncement extends Component
     public $category;
 
     protected $rules = [
-        'title' => 'required|min:4|max:40',
-        'body' => 'required|min:8|max:200',
-        'category' => 'required|min:4',
-        'price' => 'required|numeric|digits_between:0,8',
+        'title' => 'required|min:4',
+        'body' => 'required|min:8',
+        'category' => 'required',
+        'price' => 'required|numeric',
     ];
     protected $messages = [
         'required' => 'il campo :attribute è richiesto',
         'min' => 'il campo :attribute è troppo corto',
-        'digits_between'=>'Il Campo :attribute può contenere al massimo 8 cifre',
         'numeric' => 'Il campo :attribute dev\'essere un numero',
     ];
 
     public function store()
     {
+        $this->validate();
         $category = Category::find($this->category);
         $announcement = $category->announcements()->create([
             'title' => $this->title,
@@ -38,9 +38,8 @@ class CreateAnnouncement extends Component
 
         Auth::user()->announcements()->save($announcement);
 
-      
-        session()->flash('success', 'Annuncio inserito con successo');
         $this->cleanForm();
+        redirect()->route('catalogo')->with('success', 'Annuncio inserito con successo');
     }
 
     public function updated($propertyName)
@@ -55,12 +54,9 @@ class CreateAnnouncement extends Component
         $this->price = '';
         $this->category = '';
     }
+
     public function render()
     {
         return view('livewire.create-announcement');
     }
-
-
-
-    
 }

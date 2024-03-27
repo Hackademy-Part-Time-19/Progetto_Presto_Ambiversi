@@ -998,11 +998,8 @@ class Collection implements ArrayAccess, CanBeEscapedWhenCastToString, Enumerabl
     /**
      * Push all of the given items onto the collection.
      *
-     * @template TConcatKey of array-key
-     * @template TConcatValue
-     *
-     * @param  iterable<TConcatKey, TConcatValue>  $source
-     * @return static<TKey|TConcatKey, TValue|TConcatValue>
+     * @param  iterable<array-key, TValue>  $source
+     * @return static
      */
     public function concat($source)
     {

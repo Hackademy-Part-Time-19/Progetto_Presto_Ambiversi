@@ -1,5 +1,9 @@
 <x-layout>
-    <x-nav/>
-    <livewire:create-announcement />
-    <x-footer/>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <livewire:create-announcement />
+            </div>
+        </div>
+    </div>
 </x-layout>

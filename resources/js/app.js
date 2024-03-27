@@ -1,3 +1,3 @@
-import './bootstrap';
+import "./bootstrap";
 import "bootstrap";
-import './script';
+import '/resources/js/java.js';
