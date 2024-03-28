@@ -18,12 +18,13 @@ class CreateAnnouncement extends Component
         'title' => 'required|min:4',
         'body' => 'required|min:8',
         'category' => 'required',
-        'price' => 'required|numeric',
+        'price' => 'required|numeric|max:999999',
     ];
     protected $messages = [
         'required' => 'il campo :attribute è richiesto',
         'min' => 'il campo :attribute è troppo corto',
         'numeric' => 'Il campo :attribute dev\'essere un numero',
+        'max' => "Valore massimo di :attribute dev'essere massimo di dieci cifre.",
     ];
 
     public function store()
@@ -39,7 +40,7 @@ class CreateAnnouncement extends Component
         Auth::user()->announcements()->save($announcement);
 
         $this->cleanForm();
-        redirect()->route('announcements.create')->with('success', 'Annuncio inserito con successo');
+        redirect()->route('announcements.create')->with('success', 'Annuncio inserito con successo, dopo la verifica sarà pubblicato!');
     }
 
     public function updated($propertyName)
@@ -59,5 +60,4 @@ class CreateAnnouncement extends Component
     {
         return view('livewire.create-announcement');
     }
-    
 }

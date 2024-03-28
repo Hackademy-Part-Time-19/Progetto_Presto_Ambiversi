@@ -1,3 +1,3 @@
 @if (session()->has('success'))
-<h2 class="alert alert-success">{{session('success')}}, dopo la verifica sarà pubblicato!  </h2>
+<h2 class="alert alert-success">{{session('success')}}</h2>
 @endif

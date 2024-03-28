@@ -102,6 +102,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'reply_to' => ['address' => 'admin@presto.it', 'name' => 'Admin'],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
