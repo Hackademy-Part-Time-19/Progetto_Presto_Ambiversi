@@ -2,17 +2,12 @@
 
 <div class="formCreate" style="width: 800px;">
   
-    <div class="bg"></div>
+ 
       
         <h1>Crea il tuo annuncio!</h1>
     
         <form   wire:submit.prevent="store"   >
             @csrf
-
-
-     
-
-
 
             <div class="mb-3">
                 <input style="width: 100%"  placeholder="Titolo" wire:model.live="title" type="text" class="form-control @error('title') is-invalid @enderror">

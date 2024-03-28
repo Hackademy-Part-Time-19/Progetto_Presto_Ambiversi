@@ -13,7 +13,7 @@
 
 <body>
     <x-navbar></x-navbar>
-    <x-success></x-success>
+  
     <x-delete></x-delete>
     <x-warning></x-warning>
 
@@ -142,6 +142,8 @@
 
             quantityInput.value = currentQuantity + 1;
         }
+
+        
     </script>
 
 </body>

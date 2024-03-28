@@ -186,12 +186,12 @@
                     @csrf
                     <div class="boxLog">
 
-                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;">     @if (Auth::user()->isAdmin())
+                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px; position: relative; ">     @if (Auth::user()->isAdmin())
                             @if (App\Models\Announcement::toBeRevisionedCount() > 0)
-                                <button  style="background-color: rgb(240, 64, 64);padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative;right: 3px;bottom: 10px;left:158px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                <button  style="background-color: rgb(240, 64, 64);padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: absolute;bottom: 15px;left:140px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
                             @endif
                             @endif
-                            Bentornato:<div style="" class="dropdown"><button class="dropbtn2"> <a style="background-color: rgba(255, 255, 255, 0); border: none"
+                            Bentornato: <div style="" class="dropdown"><button class="dropbtn2"> <a style="background-color: rgba(255, 255, 255, 0); border: none"
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false"> <strong>{{ Auth::user()->name }}</strong >
 

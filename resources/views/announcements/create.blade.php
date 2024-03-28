@@ -1,6 +1,5 @@
 <x-layout>
     <div class="headerImage">
-      
         <div style="margin-top: 35px; margin-left: 55px" class="cerca">
             <form action="/action_page.php">
                 <input
@@ -11,6 +10,7 @@
             </form>
         </div>
     </div>
+    <x-success></x-success>
     <div class="container">
         <div class="row">
             <div class="col-12">
