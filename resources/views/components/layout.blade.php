@@ -13,7 +13,7 @@
 
 <body>
     <x-navbar></x-navbar>
-  
+
     <x-delete></x-delete>
     <x-warning></x-warning>
 
@@ -75,55 +75,69 @@
         ];
 
 
+        @php
+            $category = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+        @endphp
 
         function GioielliLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/1';
+            link.href = '{{ route('categoryShow', ['category' => $category[0]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function DonnaLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/2';
+            link.href = '{{ route('categoryShow', ['category' => $category[1]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function TechLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/3';
+            link.href = '{{ route('categoryShow', ['category' => $category[2]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
+
 
         function UomoLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/4';
+            link.href = '{{ route('categoryShow', ['category' => $category[3]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function GiochiLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/5';
+            link.href = '{{ route('categoryShow', ['category' => $category[4]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function SportLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/6';
+            link.href = '{{ route('categoryShow', ['category' => $category[5]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function AutoLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/7';
+            link.href = '{{ route('categoryShow', ['category' => $category[6]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function OrologioLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/8';
+            link.href = '{{ route('categoryShow', ['category' => $category[7]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function FilmLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/9';
+            link.href = '{{ route('categoryShow', ['category' => $category[8]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
         function MusicaLink() {
             var link = document.getElementById('frecciaHref');
-            link.href = 'http://127.0.0.1:8001/categorie/9';
+            link.href = '{{ route('categoryShow', ['category' => $category[9]]) }}';
+            link.innerHTML = ' <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i>';
         }
 
 
@@ -176,7 +190,6 @@
                 }, 2000);
             }
         });
-        
     </script>
 
 </body>

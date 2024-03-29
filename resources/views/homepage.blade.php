@@ -50,7 +50,7 @@
             <div class="boxImagineCategoria">
                 <div  id="ImagineContainerCategory" class="img"></div>
                 <div class="buttonImg">
-                 <a id="frecciaHref" href="" >   <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i></a>
+                 <a id="frecciaHref" href="{{ route('categoryShow', ['3']) }}" >   <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i></a>
                 </div>
 
             </div>
