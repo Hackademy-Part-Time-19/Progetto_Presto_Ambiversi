@@ -1,8 +1,6 @@
 <x-layout>
-    {{-- riga 3/4/5 messaggio di successo per la richiesta di revisore --}}
-    @if (session()->has('message'))
-<h2 class="alert alert-success">{{session('message')}}</h2>
-@endif
+   
+   
 
     <div class="headerImage">
         <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">

@@ -21,4 +21,5 @@ class AnnouncementController extends Controller
         $announcements = Announcement::where('is_accepted', true)->get();
         return view('announcements.index', compact('announcements'));
     }
+    
 }

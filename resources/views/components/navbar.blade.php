@@ -126,7 +126,7 @@
 
         <div class="dropdown">
             <button class="dropbtn">CATEGORIE</button>
-            <div class="dropdown-content">
+            <div style="z-index: 44" class="dropdown-content">
                 @foreach ($categories as $category)
                     <a class="dropdown-item"
                         href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
@@ -188,7 +188,7 @@
 
                         <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px; position: relative; ">     @if (Auth::user()->isAdmin())
                             @if (App\Models\Announcement::toBeRevisionedCount() > 0)
-                                <button  style="background-color: rgb(240, 64, 64);padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: absolute;bottom: 15px;left:140px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                <button  style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: absolute;bottom: 15px;left:140px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
                             @endif
                             @endif
                             Bentornato: <div style="" class="dropdown"><button class="dropbtn2"> <a style="background-color: rgba(255, 255, 255, 0); border: none"
@@ -207,7 +207,14 @@
                                         @endif @auth
                                             <a href="{{ route('announcements.create') }}">Inserisci articolo</a>
                                         @endauth @endauth
-                                    <button style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a class="dropdown-item" type="submit">Esci </a></button>
+                                        @Auth
+<div @if (Auth::user()->is_revisor)  style="display:none;"
+@endif>
+            <a href="{{route('become.revisor')}}">Diventa revisore</a>
+</div>
+@endAuth
+                                    <button style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a id="EscMenu" class="dropdown-item" type="submit">Esci </a></button>
+                                    
                                 </div>
                          </div>
                         </div>
@@ -226,4 +233,5 @@
 
 
     </div>
+    
 </nav>

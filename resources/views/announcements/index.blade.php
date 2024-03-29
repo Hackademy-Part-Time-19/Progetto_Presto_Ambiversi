@@ -12,6 +12,9 @@
         </div>
     </div>
     <x-success></x-success>
+    @if (session()->has('message'))
+    <h2 class="alert alert-success">{{session('message')}}</h2>
+    @endif
     <div class="containerCatalogo">
 
         <div class="containerFiltro">
@@ -56,7 +59,7 @@
 
                         </div>
                         @foreach ($announcements as $announcement)
-                            <div class="col-6 col-ml-6 col-sm-4 p-1">
+                            <div class="col-12 col-ml-6 col-sm-4 p-1">
                                 <a style="text-decoration: none"
                                     href="{{ route('announcements.show', compact('announcement')) }}">
                                     <div class="BoxInformazioni">
@@ -88,7 +91,7 @@
                                                 type="button" data-bs-target="#showCarousel-{{ $announcement->id }}"
                                                 data-bs-slide="next">
                                                 <i class="bi bi-arrow-right-circle"></i>
-                                            </button>
+                                       </button>
                                             <div
                                                 style="display: flex;flex-direction:column;justify-content:start;align-items:start ">
                                               <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">

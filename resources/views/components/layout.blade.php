@@ -143,6 +143,39 @@
             quantityInput.value = currentQuantity + 1;
         }
 
+        const toggleHeart = document.getElementById('toggleHeart');
+        const heartIcon = document.getElementById('AggiuntaPreferiti');
+        const message = document.getElementById('message');
+
+        toggleHeart.addEventListener('click', function() {
+            if (heartIcon.classList.contains('bi-heart')) {
+                heartIcon.classList.remove('bi-heart');
+                heartIcon.classList.add('bi-heart-fill');
+                heartIcon.style.color = 'red';
+                message.textContent = 'Aggiungi ai preferiti';
+                message.style.display = 'block';
+                setTimeout(function() {
+                    message.style.opacity = '0';
+                    setTimeout(function() {
+                        message.style.display = 'none';
+                        message.style.opacity = '1';
+                    }, 1000);
+                }, 2000);
+            } else {
+                heartIcon.classList.remove('bi-heart-fill');
+                heartIcon.classList.add('bi-heart');
+                heartIcon.style.color = '#ffffff';
+                message.textContent = 'Rimosso dai preferiti';
+                message.style.display = 'block';
+                setTimeout(function() {
+                    message.style.opacity = '0';
+                    setTimeout(function() {
+                        message.style.display = 'none';
+                        message.style.opacity = '1';
+                    }, 1000);
+                }, 2000);
+            }
+        });
         
     </script>
 

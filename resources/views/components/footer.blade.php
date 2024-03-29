@@ -29,21 +29,11 @@
 <i class="bi bi-twitter-x"></i>
 <i class="bi bi-tiktok"></i>
 </div>
-
-<div @if (Auth::user()->is_revisor)
-    style="display:none;"
-    
-@endif class="container-fluid mt-4 p-5 bg-dark text-light">
-    
-    <div class="row">
-        <div class="col-12 text-center">
-            <p>Presto.it</p>
-            <p>Vuoi lavorare con noi?</p>
-            <p>Registrati e clicca qui!</p>
-            <a href="{{route('become.revisor')}}" class="btn btn-warning text-light shadow my-3">Diventa revisore</a>
-        </div>
-    </div>
+@Auth
+<div @if (Auth::user()->is_revisor)  style="display:none;"
+@endif>
+            <a href="{{route('become.revisor')}}">Diventa revisore</a>
 </div>
-
+@endAuth
     </div>
 </footer>

@@ -12,6 +12,9 @@
         </div>
     </div>
     <x-success></x-success>
+    @if (session()->has('message'))
+    <h2 class="alert alert-success">{{session('message')}}</h2>
+    @endif
     <div class="containerCatalogo">
 
         <div class="containerFiltro">
