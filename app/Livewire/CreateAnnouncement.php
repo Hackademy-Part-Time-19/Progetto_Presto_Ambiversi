@@ -13,6 +13,7 @@ class CreateAnnouncement extends Component
     public $body;
     public $price;
     public $category;
+  
 
     protected $rules = [
         'title' => 'required|min:4',
@@ -61,3 +62,4 @@ class CreateAnnouncement extends Component
         return view('livewire.create-announcement');
     }
 }
+

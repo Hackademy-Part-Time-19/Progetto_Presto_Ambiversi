@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="headerImage">
-      
+    <div  class="headerImage">
+
         <div style="margin-top: 35px; margin-left: 55px" class="cerca">
             <form action="/action_page.php">
                 <input
@@ -110,8 +110,7 @@
                                                 <div class="provakeri">
                                                     <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
                                                             href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
-                                                        | Autore: <strong>{{ $announcement->user->name }}</strong> |
-                                                        {{ $announcement->created_at->format('d/m/Y') }}</p>
+                                                        |  {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                 </div>
                                                
                                           </div>

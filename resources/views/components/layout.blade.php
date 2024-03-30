@@ -9,6 +9,7 @@
     <title>{{ $title ?? config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/java.js', 'resources/css/style.css'])
     @livewireStyles
+    
 </head>
 
 <body>
@@ -22,6 +23,11 @@
 
 
     <script>
+
+
+
+
+
         const categories = [{
                 name: "Gioielli",
                 image: "{{ Storage::url('/Imagini/Gioielli.jpg') }}",

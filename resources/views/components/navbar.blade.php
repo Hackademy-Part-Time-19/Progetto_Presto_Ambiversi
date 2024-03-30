@@ -123,7 +123,6 @@
     <div class="menu">
         <a href="{{ route('homepage') }}">HOME</a>
         <a href="{{ route('announcements.index') }}">SHOP</a>
-
         <div class="dropdown">
             <button class="dropbtn">CATEGORIE</button>
             <div style="z-index: 44" class="dropdown-content">
@@ -133,16 +132,11 @@
                 @endforeach
             </div>
         </div>
-        
     </div>
-
     <div class="logo">
         <h1><a style="text-decoration: none;color:#2c2c2c" href="{{ route('homepage') }}">PRESTO</a
                 href="{{ route('homepage') }}"></h1>
-                
         <p>ESPLORA. SCEGLI. ACQUISTA. TUTTO IN UN SOLO POSTO.</p>
-        
-        
     </div>
     <div class="login">
         <div class="lingua">
@@ -153,85 +147,69 @@
                     <div class="dropdown-item text-center">
                         <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
                             alt="">
-
                     </div>
                     <div class="dropdown-item text-center">
                         <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Bandiera.png') }}" width="37px"
                             alt="">
-
                     </div>
-
                 </ul>
             </div>
-
         </div>
         @guest
-
             <div onclick="OpenLogin()" style="display: flex;align-items: center;">
-
                 <i style="padding-right:10px " class="bi bi-person-fill"> </i>
                 <a class="loginA">ACCEDI</a>
-
-
             </div>
-
         @endguest
-
         @auth
-
-
-
             <div>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div class="boxLog">
-
-                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px; position: relative; ">     @if (Auth::user()->isAdmin())
-                            @if (App\Models\Announcement::toBeRevisionedCount() > 0)
-                                <button  style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: absolute;bottom: 15px;left:140px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px; position: relative; ">
+                            @if (Auth::user()->isAdmin())
+                                @if (App\Models\Announcement::toBeRevisionedCount() > 0)
+                                    <button
+                                        style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: absolute;bottom: 20px;left:131px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                @endif
                             @endif
-                            @endif
-                            Bentornato: <div style="" class="dropdown"><button class="dropbtn2"> <a style="background-color: rgba(255, 255, 255, 0); border: none"
+                            Bentornato:
+                        <div style="" class="dropdown"><button class="dropbtn2"> <a
+                                    style="background-color: rgba(255, 255, 255, 0); border: none"
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false"> <strong>{{ Auth::user()->name }}</strong >
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <strong>{{ Auth::user()->name }}</strong>
 
-                                
                                 </a>
                             </button>
-                         <div style="position: relative; right:90px">
+                            <div style="position: relative; right:90px">
                                 <div style="position: absolute;left: 0;" class="dropdown-content">
                                     <a class="dropdown-item" href="#">Dati Personali</a>
-    
                                     @auth @if (Auth::user()->isAdmin())
-                                            <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif" class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>
-                                        @endif @auth
-                                            <a href="{{ route('announcements.create') }}">Inserisci articolo</a>
-                                        @endauth @endauth
-                                        @Auth
-<div @if (Auth::user()->is_revisor)  style="display:none;"
-@endif>
-            <a href="{{route('become.revisor')}}">Diventa revisore</a>
-</div>
-@endAuth
-                                    <button style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a id="EscMenu" class="dropdown-item" type="submit">Esci </a></button>
-                                    
+                                        <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
+                                            class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>
+                                    @endif @auth
+                                    <a href="{{ route('announcements.create') }}">Inserisci articolo</a>
+                                    @endauth @endauth
+                                    @Auth
+                                        <div @if (Auth::user()->is_revisor) style="display:none;" @endif>
+                                            <a href="{{ route('become.revisor') }}">Diventa revisore</a>
+                                        </div>
+                                    @endAuth
+                                    <button
+                                        style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a
+                                            id="EscMenu" class="dropdown-item" type="submit">Esci </a></button>
+
                                 </div>
-                         </div>
+                            </div>
                         </div>
-
-
                         @if (App\Models\Announcement::toBeRevisionedCount() > 0)
                         @endif
                         </p>
-
                     </div>
-
                 </form>
             </div>
-
         @endauth
-
-
     </div>
-    
+
 </nav>

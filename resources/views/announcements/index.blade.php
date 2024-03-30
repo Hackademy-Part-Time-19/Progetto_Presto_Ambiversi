@@ -49,13 +49,19 @@
                         <div
                             style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;">
                             <p style="margin-top: 0px 0px 3px 0px">{{ $announcements->count() }} prodotti</p>
+                         
+                            
                             <div class="custom-select" style="width:200px;">
-                                <select wire:model="order" name="order" style="width: 100%;">
-                                    <option value="0">Recenti</option>
+                                <select  name="order" style="width: 100%;" >
+                                    <option value="0">Ordina per</option>
                                     <option value="1">Prezzo (dal più basso al più alto)</option>
                                     <option value="2">Prezzo (dal più alto al più basso)</option>
+                                    <option value="3">Dal più recente</option>
+                                    <option value="4">Dal più vecchio</option>
                                 </select>
                             </div>
+                            
+                
 
                         </div>
                         @foreach ($announcements as $announcement)
@@ -101,7 +107,7 @@
                                                     <div class="provakeri">
                                                         <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
                                                                 href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
-                                                            | Autore: <strong>{{ $announcement->user->name }}</strong> |
+                                                             |
                                                             {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                     </div>
                                                    
