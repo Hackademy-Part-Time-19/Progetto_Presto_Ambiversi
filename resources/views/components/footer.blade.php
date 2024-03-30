@@ -29,11 +29,6 @@
 <i class="bi bi-twitter-x"></i>
 <i class="bi bi-tiktok"></i>
 </div>
-@Auth
-<div @if (Auth::user()->is_revisor)  style="display:none;"
-@endif>
-            <a href="{{route('become.revisor')}}">Diventa revisore</a>
-</div>
-@endAuth
+
     </div>
 </footer>
