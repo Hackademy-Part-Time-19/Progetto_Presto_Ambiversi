@@ -38,20 +38,20 @@
                                                 <div style=" height: 100%; " class="ContainterShowDetail">
                                                     <h2 style="font-family: CormorantGaramond ;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">Annuncio Nr:  {{ $key + 1 }}</h2>
                                                    <div class="cavolo" style=" height: 200px; width:100%;display:flex;justify-content: center; align-items: center;;">
-                                                   
+
                                                         <img style="object-fit: cover; border-radius: 100%;"
                                                             src="https://sb.kaleidousercontent.com/67418/1672x1018/6463a5af0d/screenshot-2022-05-24-at-15-22-28.png"
                                                             height="170px" width="170px" alt="">
-                                                       
+
                                                    </div>
 
-                                                 <div style="display: flex; justify-content: space-between ; width: 100%">
+                                                 <div style="display: flex; flex-direction:column; justify-content: space-between ; width: 100%">
                                                         <h5
                                                             style="font-family: CormorantGaramond;margin:0px;text-align:start;margin-top: 25px; width:55%;  ">
                                                             <strong style="font-size: 25px">Nome e Cognome:</strong><br>
                                                             <p style="border-top: #b8b8b8 0.5px solid;padding: 5px;">{{ $announcement->user->name }}</p>
                                                         </h5>
-                                                       
+
                                                         <h5
                                                             style="font-family: CormorantGaramond;margin:0px;text-align:start;margin-top: 25px;width:35% ">
                                                             <strong style="font-size: 25px">Email:</strong><br>
@@ -59,17 +59,17 @@
                                                         </h5>
                                                  </div>
 
-                                           
-                                               
+
+
                                                      <h2 style="font-family: CormorantGaramond ;margin-top: 55px;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">Detagli Annuncio</h2>
-                                                    
-                                         
+
+
                                                     <h5
                                                         style="font-family: CormorantGaramond;margin:0px;text-align:start; width:100%;   font-family: CormorantGaramond;margin-top: 15px ">
                                                         <strong style="font-size: 25px">Titolo:</strong><br>
                                                         <p style="border-top: #b8b8b8 0.5px solid;padding: 5px;">{{ $announcement->title }}</p>
                                                     </h5>
-                                                 
+
                                                     <div style="display: flex; justify-content: space-between ; width: 100%">
                                                         <h5
                                                         style="font-family: CormorantGaramond;margin:0px;text-align:start;;width:30% ">
@@ -88,7 +88,7 @@
                                                         <p style="border-top: #b8b8b8 0.5px solid;padding: 5px;">€ {{ $announcement->price }}</p>
                                                     </h5>
                                                  </div>
-                                                  
+
                                                     <h5
                                                         style="font-family: CormorantGaramond;margin:0px;text-align:start; margin-top:30px">
                                                         <strong style="font-size: 25px">Descrizione:</strong></h5>
@@ -97,7 +97,7 @@
                                                         {{ $announcement->body }}
                                                     </p>
                                                 </div>
-                                        
+
                                             </div>
                                         </div>
                                         <div  class="col-12 col-ml-12 col-md-8 col-sm-12 p-0 ">
@@ -164,7 +164,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                     
+
                                         <div  style="padding-top:30px;;display: flex;" class="boxShowButton"
                                         style="display: flex; justify-content: space-between ; margin-top: 30px;">
                                         <form style="width: 100%"

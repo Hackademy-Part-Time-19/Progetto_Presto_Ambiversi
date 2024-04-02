@@ -18,8 +18,8 @@ class AnnouncementController extends Controller
     }
     public function indexAnnouncement()
     {
-        $announcements = Announcement::where('is_accepted', true)->get();
+        $announcements = Announcement::where('is_accepted', true)->get()->sortByDesc('created_at');
         return view('announcements.index', compact('announcements'));
     }
-    
+
 }

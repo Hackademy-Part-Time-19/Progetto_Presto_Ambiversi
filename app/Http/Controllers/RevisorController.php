@@ -13,24 +13,24 @@ use Illuminate\Support\Facades\Artisan;
 
 class RevisorController extends Controller
 {
-    
+
   public function index()
   {
-      $announcements_to_check = Announcement::whereNull('is_accepted')->get();
+      $announcements_to_check = Announcement::whereNull('is_accepted')->get()->sortBy('created_at');
       return view('revisor.index', compact('announcements_to_check'));
   }
-  
+
 
     public function acceptAnnouncement(Announcement $announcement)
     {
         $announcement->setAccepted(true);
-        return redirect()->back()->with('message', " L'annuncio e stato accetato!");
+        return redirect()->back()->with('message', " L'annuncio è stato accettato!");
     }
 
     public function rejectAnnouncement(Announcement $announcement)
     {
         $announcement->setAccepted(false);
-        return redirect()->back()->with('message', " L'annuncio e stato rifiutato!");
+        return redirect()->back()->with('message', " L'annuncio è stato rifiutato!");
     }
 
     public function becomeRevisor()
@@ -42,7 +42,7 @@ class RevisorController extends Controller
     public function makeRevisor(User $user)
     {
         Artisan::call('presto:makeUserRevisor', ["email" => $user->email]);
-        return redirect('/')->with('message', "Complimenti! L'utente è diventato revisore.");
+        return redirect('/')->with('message', "Complimenti! Sei diventato revisore.");
     }
-    
+
 }

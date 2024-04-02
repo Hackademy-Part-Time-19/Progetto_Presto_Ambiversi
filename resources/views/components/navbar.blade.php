@@ -51,6 +51,8 @@
                         @csrf
                         <h1 style="background-color: white">Accedi</h1>
                         <div style="background-color: white" class="social-container">
+                            <a style="background-color: white" href="{{route('auth.google')}}" class="social"><i
+                                style="background-color: white" id="social" class="bi bi-google"></i></a>
                             <a style="background-color: white" href="https://www.facebook.com/" class="social"><i
                                     style="background-color: white" id="social" class="bi bi-facebook"></i></a>
                             <a style="background-color: white" href="https://www.instagram.com/" class="social"><i

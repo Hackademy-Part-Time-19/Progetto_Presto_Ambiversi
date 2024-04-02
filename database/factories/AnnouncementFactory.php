@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Ramsey\Uuid\Type\Integer;
 
@@ -19,12 +20,14 @@ class AnnouncementFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(5),
+            'title' => fake()->name(2),
             'body' => fake()->paragraph(1),
             'price' => random_int(1, 1000),
             'user_id' => random_int(1, User::count()),
             'category_id' => random_int(1, 10),
-            'is_accepted' => 1,
+            'is_accepted' => random_int(0, 1) ? 1 : null,
+            'created_at'=>fake()->dateTime( 'now',  'Europe/Rome'),
+
         ];
     }
 }

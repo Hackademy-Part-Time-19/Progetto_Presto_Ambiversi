@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
@@ -41,3 +44,6 @@ Route::get('/richiesta/revisore', [RevisorController::class, 'becomeRevisor'])->
 
 //route rendi revisore
 Route::get('rendi/revisore,{user}', [RevisorController::class, 'makeRevisor'])->middleware('auth')->name('make.revisor');
+Route::get('/google/redirect', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->middleware('web')->name('auth.google');
+
+Route::get('/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');

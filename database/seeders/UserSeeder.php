@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
 
-        \App\Models\User::factory(5)->create(['name' => 'revisor', 'password' => 'revisor', 'is_revisor' => true]);
+        \App\Models\User::factory(1)->create(['name' => 'revisor', 'password' => 'revisor', 'is_revisor' => true]);
 
 
         \App\Models\User::factory(10)->create();
