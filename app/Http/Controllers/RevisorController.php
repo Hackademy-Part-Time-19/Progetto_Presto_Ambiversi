@@ -30,7 +30,7 @@ class RevisorController extends Controller
     public function rejectAnnouncement(Announcement $announcement)
     {
         $announcement->setAccepted(false);
-        return redirect()->back()->with('message', " L'annuncio è stato rifiutato!");
+        return redirect()->back()->with('messageref', " L'annuncio è stato rifiutato!");
     }
 
     public function becomeRevisor()

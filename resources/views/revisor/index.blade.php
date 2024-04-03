@@ -2,10 +2,10 @@
     <div style="border-bottom:#2c2c2c 1px solid " class="headerImage">
 
         <div style="margin-top: 35px; margin-left: 55px" class="cerca">
-            <form action="/action_page.php">
+            <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
-                    type="text" placeholder=" cerca.." name="search">
+                    type="search" placeholder=" cerca.." name="searched">
                 <button type="submit"><i style="color: white; background-color: #2c2c2c; height: 100%;"
                         class="bi bi-search"></i></button>
             </form>
@@ -14,6 +14,9 @@
     <x-success />
     @if (session()->has('message'))
         <h2 class="alert alert-success">{{ session('message') }}</h2>
+    @endif
+    @if (session()->has('messageref'))
+        <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
     @endif
 
     <h2 style="font-family: CormorantGaramond; font-size: 40px; text-align: center; padding:20px">

@@ -14,6 +14,9 @@
     @if (session()->has('message'))
         <h2 class="alert alert-success">{{ session('message') }}</h2>
     @endif
+    @if (session()->has('messageref'))
+        <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
+    @endif
     <x-success></x-success>
     <div class="containerCatalogo">
 
