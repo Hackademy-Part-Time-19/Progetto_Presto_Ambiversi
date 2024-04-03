@@ -125,20 +125,22 @@
     <div class="menu">
         <a href="{{ route('homepage') }}">HOME</a>
         <a href="{{ route('announcements.index') }}">SHOP</a>
+        @if(!request()->routeIs('announcements.index') && !request()->routeIs('categoryShow'))
         <div class="dropdown">
             <button class="dropbtn">CATEGORIE</button>
             <div style="z-index: 44" class="dropdown-content">
-                @foreach ($categories as $category)
-                    <a class="dropdown-item"
-                        href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
-                @endforeach
+              @foreach ($categories as $category)
+                  <a class="dropdown-item" href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+              @endforeach
             </div>
         </div>
+@endif
     </div>
-    <div class="logo">
-        <h1><a style="text-decoration: none;color:#2c2c2c" href="{{ route('homepage') }}">PRESTO</a
+    <div  class="logo">
+        <h1  ><a style="text-decoration: none;color:#2c2c2c" href="{{ route('homepage') }}">PRESTO</a
                 href="{{ route('homepage') }}"></h1>
         <p>ESPLORA. SCEGLI. ACQUISTA. TUTTO IN UN SOLO POSTO.</p>
+        
     </div>
     <div class="login">
         <div class="lingua">
@@ -168,14 +170,14 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div class="boxLog">
-                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px; position: relative; ">
+                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;  ">
+                            Bentornato:
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
                                     <button
-                                        style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: absolute;bottom: 20px;left:131px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                        style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
                                 @endif
                             @endif
-                            Bentornato:
                         <div style="" class="dropdown"><button class="dropbtn2"> <a
                                     style="background-color: rgba(255, 255, 255, 0); border: none"
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
