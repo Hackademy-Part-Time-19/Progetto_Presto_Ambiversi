@@ -47,3 +47,7 @@ Route::get('rendi/revisore,{user}', [RevisorController::class, 'makeRevisor'])->
 Route::get('/google/redirect', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->middleware('web')->name('auth.google');
 
 Route::get('/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
+
+Route::get('/ricerca/annuncio',[FrontController::class,'searchAnnouncements'])->name('announcements.search');
+
+

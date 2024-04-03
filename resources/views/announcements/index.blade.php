@@ -64,7 +64,7 @@
                 
 
                         </div>
-                        @foreach ($announcements as $announcement)
+                        @forelse ($announcements as $announcement)
                             <div class="col-12 col-ml-6 col-sm-4 p-1">
                                 <a style="text-decoration: none"
                                     href="{{ route('announcements.show', compact('announcement')) }}">
@@ -118,7 +118,13 @@
                                     </div>
                                 </a>
                             </div>
-                        @endforeach
+                            @empty
+                            <div class="col-12">
+                                <div class="alert alert-warning py-3 shadow">
+                                    <p class="lead">Non ci sono annunci per questa ricerca</p>
+                                </div>
+                            </div>
+                        @endforelse
 
 
                     </div>

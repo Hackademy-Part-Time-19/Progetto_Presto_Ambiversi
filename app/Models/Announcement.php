@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Mockery\Matcher\Type;
+use Laravel\Scout\Searchable;
 
 class Announcement extends Model
 {
-    use HasFactory;
+    use HasFactory,Searchable;
     protected $fillable = ['title', 'body', 'price'];
     public function category()
     {
@@ -30,6 +31,18 @@ class Announcement extends Model
     public static function toBeRevisionedCount()
     {
         return Announcement::where('is_accepted', null)->count();
+    }
+
+    public function toSearchableArray()
+    {
+        $category = $this->category;
+        $array=[
+            'id'=>$this->id,
+            'title'=>$this->title,
+            'body'=>$this->body,
+            'category'=>$category,
+        ];
+        return $array;
     }
 
 }

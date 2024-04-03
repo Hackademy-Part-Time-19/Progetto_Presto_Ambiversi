@@ -5,10 +5,10 @@
     <div class="headerImage">
         <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
         <div class="cerca">
-            <form action="/action_page.php">
+            <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
-                    type="text" placeholder=" cerca.." name="search">
+                    type="search" placeholder=" cerca.." name="searched">
                 <button type="submit"><i style="color: white; background-color: #2c2c2c; height: 100%;"
                         class="bi bi-search"></i></button>
             </form>
