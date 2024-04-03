@@ -2,10 +2,10 @@
     <div class="headerImage">
 
         <div style="margin-top: 35px; margin-left: 55px" class="cerca">
-            <form action="/action_page.php">
+            <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
-                    type="text" placeholder=" cerca.." name="search">
+                    type="search" placeholder=" cerca.." name="searched">
                 <button type="submit"><i style="color: white; background-color: #2c2c2c; height: 100%;"
                         class="bi bi-search"></i></button>
             </form>
@@ -49,8 +49,8 @@
                         <div
                             style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;">
                             <p style="margin-top: 0px 0px 3px 0px">{{ $announcements->count() }} prodotti</p>
-                         
-                            
+
+
                             <div class="custom-select" style="width:200px;">
                                 <select  name="order" style="width: 100%;" >
                                     <option value="0">Ordina per</option>
@@ -60,8 +60,8 @@
                                     <option value="4">Dal più vecchio</option>
                                 </select>
                             </div>
-                            
-                
+
+
 
                         </div>
                         @forelse ($announcements as $announcement)
@@ -103,14 +103,14 @@
                                               <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">
                                                     <h6 class="d-inline-block text-truncate "
                                                         style="max-width: 150px;margin-top:3px">{{ $announcement->title }}
-                                                    </h6>  
+                                                    </h6>
                                                     <div class="provakeri">
                                                         <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
                                                                 href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
                                                              |
                                                             {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                     </div>
-                                                   
+
                                               </div>
                                                 <p>€ {{ $announcement->price }}</p>
                                             </div>

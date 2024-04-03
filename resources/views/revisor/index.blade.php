@@ -47,13 +47,13 @@
 
                                                  <div style="display: flex; flex-direction:column; justify-content: space-between ; width: 100%">
                                                         <h5
-                                                            style="font-family: CormorantGaramond;margin:0px;text-align:start;margin-top: 25px; width:55%;  ">
+                                                            style="font-family: CormorantGaramond;margin:0px;text-align:start;margin-top: 25px; width:85%;  ">
                                                             <strong style="font-size: 25px">Nome e Cognome:</strong><br>
                                                             <p style="border-top: #b8b8b8 0.5px solid;padding: 5px;">{{ $announcement->user->name }}</p>
                                                         </h5>
 
                                                         <h5
-                                                            style="font-family: CormorantGaramond;margin:0px;text-align:start;margin-top: 25px;width:35% ">
+                                                            style="font-family: CormorantGaramond;margin:0px;text-align:start;margin-top: 25px;width:85% ">
                                                             <strong style="font-size: 25px">Email:</strong><br>
                                                             <p style="border-top: #b8b8b8 0.5px solid;padding: 5px;"> {{ $announcement->user->email }}</p>
                                                         </h5>
@@ -61,7 +61,7 @@
 
 
 
-                                                     <h2 style="font-family: CormorantGaramond ;margin-top: 55px;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">Detagli Annuncio</h2>
+                                                     <h2 style="font-family: CormorantGaramond ;margin-top: 55px;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">Dettagli Annuncio</h2>
 
 
                                                     <h5
