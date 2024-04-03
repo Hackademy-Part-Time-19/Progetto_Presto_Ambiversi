@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '52d79c7091b2475ca6a765e1e024d8c74492f010',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '7b9f9d239f24f30117f3861db5313f201a408eb9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -407,9 +407,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '52d79c7091b2475ca6a765e1e024d8c74492f010',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '7b9f9d239f24f30117f3861db5313f201a408eb9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -448,6 +448,15 @@
             'reference' => '8c104366459739f3ada0e994bcd3e6fd681ce3d5',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/sanctum',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'laravel/scout' => array(
+            'pretty_version' => 'v10.8.5',
+            'version' => '10.8.5.0',
+            'reference' => 'db26233becb979d5e2104fa2a931440252a73200',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/scout',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -709,6 +718,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'predis/predis' => array(
+            'pretty_version' => 'v2.2.2',
+            'version' => '2.2.2.0',
+            'reference' => 'b1d3255ed9ad4d7254f9f9bba386c99f4bb983d1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../predis/predis',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'psr/clock' => array(
             'pretty_version' => '1.0.0',
             'version' => '1.0.0.0',
@@ -811,8 +829,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1315,6 +1333,24 @@
             'install_path' => __DIR__ . '/../symfony/yaml',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'teamtnt/laravel-scout-tntsearch-driver' => array(
+            'pretty_version' => 'v14.0.0',
+            'version' => '14.0.0.0',
+            'reference' => '56af782badb5986bb57ef3046d669b0815fd8978',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../teamtnt/laravel-scout-tntsearch-driver',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'teamtnt/tntsearch' => array(
+            'pretty_version' => 'v4.2.1',
+            'version' => '4.2.1.0',
+            'reference' => 'd3fc3e7ccc1760dc4b8604807be01140fa7f69c5',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../teamtnt/tntsearch',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.3',
