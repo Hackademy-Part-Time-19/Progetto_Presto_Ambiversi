@@ -10,8 +10,8 @@
         "laravel/fortify": "^1.21",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
+        "laravel/scout": "^10.8",
         "laravel/socialite": "^5.12",
-        "laravel/scout": "*",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "teamtnt/laravel-scout-tntsearch-driver": "^14.0"

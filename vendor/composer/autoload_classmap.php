@@ -34,10 +34,7 @@ return array(
     'App\\Mail\\BecomeRevisor' => $baseDir . '/app/Mail/BecomeRevisor.php',
     'App\\Models\\Announcement' => $baseDir . '/app/Models/Announcement.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
-<<<<<<< HEAD
     'App\\Models\\Image' => $baseDir . '/app/Models/Image.php',
-=======
->>>>>>> 89c8a3add48125c737b37079a0a518fb0948bc83
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

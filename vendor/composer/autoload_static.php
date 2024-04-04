@@ -29,10 +29,6 @@ class ComposerStaticInitc6c40d7ef615e1633d20e3ecd8d7e9ec
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '290dd4ba42f11019134caca05dbefe3f' => __DIR__ . '/..' . '/teamtnt/tntsearch/helper/helpers.php',
-<<<<<<< HEAD
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-=======
->>>>>>> 89c8a3add48125c737b37079a0a518fb0948bc83
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
@@ -623,10 +619,7 @@ class ComposerStaticInitc6c40d7ef615e1633d20e3ecd8d7e9ec
         'App\\Mail\\BecomeRevisor' => __DIR__ . '/../..' . '/app/Mail/BecomeRevisor.php',
         'App\\Models\\Announcement' => __DIR__ . '/../..' . '/app/Models/Announcement.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
-<<<<<<< HEAD
         'App\\Models\\Image' => __DIR__ . '/../..' . '/app/Models/Image.php',
-=======
->>>>>>> 89c8a3add48125c737b37079a0a518fb0948bc83
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

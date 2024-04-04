@@ -28,10 +28,6 @@ return array(
     '801c31d8ed748cfa537fa45402288c95' => $vendorDir . '/psy/psysh/src/functions.php',
     'e39a8b23c42d4e1452234d762b03835a' => $vendorDir . '/ramsey/uuid/src/functions.php',
     '290dd4ba42f11019134caca05dbefe3f' => $vendorDir . '/teamtnt/tntsearch/helper/helpers.php',
-<<<<<<< HEAD
-    '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
-=======
->>>>>>> 89c8a3add48125c737b37079a0a518fb0948bc83
     '265b4faa2b3a9766332744949e83bf97' => $vendorDir . '/laravel/framework/src/Illuminate/Collections/helpers.php',
     'c7a3c339e7e14b60e06a2d7fcce9476b' => $vendorDir . '/laravel/framework/src/Illuminate/Events/functions.php',
     'f57d353b41eb2e234b26064d63d8c5dd' => $vendorDir . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
