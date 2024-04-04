@@ -1,7 +1,7 @@
 <x-layout>
     <div class="headerImage">
 
-        <div style="margin-top: 35px; margin-left: 55px" class="cerca">
+        <div style="margin-top: 35px;margin-left: 20px" class="cerca">
             <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "

@@ -31,6 +31,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px 0px 20px;
+   position: relative;
 
 
 }
@@ -89,8 +90,10 @@ nav {
 .logo {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    position: center;
+    width: auto;
+    
+
+  
 
 }
 

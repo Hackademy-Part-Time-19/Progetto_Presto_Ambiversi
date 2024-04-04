@@ -1,7 +1,7 @@
 <x-layout>
     <div  class="headerImage">
 
-        <div style="margin-top: 35px; margin-left: 55px" class="cerca">
+        <div style="margin-top: 35px; margin-right: 80px" class="cerca">
             <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -71,7 +71,7 @@
                            <div class="col-6 col-ml-6 col-sm-4 p-1">
                             <a style="text-decoration: none"
                                 href="{{ route('announcements.show', compact('announcement')) }}">
-                                <div class="BoxInformazioni">
+                                <div  style="border: #5d5d5d5c 0.5px solid;height: 710px" class="BoxInformazioni">
                                     <div id="showCarousel-{{ $announcement->id }}" class="carousel slide">
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
@@ -102,10 +102,12 @@
                                             <i class="bi bi-arrow-right-circle"></i>
                                         </button>
                                         <div
-                                            style="display: flex;flex-direction:column;justify-content:start;align-items:start ">
+                                            style="display: flex;flex-direction:column;justify-content:start;align-items:start;padding:5px  ">
                                           <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">
                                                 <h6 class="d-inline-block text-truncate "
                                                     style="max-width: 150px;margin-top:3px">{{ $announcement->title }}
+                                                </h6>
+                                                    style="max-width: 250px;margin-top:3px">{{ $announcement->title }}
                                                 </h6>
                                                 <div class="provakeri">
                                                     <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
