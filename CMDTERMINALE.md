@@ -10,5 +10,5 @@ php artisan scout:flush "App\Models\Announcement"
 php artisan scout:import "App\Models\Announcement"
 
 ## User5
-php artisan storage:link
-php artisan migrate
+- php artisan storage:link
+- php artisan migrate
