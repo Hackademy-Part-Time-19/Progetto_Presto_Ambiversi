@@ -8,3 +8,7 @@ composer require teamtnt/laravel-scout-tntsearch-driver
 php artisan scout:flush "App\Models\Announcement"
 ## poi
 php artisan scout:import "App\Models\Announcement"
+
+## User5
+php artisan storage:link
+php artisan migrate
