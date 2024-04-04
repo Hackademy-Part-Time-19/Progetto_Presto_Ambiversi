@@ -107,8 +107,6 @@
                                                 <h6 class="d-inline-block text-truncate "
                                                     style="max-width: 150px;margin-top:3px">{{ $announcement->title }}
                                                 </h6>
-                                                    style="max-width: 250px;margin-top:3px">{{ $announcement->title }}
-                                                </h6>
                                                 <div class="provakeri">
                                                     <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
                                                             href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
