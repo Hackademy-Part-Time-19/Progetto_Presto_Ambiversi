@@ -101,9 +101,6 @@
                                             <div
                                                 style="display: flex;flex-direction:column;justify-content:start;align-items:start; padding:5px ">
                                               <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">
-                                                    <h6 class="d-inline-block text-truncate "
-                                                        style="max-width: 150px;margin-top:3px">{{ $announcement->title }}
-                                                    </h6>
                                                     <h6 class="d-inline-block text-truncate;"
                                                         style="max-width: 250px;margin-top:3px;">{{ $announcement->title }}
                                                     </h6>
