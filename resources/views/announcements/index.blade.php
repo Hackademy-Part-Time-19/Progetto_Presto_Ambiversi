@@ -73,7 +73,7 @@
                                             <div  class="carousel-inner">
                                                 <div  class="carousel-item active">
                                                     <img style="object-fit: cover; padding: 0px; height: 585px;width:500px; "
-                                                        src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('announcements/110/mQeQMWHwLV7IdQ1uPd8FZOXUlqA10DO1P3AObBG9.jpg')}}"
+                                                        src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('images/default.jpg')}}"
                                                         alt="" class="img-fluid rounded" height="100%">
                                                 </div>
                                                 <div class="carousel-item">
