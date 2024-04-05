@@ -16,6 +16,7 @@ php artisan scout:import "App\Models\Announcement"
 ## User 6
 - crea una cartella in app/public chiamata announcements e una images in cui mettere un file immagine di default: default.jpg
 - composer require spatie/image:*
+- composer require intervention/image
 ## file .env modificare la riga QUEUE_CONNECTION:
 - QUEUE_CONNECTION=database
 ## .gitignore:
