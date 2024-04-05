@@ -18,6 +18,8 @@ php artisan scout:import "App\Models\Announcement"
 - composer require spatie/image:*
 ## file .env modificare la riga QUEUE_CONNECTION:
 - QUEUE_CONNECTION=database
+## .gitignore:
+- agiiungere una riga con: /storage/*.index
 ## di nuovo terminale, lanciare il comando seguente e lasciarlo attivo (apri un altro terminale)
 - php artisan queue:work
 (per chiudere ctrl+c)
