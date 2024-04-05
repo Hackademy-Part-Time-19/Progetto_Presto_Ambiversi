@@ -122,7 +122,7 @@
                                     <li class="carousel__slide">
                                         <figure>
                                             <div>
-                                                <img src="https://static.wixstatic.com/media/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.webp"
+                                                <img src=" {{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500)  : 'https://static.wixstatic.com/media/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.webp'}}"
                                                 width="100%" height="900px"
                                                 alt="">
                                             </div>
@@ -131,7 +131,7 @@
                                     <li class="carousel__slide">
                                         <figure>
                                             <div>
-                                                <img src="https://static.wixstatic.com/media/c837a6_b985edee7e274f068e0e3783a789889a~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_b985edee7e274f068e0e3783a789889a~mv2.webp"
+                                                <img src=" https://static.wixstatic.com/media/c837a6_b985edee7e274f068e0e3783a789889a~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_b985edee7e274f068e0e3783a789889a~mv2.webp"
                                                 width="100%" height="900px"
                                                 alt="">
                                             </div>

@@ -12,3 +12,20 @@ php artisan scout:import "App\Models\Announcement"
 ## User5
 - php artisan storage:link
 - php artisan migrate
+
+## User 6
+- crea una cartella in app/public chiamata announcements
+- composer require spatie/image:*
+## file .env modificare la riga QUEUE_CONNECTION:
+- QUEUE_CONNECTION=database
+## di nuovo terminale, lanciare il comando seguente e lasciarlo attivo (apri un altro terminale)
+- php artisan queue:work
+(per chiudere ctrl+c)
+## da un altro terminale:
+- composer update
+- php artisan queue:table
+- php artisan migrate
+## Solo la prima volta, assicurati che l'estensione GD sia abilitata nel tuo ambiente PHP. Puoi farlo controllando il file php.ini e assicurandoti che la riga seguente sia scommentata (senza il punto e virgola all'inizio):
+- extension=gd
+## poi
+- riavvia il computer
