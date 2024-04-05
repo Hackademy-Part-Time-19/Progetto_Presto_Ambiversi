@@ -38,7 +38,7 @@
                     <div class="col-12 col-ml-6 col-sm-12 p-1">
                         <div style=" width:100%; display:flex; justify-content:center;">
                             <div style=" padding: 80px 0px; width:auto; " class="container text-center m-0 ">
-                                <div  style="width: 100%; background-color: #ffffff; padding: 20px; margin:0px " class="row  ">
+                                <div  style="width: 100%; background-color: #ffffff; padding: 20px; margin:0px ; border-radius: 10px" class="row  ">
                                     <div  class="col-12 col-ml-4 col-md-4 col-sm-12 p-0 ">
                                         <div style="padding:0px 20px" class="BoxInformazioni2">
                                             <div style=" height: 100%; " class="ContainterShowDetail">
@@ -122,7 +122,7 @@
                                     <li class="carousel__slide">
                                         <figure>
                                             <div>
-                                                <img src=" {{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500)  : 'https://static.wixstatic.com/media/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.webp'}}"
+                                                <img src=" http:{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500)  : 'https://static.wixstatic.com/media/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.webp'}}"
                                                 width="100%" height="900px"
                                                 alt="">
                                             </div>

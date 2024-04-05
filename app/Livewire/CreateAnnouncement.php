@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+
 class CreateAnnouncement extends Component
 {
     use WithFileUploads;
@@ -52,12 +53,16 @@ class CreateAnnouncement extends Component
             }
         }
     }
+
+
     public function removeImage($key)
     {
         if (in_array($key, array_keys($this->images))) {
             unset($this->images[$key]);
+            $this->images = array_values($this->images); // Reimposta gli indici delle immagini
         }
     }
+    
 
     public function store()
     {
@@ -99,4 +104,7 @@ class CreateAnnouncement extends Component
     {
         return view('livewire.create-announcement');
     }
+
+
+    
 }

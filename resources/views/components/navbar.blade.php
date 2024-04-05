@@ -148,14 +148,23 @@
                 <a class="dropdown-toggle lang-cust" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><span class=" h4 bi bi-globe-americas"></span></a>
                 <ul style="background-color: rgba(255, 255, 255, 0); width: 22px; " class=" dropdown-menu ">
-                    <div class="dropdown-item text-center">
-                        <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
-                            alt="">
-                    </div>
-                    <div class="dropdown-item text-center">
-                        <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Bandiera.png') }}" width="37px"
-                            alt="">
-                    </div>
+                  
+                 
+                        <div class="dropdown-item text-center">
+                                <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
+                                    alt="">
+                        </div>
+              
+
+                  
+                        <div class="dropdown-item text-center">
+                                <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
+                                    alt="">
+                        </div>
+               
+
+                  
+
                 </ul>
             </div>
         </div>

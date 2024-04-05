@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="headerImage">
+    <div style="border-bottom:#2c2c2c 1px solid; " class="headerImage">
         <div style="margin-top: 35px; margin-left: 20px" class="cerca">
             <form action="{{route('announcements.search')}}" method="GET">
                 <input
@@ -17,11 +17,12 @@
     @if (session()->has('message'))
     <h2 class="alert alert-success">{{session('message')}}</h2>
     @endif
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
+   
+     
+            <div style="height: auto; margin:0px 50px">
                 <livewire:create-announcement />
             </div>
-        </div>
-    </div>
+     
+ 
 </x-layout>
+<x-footer/>

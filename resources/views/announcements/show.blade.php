@@ -46,7 +46,7 @@
                                                 <li class="carousel__slide">
                                                     <figure>
                                                         <div>
-                                                            <img src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(900,500) : Storage::url('images/default.jpg')}}"
+                                                            <img   src="http:{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('announcements/110/mQeQMWHwLV7IdQ1uPd8FZOXUlqA10DO1P3AObBG9.jpg')}}"
                                                                 width="100%" height="900px" alt="">
                                                         </div>
 
@@ -75,7 +75,7 @@
                                             <ul class="carousel__thumbnails">
                                                 <li>
                                                     <label for="slide-1"><img
-                                                            src={{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('announcements/110/mQeQMWHwLV7IdQ1uPd8FZOXUlqA10DO1P3AObBG9.jpg')}}"
+                                                            src="http:{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('announcements/110/mQeQMWHwLV7IdQ1uPd8FZOXUlqA10DO1P3AObBG9.jpg')}}"
                                                             alt=""></label>
                                                 </li>
                                                 <li>
