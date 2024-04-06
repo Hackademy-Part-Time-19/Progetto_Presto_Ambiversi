@@ -38,32 +38,55 @@
                                 <section>
                                     <div style="width: auto" class="container">
                                         <div class="carousel">
-                                            <input type="radio" name="slides" checked="checked" id="slide-1">
-                                            <input type="radio" name="slides" id="slide-2">
-                                            <input type="radio" name="slides" id="slide-3">
-                                            <ul class="carousel__slides">
-                                                @foreach ($announcement->images as $key => $image)
+                                            @if ($announcement->images->isEmpty())
+                                                <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
+                                                <input type="radio" name="slides" checked="checked" id="slide-1">
+                                                <ul class="carousel__slides">
                                                     <li class="carousel__slide">
                                                         <figure>
                                                             <div>
-                                                                <img src="{{ $image->getUrl(600, 500) }}" width="100%" height="900px" alt="">
+                                                                <img src="{{ Storage::url('images/default.jpg') }}" width="100%" height="900px" alt="Default Image">
                                                             </div>
                                                         </figure>
                                                     </li>
-                                                @endforeach
-                                            </ul>
-                                            <ul class="carousel__thumbnails">
+                                                </ul>
+                                                @if (!$announcement->images->isEmpty() && $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
+                                                <ul class="carousel__thumbnails">
+                                                    <li>
+                                                        <label for="slide-1">
+                                                            <img src="path_to_default_image.jpg" alt="Default Image" style="height: 140px; object-fit: cover; margin-right: 0px;">
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                             @endif
+                                            @else
+                                                <!-- Altrimenti, mostra le immagini caricate nel carousel -->
                                                 @foreach ($announcement->images as $key => $image)
-                                           
-                                             <li style="overflow-x: scroll">
-                                                 <label style="height: auto" for="slide-{{ $key + 1 }}">
-                                                     <img style="height: 140px; object-fit: cover; margin-right: 0px;"
-                                                         src="{{ $image->getUrl(600, 500) }}" alt="">
-                                                 </label>
-                                             </li>
+                                                    <input type="radio" name="slides" {{ $key == 0 ? 'checked' : '' }} id="slide-{{ $key + 1 }}">
                                                 @endforeach
-                                            </ul>
+                                                <ul class="carousel__slides">
+                                                    @foreach ($announcement->images as $key => $image)
+                                                        <li class="carousel__slide">
+                                                            <figure>
+                                                                <div>
+                                                                    <img src="{{ $image->getUrl(600, 500) }}" width="100%" height="900px" alt="">
+                                                                </div>
+                                                            </figure>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                                <ul class="carousel__thumbnails">
+                                                    @foreach ($announcement->images as $key => $image)
+                                                        <li style="overflow-x: scroll">
+                                                            <label for="slide-{{ $key + 1 }}">
+                                                                <img src="{{ $image->getUrl(600, 500) }}" alt="" style="height: 140px; object-fit: cover; margin-right: 0px;">
+                                                            </label>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            @endif
                                         </div>
+                                        
                                     </div>
                                 </section>
                             </div>

@@ -25,7 +25,19 @@
     <script>
 
 
+const thumbnails = document.querySelectorAll('.carousel__thumbnails');
+    thumbnails.forEach(thumbnail => {
+        const announcementId = thumbnail.getAttribute('data-announcement-id');
+        const radioButtons = document.querySelectorAll(`input[name="slides${announcementId}"]`);
 
+        thumbnail.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LABEL') {
+                const targetId = event.target.getAttribute('for');
+                const radioBtn = document.getElementById(targetId);
+                radioBtn.checked = true;
+            }
+        });
+    });
 
 
         const categories = [{

@@ -114,41 +114,68 @@
                                                         <strong style="font-size: 25px">Descrizione:</strong>
                                                     </h5>
                                                     <p
-                                                        style="text-align: start;font-family: CormorantGaramond;font-size:20px;overflow-y: scroll;height: 367px ;width: 100%;padding: 5px;border-top: #b8b8b8 0.5px solid">
+                                                        style="text-align: start;font-family: CormorantGaramond;font-size:20px;overflow-y: scroll;height: 200px ;width: 100%;padding: 5px;border-top: #b8b8b8 0.5px solid">
                                                         {{ $announcement->body }}
                                                     </p>
                                                 </div>
 
                                             </div>
                                         </div>
-                                        <div class="col-12 col-ml-12 col-md-8 col-sm-12 p-0 ">
+                                        <div class="col-12 col-ml-12 col-md-8 col-sm-12 p-0">
                                             <div class="BoxInformazioni2">
                                                 <div style="height: auto; width:auto">
                                                     <section>
                                                         <div style="width: auto" class="container">
-                                                            <div class="carousel">
-                                                                <input type="radio" name="slides" checked="checked"
-                                                                    id="slide-1">
-                                                                <input type="radio" name="slides" id="slide-2">
-                                                                <input type="radio" name="slides" id="slide-3">
+
+                                                            <div class="carousel"
+                                                                data-announcement-id="{{ $announcement->id }}">
+                                                                @if ($announcement->images->isEmpty())
+                                                                    <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
+                                                                    <input type="radio"
+                                                                        name="slides{{ $announcement->id }}"
+                                                                        checked="checked"
+                                                                        id="slide-{{ $announcement->id }}-1">
                                                                 <ul class="carousel__slides">
-                                                                    @foreach ($announcement->images as $key => $image)
-                                                                        <li class="carousel__slide">
-                                                                            <figure>
-                                                                                <div>
-                                                                                    <img src="{{ $image->getUrl(600, 500) }} "
-                                                                                        width="100%" height="900px"
-                                                                                        alt="">
-                                                                                </div>
-                                                                            </figure>
-                                                                        </li>
-                                                                    @endforeach
+                                                                    <li class="carousel__slide">
+                                                                        <figure>
+                                                                            <div>
+                                                                                <img src="{{ Storage::url('images/default.jpg') }}" width="100%" height="{{ Storage::url('images/default.jpg') == Storage::url('images/default.jpg') ? '1200px' : '900px' }}" alt="Default Image">
+                                                                            </div>
+                                                                        </figure>
+                                                                    </li>
                                                                 </ul>
-                                                                <ul class="carousel__thumbnails">
+                                                                
+                                                                @else
+                                                                    <!-- Altrimenti, mostra le immagini caricate nel carousel -->
+                                                                    @foreach ($announcement->images as $key => $image)
+                                                                        <input type="radio"
+                                                                            name="slides{{ $announcement->id }}"
+                                                                            {{ $key == 0 ? 'checked' : '' }}
+                                                                            id="slide-{{ $announcement->id }}-{{ $key + 1 }}">
+                                                                    @endforeach
+                                                                    <ul class="carousel__slides">
+                                                                        @foreach ($announcement->images as $key => $image)
+                                                                            <li class="carousel__slide">
+                                                                                <figure>
+                                                                                    <div>
+                                                                                        <img src="{{ $image->getUrl(600, 500) }}"
+                                                                                            width="100%"
+                                                                                            height="900px"
+                                                                                            alt="">
+                                                                                    </div>
+                                                                                </figure>
+                                                                            </li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                @endif
+
+
+                                                                <ul class="carousel__thumbnails"
+                                                                    data-announcement-id="{{ $announcement->id }}">
                                                                     @foreach ($announcement->images as $key => $image)
                                                                         <li style="overflow-x: scroll">
                                                                             <label style="height: auto"
-                                                                                for="slide-{{ $key + 1 }}">
+                                                                                for="slide-{{ $announcement->id }}-{{ $key + 1 }}">
                                                                                 <img style="height: 140px; object-fit: cover; margin-right: 0px;"
                                                                                     src="{{ $image->getUrl(600, 500) }}"
                                                                                     alt="">
@@ -156,6 +183,7 @@
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>
+
                                                             </div>
 
                                                         </div>
@@ -163,6 +191,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
 
                                         <div style="padding-top:30px;;display: flex;" class="boxShowButton"
                                             style="display: flex; justify-content: space-between ; margin-top: 30px;">

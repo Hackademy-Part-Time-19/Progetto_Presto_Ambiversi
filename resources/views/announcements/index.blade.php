@@ -65,52 +65,50 @@
 
                         </div>
                         @forelse ($announcements as $announcement)
-                            <div  class="col-12 col-ml-6 col-sm-4 p-1">
-                                <a style="text-decoration: none"
-                                    href="{{ route('announcements.show', compact('announcement')) }}">
-                                    <div  style="border: #5d5d5d5c 0.5px solid;height: 710px" class="BoxInformazioni">
-                                        <div  id="showCarousel-{{ $announcement->id }}" class="carousel slide">
-                                            <div  class="carousel-inner">
-                                                
-                                                @foreach ($announcement->images as $key => $image)
-                                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                    <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
-                                                        src="{{ $image->getUrl(600, 500)  }} "
-                                                        alt="" class="img-fluid rounded" height="100%">
-                                                </div>
-                                            @endforeach
+                            <div class="col-12 col-ml-6 col-sm-4 p-1">
+                                <a style="text-decoration: none" href="{{ route('announcements.show', compact('announcement')) }}">
+                                    <div style="border: #5d5d5d5c 0.5px solid; height: 710px" class="BoxInformazioni">
+                                        <div id="showCarousel-{{ $announcement->id }}" class="carousel slide">
+                                            <div class="carousel-inner">
+                                                @if ($announcement->images->isEmpty())
+                                                    <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
+                                                    <div class="carousel-item active">
+                                                        <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
+                                                            src="{{ Storage::url('images/default.jpg') }}" alt="Default Image" class="img-fluid rounded" height="100%">
+                                                    </div>
+                                                @else
+                                                    @foreach ($announcement->images as $key => $image)
+                                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                                            <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
+                                                                src="{{ $image->getUrl(600, 500) }}" alt="" class="img-fluid rounded" height="100%">
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div>
-                                            <button id="FrecciaPrev" style=" height:86.5%; "
-                                                class="carousel-control-prev" type="button"
-                                                data-bs-target="#showCarousel-{{ $announcement->id }}"
-                                                data-bs-slide="prev">
+                                            <button id="FrecciaPrev" style="height: 86.5%" class="carousel-control-prev" type="button"
+                                                data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="prev">
                                                 <i class="bi bi-arrow-left-circle"></i>
                                             </button>
-                                            <button id="FrecciaNext" style=" height:86.5%" class="carousel-control-next"
-                                                type="button" data-bs-target="#showCarousel-{{ $announcement->id }}"
-                                                data-bs-slide="next">
+                                            <button id="FrecciaNext" style="height: 86.5%" class="carousel-control-next" type="button"
+                                                data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="next">
                                                 <i class="bi bi-arrow-right-circle"></i>
-                                       </button>
-                                            <div
-                                                style="display: flex;flex-direction:column;justify-content:start;align-items:start; padding:5px ">
-                                              <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">
-                                                    <h6 class="d-inline-block text-truncate;"
-                                                        style="max-width: 250px;margin-top:3px;">{{ $announcement->title }}
-                                                    </h6>
+                                            </button>
+                                            <div style="display: flex; flex-direction: column; justify-content: start; align-items: start; padding: 5px">
+                                                <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                                                    <h6 class="d-inline-block text-truncate" style="max-width: 250px; margin-top: 3px;">{{ $announcement->title }}</h6>
                                                     <div class="provakeri">
                                                         <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
-                                                                href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
-                                                             |
+                                                                href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a> |
                                                             {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                     </div>
-
-                                              </div>
+                                                </div>
                                                 <p>€ {{ $announcement->price }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
+                            
                             @empty
                             <div class="col-12">
                                 <div class="alert alert-warning py-3 shadow">
