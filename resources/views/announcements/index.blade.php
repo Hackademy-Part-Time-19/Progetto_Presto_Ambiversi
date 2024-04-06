@@ -71,21 +71,14 @@
                                     <div  style="border: #5d5d5d5c 0.5px solid;height: 710px" class="BoxInformazioni">
                                         <div  id="showCarousel-{{ $announcement->id }}" class="carousel slide">
                                             <div  class="carousel-inner">
-                                                <div  class="carousel-item active">
-                                                    <img style="object-fit: cover; padding: 0px; height: 585px;width:500px; "
-                                                        src="{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('images/default.jpg')}}"
+                                                
+                                                @foreach ($announcement->images as $key => $image)
+                                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                                    <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
+                                                        src="{{ $image->getUrl(600, 500)  }} "
                                                         alt="" class="img-fluid rounded" height="100%">
                                                 </div>
-                                                <div class="carousel-item">
-                                                    <img style="object-fit: cover; padding: 0px; height: 585px;width:500px "
-                                                        src="https://static.wixstatic.com/media/c837a6_b985edee7e274f068e0e3783a789889a~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_b985edee7e274f068e0e3783a789889a~mv2.webp"
-                                                        alt="" class="img-fluid rounded" height="100%">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img style="object-fit: cover; padding: 0px; height: 585px;width:500px "
-                                                        src="https://static.wixstatic.com/media/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.webp"
-                                                        alt="" class="img-fluid rounded" height="100%">
-                                                </div>
+                                            @endforeach
                                             </div>
                                             <button id="FrecciaPrev" style=" height:86.5%; "
                                                 class="carousel-control-prev" type="button"

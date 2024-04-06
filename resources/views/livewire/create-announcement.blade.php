@@ -25,22 +25,22 @@
                                         <input type="radio" name="slides" id="slide-4">
                                         <input type="radio" name="slides" id="slide-5">
                                         <input type="radio" name="slides" id="slide-6">
-                                   
-                                    
-                                    
+
+
+
 
                                         <ul class="carousel__slides">
 
                                             @foreach ($images as $key => $image)
                                                 <li class="carousel__slide">
                                                     <figure>
-                                                      
-                                                         
-                                                            <img id="ImagineInserimentoArticolo"
-                                                                style="margin-right: 0px; object-fit: cover"
-                                                                src="  {{ $image->temporaryUrl() }}" width="100%"
-                                                                height="900px" alt="">
-                                                  
+
+
+                                                        <img id="ImagineInserimentoArticolo"
+                                                            style="margin-right: 0px; object-fit: cover"
+                                                            src="  {{ $image->temporaryUrl() }}" width="100%"
+                                                            height="900px" alt="">
+
                                                     </figure>
                                                 </li>
                                             @endforeach
@@ -57,23 +57,24 @@
 
                                         </ul>
 
-                                   <ul class="carousel__thumbnails">
-                                    @foreach (collect($images)->take(6) as $key => $image)
-                                <div style="position: relative">
-                                        <button class="cancellaFoto" type="button"
-                                        wire:click="removeImage({{ $key }})"
-                                        ><i  style="font-size: 22px; padding:0px 1.5px "
-                                            class="bi bi-x-circle"></i></button>
-                                </div>
-                                           <li style="overflow-x: scroll">
-                                               <label style="height: auto" for="slide-{{ $key + 1 }}">
-                                                   <img style="height: 140px; object-fit: cover; margin-right: 0px;" src="{{ $image->temporaryUrl() }}" alt="">
-                                               </label>
-                                           </li>
-                                       @endforeach
-                                    
-                                   </ul>
-                                   
+                                        <ul class="carousel__thumbnails">
+                                            @foreach (collect($images)->take(6) as $key => $image)
+                                                <div style="position: relative">
+                                                    <button class="cancellaFoto" type="button"
+                                                        wire:click="removeImage({{ $key }})"><i
+                                                            style="font-size: 22px; padding:0px 1.5px "
+                                                            class="bi bi-x-circle"></i></button>
+                                                </div>
+                                                <li style="overflow-x: scroll">
+                                                    <label style="height: auto" for="slide-{{ $key + 1 }}">
+                                                        <img style="height: 140px; object-fit: cover; margin-right: 0px;"
+                                                            src="{{ $image->temporaryUrl() }}" alt="">
+                                                    </label>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
+
                                     </div>
                                 </div>
                             </section>
@@ -141,7 +142,7 @@
                             </div>
 
 
-                            <button  class="creaBotton" type="submit"> Crea Articolo</button>
+                            <button class="creaBotton" type="submit"> Crea Articolo</button>
 
                         </form>
 

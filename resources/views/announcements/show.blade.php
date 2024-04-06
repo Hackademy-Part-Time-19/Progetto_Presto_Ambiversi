@@ -41,54 +41,27 @@
                                             <input type="radio" name="slides" checked="checked" id="slide-1">
                                             <input type="radio" name="slides" id="slide-2">
                                             <input type="radio" name="slides" id="slide-3">
-                                            <input type="radio" name="slides" id="slide-4">
                                             <ul class="carousel__slides">
-                                                <li class="carousel__slide">
-                                                    <figure>
-                                                        <div>
-                                                            <img   src="http:{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('announcements/110/mQeQMWHwLV7IdQ1uPd8FZOXUlqA10DO1P3AObBG9.jpg')}}"
-                                                                width="100%" height="900px" alt="">
-                                                        </div>
-
-                                                    </figure>
-                                                </li>
-                                                <li class="carousel__slide">
-                                                    <figure>
-                                                        <div>
-                                                            <img src="https://static.wixstatic.com/media/c837a6_b985edee7e274f068e0e3783a789889a~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_b985edee7e274f068e0e3783a789889a~mv2.webp"
-                                                                width="100%" height="900px" alt="">
-                                                        </div>
-
-                                                    </figure>
-                                                </li>
-                                                <li class="carousel__slide">
-                                                    <figure>
-                                                        <div>
-                                                            <img src="https://static.wixstatic.com/media/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.webp"
-                                                                width="100%" height="900px" alt="">
-                                                        </div>
-
-                                                    </figure>
-                                                </li>
-
+                                                @foreach ($announcement->images as $key => $image)
+                                                    <li class="carousel__slide">
+                                                        <figure>
+                                                            <div>
+                                                                <img src="{{ $image->getUrl(600, 500) }}" width="100%" height="900px" alt="">
+                                                            </div>
+                                                        </figure>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                             <ul class="carousel__thumbnails">
-                                                <li>
-                                                    <label for="slide-1"><img
-                                                            src="http:{{!$announcement->images()->get()->isEmpty() ? $announcement->images()->first()->getUrl(600,500) : Storage::url('announcements/110/mQeQMWHwLV7IdQ1uPd8FZOXUlqA10DO1P3AObBG9.jpg')}}"
-                                                            alt=""></label>
-                                                </li>
-                                                <li>
-                                                    <label for="slide-2"><img
-                                                            src="https://static.wixstatic.com/media/c837a6_b985edee7e274f068e0e3783a789889a~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_b985edee7e274f068e0e3783a789889a~mv2.webp"
-                                                            alt=""></label>
-                                                </li>
-                                                <li>
-                                                    <label for="slide-3"><img
-                                                            src="https://static.wixstatic.com/media/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.webp"
-                                                            alt=""></label>
-                                                </li>
-
+                                                @foreach ($announcement->images as $key => $image)
+                                           
+                                             <li style="overflow-x: scroll">
+                                                 <label style="height: auto" for="slide-{{ $key + 1 }}">
+                                                     <img style="height: 140px; object-fit: cover; margin-right: 0px;"
+                                                         src="{{ $image->getUrl(600, 500) }}" alt="">
+                                                 </label>
+                                             </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>

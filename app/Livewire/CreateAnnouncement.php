@@ -23,6 +23,8 @@ class CreateAnnouncement extends Component
     public $images = [];
     public $image;
     public $announcement;
+    public $selectedImage = 0;
+    
 
     protected $rules = [
         'title' => 'required|min:4',
@@ -104,6 +106,7 @@ class CreateAnnouncement extends Component
     {
         return view('livewire.create-announcement');
     }
+
 
 
     
