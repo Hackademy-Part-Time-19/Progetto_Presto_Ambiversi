@@ -2,7 +2,7 @@
 
 
 
-    <h1 style="width: 100%; text-align: center; padding-top: 20px">CREA IL TUO ANNUNCIO!</h1>
+    <h1 style="width: 100%; text-align: center; padding-top: 20px;  font-family: CormorantGaramond; ">CREA IL TUO ANNUNCIO!</h1>
 
 
 

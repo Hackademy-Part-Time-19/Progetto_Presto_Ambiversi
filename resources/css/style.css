@@ -182,9 +182,9 @@ nav {
 }
 
 .cerca button:hover {
-    padding: 0px 25px;
+    padding: 0px 40px;
     transition: padding 1s;
-
+   
 }
 
 
@@ -200,7 +200,7 @@ nav {
     background: linear-gradient(90deg, rgba(24, 23, 23, 1) 10%, rgba(64, 64, 64, 1) 100%);
     width: auto;
     height: auto;
-    padding: 20px 0px;
+    padding: 20px 0px 100px 0px;
     display: flex;
     flex-direction: column;
 }
@@ -950,7 +950,7 @@ footer .cerca button {
 }
 
 footer .cerca button:hover {
-    padding: 0px 69px;
+    padding: 0px 50px;
     transition: padding 1s;
 
 }
@@ -970,6 +970,8 @@ footer .cerca button:hover {
     top: 8px;
     color: #e9e9e9;
     font-family: CormorantGaramond;
+     font-size: clamp(0.1rem, 2.0vw, 1rem);
+    
 }
 
 .footerSocial {
@@ -1670,7 +1672,7 @@ section {
 }
 
 #miniFotoAnnuncioMobile {
-    height: 140px;
+    height: 160px;
     object-fit: cover;
     margin-right: 0px;
 }
@@ -1691,7 +1693,9 @@ section {
 
     }
 
-
+.categorie{
+padding-bottom: 35px;
+}
 
     .menuMobile {
         display: block;
@@ -1720,9 +1724,12 @@ section {
 
     .listaCategorie {
         padding: 0px;
-
+        
 
     }
+
+
+   
 
     .listaCategorie ul {
         display: flex;
@@ -1751,7 +1758,7 @@ section {
 
     .boxImagineCategoria {
         position: relative;
-        left: 20px;
+       padding-left: 30px;
     }
 
     #ImagineContainerCategory {

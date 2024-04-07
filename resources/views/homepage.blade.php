@@ -4,7 +4,7 @@
 
     <div class="headerImage">
         <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
-        <div class="cerca">
+        <div style="margin-left: 70px" class="cerca">
             <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -113,14 +113,14 @@
               <div class="col-12 col-md-12 col-lg-7 col-ml-8 col-sm-12 ">
                 <div style="height: 100%;width: 100%;display: flex;justify-content: center;align-items: center">
                     <form class="formContatto" action="">
-                        <input style="width: 100%" type="text" placeholder="Nome e Cognome">
+                        <input style="width: 100%;color:white" type="text" placeholder="Nome e Cognome">
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 63%" type="tel" placeholder="Telefono">
-                            <input style="width: 35%" type="text" placeholder="N. Ordine">
+                            <input style="width: 63%;color:white" type="tel" placeholder="Telefono">
+                            <input style="width: 35%;color:white" type="text" placeholder="N. Ordine">
                         </div>
-                        <input style="width: 100%" type="email" placeholder="Email">
+                        <input style="width: 100%;color:white" type="email" placeholder="Email">
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 85%; text-align: start" type="tel" placeholder="Messaggio..">
+                            <input style="width: 85%; text-align: start;color:white" type="tel" placeholder="Messaggio..">
                            > <button style="width: auto; height: 170px;" type="submit">Invia</button>
                         </div>
                     </form>

@@ -175,7 +175,7 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div id="MenuDestraMobile" class="boxLog">
-                        <p class="messaggioBenvenuto" style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato</p>
+                        <p class="messaggioBenvenuto" style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato: </p>
                         <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;  ">
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
@@ -184,10 +184,10 @@
                                 @endif
                             @endif
                         <div style="" class="dropdown"><button class="dropbtn2"> <a
-                                    style="background-color: rgba(255, 255, 255, 0); border: none"
+                                    style="background-color: rgba(255, 255, 255, 0); border: none; "
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <strong>{{ Auth::user()->name }}</strong>
+                                    {{ Auth::user()->name }}
                                 </a>
                             </button>
                             <div style="position: relative; right:90px">

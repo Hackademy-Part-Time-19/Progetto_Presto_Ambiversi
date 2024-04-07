@@ -1,7 +1,7 @@
 <x-layout>
     <div style="border-bottom:#2c2c2c 1px solid " class="headerImage">
 
-        <div style="margin-top: 35px; margin-left: 20px" class="cerca">
+        <div style="margin-top: 35px; margin-left: 70px" class="cerca">
             <form action="{{ route('announcements.search') }}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -24,7 +24,7 @@
     </h2>
 
     @if ($announcements_to_check->isEmpty())
-        <div style="height: 400px"></div>
+        <div style="height: 100vh"></div>
     @endif
 
     @if ($announcements_to_check->isNotEmpty())

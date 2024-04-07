@@ -1,7 +1,7 @@
 <x-layout>
     <div class="headerImage">
 
-        <div style="margin-top: 35px;margin-left: 20px" class="cerca">
+        <div style="margin-top: 35px;margin-left: 70px" class="cerca">
             <form action="{{ route('announcements.search') }}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -45,7 +45,7 @@
                                                     <li class="carousel__slide">
                                                         <figure>
                                                             <div>
-                                                                <img src="{{ Storage::url('images/default.jpg') }}"
+                                                                <img id="fotoAnnuncioMobile" src="{{ Storage::url('images/default.jpg') }}"
                                                                     width="100%" height="900px" alt="Default Image">
                                                             </div>
                                                         </figure>
@@ -57,7 +57,7 @@
                                                     <ul class="carousel__thumbnails">
                                                         <li>
                                                             <label for="slide-1">
-                                                                <img src="path_to_default_image.jpg" alt="Default Image"
+                                                                <img  src="path_to_default_image.jpg" alt="Default Image"
                                                                     style="height: 140px; object-fit: cover; margin-right: 0px;">
                                                             </label>
                                                         </li>
@@ -75,7 +75,7 @@
                                                         <li class="carousel__slide">
                                                             <figure>
                                                                 <div>
-                                                                    <img src="{{ $image->getUrl(600, 500) }}"
+                                                                    <img id="fotoAnnuncioMobile" src="{{ $image->getUrl(600, 500) }}"
                                                                         width="100%" height="900px" alt="">
                                                                 </div>
                                                             </figure>
@@ -86,9 +86,9 @@
                                                     @foreach ($announcement->images as $key => $image)
                                                         <li style="overflow-x: scroll">
                                                             <label for="slide-{{ $key + 1 }}">
-                                                                <img src="{{ $image->getUrl(600, 500) }}"
+                                                                <img id="miniFotoAnnuncioMobile" src="{{ $image->getUrl(600, 500) }}"
                                                                     alt=""
-                                                                    style="height: 140px; object-fit: cover; margin-right: 0px;">
+                                                                  >
                                                             </label>
                                                         </li>
                                                     @endforeach
