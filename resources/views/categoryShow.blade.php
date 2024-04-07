@@ -43,7 +43,7 @@
                             <div class="boxTitoloCatalogo">
                                 <h2>{{$category->name}}</h2>
 
-                                <p>Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
+                                <p style="text-align: start">Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
 
                             </div>
                             <div
@@ -68,52 +68,47 @@
 
                             @forelse ($category->announcements as $announcement)
                            @if ($announcement->is_accepted)
-                           <div class="col-6 col-ml-6 col-sm-4 p-1">
-                            <a style="text-decoration: none"
-                                href="{{ route('announcements.show', compact('announcement')) }}">
-                                <div  style="border: #5d5d5d5c 0.5px solid;height: 710px" class="BoxInformazioni">
+                           <div  class="col-12 col-md-6 col-lg-4 col-ml-4 col-sm-12 p-3">
+                            <a style="text-decoration: none" href="{{ route('announcements.show', compact('announcement')) }}">
+                                <div id="BoxInformazioniMobile"  class="BoxInformazioni">
                                     <div id="showCarousel-{{ $announcement->id }}" class="carousel slide">
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img style="object-fit: cover; padding: 0px; height: 585px;width:500px "
-                                                    src="https://static.wixstatic.com/media/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_6bbaedf840c64672a7df939af9ceb9a4~mv2.webp"
-                                                    alt="" class="img-fluid rounded" height="100%">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img style="object-fit: cover; padding: 0px; height: 585px;width:500px "
-                                                    src="https://static.wixstatic.com/media/c837a6_b985edee7e274f068e0e3783a789889a~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_b985edee7e274f068e0e3783a789889a~mv2.webp"
-                                                    alt="" class="img-fluid rounded" height="100%">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img style="object-fit: cover; padding: 0px; height: 585px;width:500px "
-                                                    src="https://static.wixstatic.com/media/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.jpg/v1/fill/w_1956,h_2608,q_90/c837a6_935cf1de86ee4db0a33721aee2f7a69b~mv2.webp"
-                                                    alt="" class="img-fluid rounded" height="100%">
-                                            </div>
+                                            @if ($announcement->images->isEmpty())
+                                                <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
+                                                <div class="carousel-item active">
+                                                    <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
+                                                        src="{{ Storage::url('images/default.jpg') }}" alt="Default Image" class="img-fluid rounded" height="100%">
+                                                </div>
+                                            @else
+                                                @foreach ($announcement->images as $key => $image)
+                                                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                                        <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
+                                                            src="{{ $image->getUrl(600, 500) }}" alt="" class="img-fluid rounded" height="100%">
+                                                    </div>
+                                                @endforeach
+                                            @endif
                                         </div>
-                                        <button id="FrecciaPrev" style=" height:86.5%; "
-                                            class="carousel-control-prev" type="button"
-                                            data-bs-target="#showCarousel-{{ $announcement->id }}"
-                                            data-bs-slide="prev">
+                                        @if (
+                                            !$announcement->images->isEmpty() &&
+                                                $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
+                                        <button id="FrecciaPrev" style="height: 86.5%" class="carousel-control-prev" type="button"
+                                            data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="prev">
                                             <i class="bi bi-arrow-left-circle"></i>
                                         </button>
-                                        <button id="FrecciaNext" style=" height:86.5%" class="carousel-control-next"
-                                            type="button" data-bs-target="#showCarousel-{{ $announcement->id }}"
-                                            data-bs-slide="next">
+                                        <button id="FrecciaNext" style="height: 86.5%" class="carousel-control-next" type="button"
+                                            data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="next">
                                             <i class="bi bi-arrow-right-circle"></i>
                                         </button>
-                                        <div
-                                            style="display: flex;flex-direction:column;justify-content:start;align-items:start;padding:5px  ">
-                                          <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">
-                                                <h6 class="d-inline-block text-truncate "
-                                                    style="max-width: 150px;margin-top:3px">{{ $announcement->title }}
-                                                </h6>
+                                        @endif
+                                        <div style="display: flex; flex-direction: column; justify-content: start; align-items: start; padding: 5px">
+                                            <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                                                <h6 class="d-inline-block text-truncate" style="max-width: 250px; margin-top: 3px;">{{ $announcement->title }}</h6>
                                                 <div class="provakeri">
                                                     <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
-                                                            href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
-                                                        |  {{ $announcement->created_at->format('d/m/Y') }}</p>
+                                                            href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a> |
+                                                        {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                 </div>
-
-                                          </div>
+                                            </div>
                                             <p>€ {{ $announcement->price }}</p>
                                         </div>
                                     </div>

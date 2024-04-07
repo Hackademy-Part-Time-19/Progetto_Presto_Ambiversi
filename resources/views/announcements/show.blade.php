@@ -2,7 +2,7 @@
     <div class="headerImage">
 
         <div style="margin-top: 35px;margin-left: 20px" class="cerca">
-            <form action="{{route('announcements.search')}}" method="GET">
+            <form action="{{ route('announcements.search') }}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
                     type="search" placeholder=" cerca.." name="searched">
@@ -25,7 +25,7 @@
             <div style=" padding: 80px 0px; width:auto " class="container text-center m-0 ">
 
                 <div style="width: 100%" class="row  ">
-                    <div style="padding-right: 50px" class="col-12 col-ml-12 col-md-8 col-sm-12  ">
+                    <div style="padding-right: 0px" class="col-12 col-ml-12 col-md-8 col-sm-12  ">
                         <div class="BoxInformazioni2">
                             <div style="height: auto; width:auto">
                                 <div class="percorsoShowCard"
@@ -45,31 +45,38 @@
                                                     <li class="carousel__slide">
                                                         <figure>
                                                             <div>
-                                                                <img src="{{ Storage::url('images/default.jpg') }}" width="100%" height="900px" alt="Default Image">
+                                                                <img src="{{ Storage::url('images/default.jpg') }}"
+                                                                    width="100%" height="900px" alt="Default Image">
                                                             </div>
                                                         </figure>
                                                     </li>
                                                 </ul>
-                                                @if (!$announcement->images->isEmpty() && $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
-                                                <ul class="carousel__thumbnails">
-                                                    <li>
-                                                        <label for="slide-1">
-                                                            <img src="path_to_default_image.jpg" alt="Default Image" style="height: 140px; object-fit: cover; margin-right: 0px;">
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                             @endif
+                                                @if (
+                                                    !$announcement->images->isEmpty() &&
+                                                        $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
+                                                    <ul class="carousel__thumbnails">
+                                                        <li>
+                                                            <label for="slide-1">
+                                                                <img src="path_to_default_image.jpg" alt="Default Image"
+                                                                    style="height: 140px; object-fit: cover; margin-right: 0px;">
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                @endif
                                             @else
                                                 <!-- Altrimenti, mostra le immagini caricate nel carousel -->
                                                 @foreach ($announcement->images as $key => $image)
-                                                    <input type="radio" name="slides" {{ $key == 0 ? 'checked' : '' }} id="slide-{{ $key + 1 }}">
+                                                    <input type="radio" name="slides"
+                                                        {{ $key == 0 ? 'checked' : '' }}
+                                                        id="slide-{{ $key + 1 }}">
                                                 @endforeach
                                                 <ul class="carousel__slides">
                                                     @foreach ($announcement->images as $key => $image)
                                                         <li class="carousel__slide">
                                                             <figure>
                                                                 <div>
-                                                                    <img src="{{ $image->getUrl(600, 500) }}" width="100%" height="900px" alt="">
+                                                                    <img src="{{ $image->getUrl(600, 500) }}"
+                                                                        width="100%" height="900px" alt="">
                                                                 </div>
                                                             </figure>
                                                         </li>
@@ -79,14 +86,16 @@
                                                     @foreach ($announcement->images as $key => $image)
                                                         <li style="overflow-x: scroll">
                                                             <label for="slide-{{ $key + 1 }}">
-                                                                <img src="{{ $image->getUrl(600, 500) }}" alt="" style="height: 140px; object-fit: cover; margin-right: 0px;">
+                                                                <img src="{{ $image->getUrl(600, 500) }}"
+                                                                    alt=""
+                                                                    style="height: 140px; object-fit: cover; margin-right: 0px;">
                                                             </label>
                                                         </li>
                                                     @endforeach
                                                 </ul>
                                             @endif
                                         </div>
-                                        
+
                                     </div>
                                 </section>
                             </div>
@@ -225,7 +234,7 @@
 
 
             </div>
-        </div >
+        </div>
 
     </div>
     <x-footer />

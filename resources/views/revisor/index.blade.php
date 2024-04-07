@@ -139,7 +139,7 @@
                                                                     <li class="carousel__slide">
                                                                         <figure>
                                                                             <div>
-                                                                                <img src="{{ Storage::url('images/default.jpg') }}" width="100%" height="{{ Storage::url('images/default.jpg') == Storage::url('images/default.jpg') ? '1200px' : '900px' }}" alt="Default Image">
+                                                                                <img id="fotoAnnuncioMobile" src="{{ Storage::url('images/default.jpg') }}" width="100%" height="{{ Storage::url('images/default.jpg') == Storage::url('images/default.jpg') ? '1200px' : '900px' }}" alt="Default Image">
                                                                             </div>
                                                                         </figure>
                                                                     </li>
@@ -158,7 +158,7 @@
                                                                             <li class="carousel__slide">
                                                                                 <figure>
                                                                                     <div>
-                                                                                        <img src="{{ $image->getUrl(600, 500) }}"
+                                                                                        <img id="fotoAnnuncioMobile"  src="{{ $image->getUrl(600, 500) }}"
                                                                                             width="100%"
                                                                                             height="900px"
                                                                                             alt="">
@@ -176,7 +176,7 @@
                                                                         <li style="overflow-x: scroll">
                                                                             <label style="height: auto"
                                                                                 for="slide-{{ $announcement->id }}-{{ $key + 1 }}">
-                                                                                <img style="height: 140px; object-fit: cover; margin-right: 0px;"
+                                                                                <img id="miniFotoAnnuncioMobile"
                                                                                     src="{{ $image->getUrl(600, 500) }}"
                                                                                     alt="">
                                                                             </label>

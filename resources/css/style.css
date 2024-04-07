@@ -41,6 +41,8 @@ nav {
 
 }
 
+
+
 .menu a {
     color: #2c2c2c;
     padding: 10px;
@@ -143,6 +145,16 @@ nav {
     height: 35px;
 }
 
+.footerDescription .cerca input {
+    width: 190px;
+    color: white;
+}
+
+.footerDescription .cerca button {
+    padding: 0px 20px;
+}
+
+
 
 
 .cerca form {
@@ -177,7 +189,7 @@ nav {
 
 
 .divCategorie {
-    height: 200px;
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -186,8 +198,9 @@ nav {
 .categorie {
 
     background: linear-gradient(90deg, rgba(24, 23, 23, 1) 10%, rgba(64, 64, 64, 1) 100%);
-    width: 100%;
-    height: 850px;
+    width: auto;
+    height: auto;
+    padding: 20px 0px;
     display: flex;
     flex-direction: column;
 }
@@ -200,12 +213,13 @@ nav {
     font-family: magnolia;
     font-size: 90px;
     margin: 0px;
-    padding: 10px 0px 0px 30px;
+    padding: 0px 20px;
+    font-size: clamp(0.1rem, 9.0vw, 4rem);
 }
 
 .listaCategorie {
     height: 100%;
-    width: 25%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -215,7 +229,7 @@ nav {
 .boxImagineCategoria {
 
     height: 100%;
-    width: 70%;
+    width: 100%;
     display: flex;
     align-items: center;
     display: flex;
@@ -273,9 +287,12 @@ nav {
 
 #ImagineContainerCategory {
     transition: background-image 1s;
+    height: 600px;
 
 
 }
+
+
 
 
 .img {
@@ -291,7 +308,7 @@ nav {
 }
 
 .buttonImg {
-    height: 90%;
+    height: 600px;
     width: 180px;
     border-radius: 35px;
     display: flex;
@@ -364,6 +381,8 @@ nav {
         -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
     transition: transform 0.5s;
     text-shadow: #ebeaea 0 0 10px;
+    width: 200px;
+    text-align: center;
 }
 
 .preferiti button:hover {
@@ -703,9 +722,11 @@ i:hover {
 
 .BoxContatti {
     width: 100%;
-    height: 850px;
+    height: auto;
     background: linear-gradient(90deg, rgba(24, 23, 23, 1) 10%, rgba(64, 64, 64, 1) 100%);
     display: flex;
+    padding: 40px 0px;
+
 
 
 
@@ -716,9 +737,9 @@ i:hover {
     font-family: magnolia;
     font-size: 90px;
     margin: 0px;
-    padding: 30px 0px 0px 30px;
-    position: relative;
-    bottom: 250px;
+    font-size: clamp(0.1rem, 9.0vw, 4rem);
+
+
 
 
 }
@@ -726,11 +747,11 @@ i:hover {
 .BoxDesContatti {
 
     height: 100%;
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: space-evenly;
 
 }
 
@@ -739,22 +760,23 @@ i:hover {
     font-family: CormorantGaramond;
     font-size: 30px;
     margin: 0px;
-    padding: 10px 0px 0px 30px;
-    letter-spacing: 2px;
+    padding: 0px;
+    text-align: start;
+
 }
 
 
 
 .formContatto {
     width: 800px;
-    margin-left: 20px;
+
 
 }
 
 .formContatto input {
     margin: 15px 0px;
     padding: 19px;
-
+    border-radius: 10px;
     background-color: #ebeaea31;
     font-family: CormorantGaramond;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -781,7 +803,7 @@ i:hover {
 .formContatto button {
     margin: 15px 0px;
     padding: 15px;
-
+    border-radius: 10px;
     background-color: #ebeaea31;
     color: #ebeaea;
     font-family: CormorantGaramond;
@@ -814,6 +836,7 @@ i:hover {
     display: flex;
     align-items: center;
     padding-top: 0px;
+
 }
 
 .boxLog i:hover {
@@ -1602,33 +1625,182 @@ section {
 
 .creaBotton:hover {
     background-color: #2c2c2c00;
-
-
-
     transition: padding 1s;
     color: #2c2c2c;
     border: #2c2c2c solid 1px;
-
-
 }
+
 
 
 .cancellaFoto {
     width: 30px;
     height: 30px;
     text-align: center;
-    background-color:#2c2c2c00;
+    background-color: #2c2c2c00;
     color: rgb(0, 0, 0);
     position: absolute;
     left: 110px;
     bottom: 125px;
     transition: color 0.5s;
-   border-radius: 100%;
-padding: 0px;
+    border-radius: 100%;
+    padding: 0px;
 }
 
 
 .cancellaFoto:hover {
     color: rgb(255, 0, 0);
     transition: color 0.5s;
+}
+
+.menuMobile {
+    display: none;
+}
+
+#BoxInformazioniMobile {
+    border: #5d5d5d5c 0.5px solid;
+    height: auto;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+#BoxInformazioniMobile:hover {
+
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#miniFotoAnnuncioMobile {
+    height: 140px;
+    object-fit: cover;
+    margin-right: 0px;
+}
+
+
+#miniFotoAnnuncioMobile2 {
+    height: 140px;
+    object-fit: cover;
+    margin-right: 0px;
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+    .menu {
+        display: none;
+
+    }
+
+
+
+    .menuMobile {
+        display: block;
+        font-size: 25px;
+        width: 100px;
+    }
+
+
+    #MenuDestraMobile {
+        width: 100px;
+        display: flex;
+        justify-content: end;
+    }
+
+    .lingua {
+        display: none;
+    }
+
+    .loginA {
+        display: none;
+    }
+
+    .messaggioBenvenuto {
+        display: none;
+    }
+
+    .listaCategorie {
+        padding: 0px;
+
+
+    }
+
+    .listaCategorie ul {
+        display: flex;
+        overflow-x: scroll;
+        width: 90%;
+        height: auto;
+    }
+
+    .listaCategorie ul li a {
+        display: flex;
+        align-items: center;
+
+    }
+
+
+    .aMenuCategori {
+        font-size: 40px;
+        padding: 0px 50px;
+    }
+
+
+    .preferiti button {
+        margin: 0px;
+        margin-top: 40px;
+    }
+
+    .boxImagineCategoria {
+        position: relative;
+        left: 20px;
+    }
+
+    #ImagineContainerCategory {
+        height: 350px;
+    }
+
+    .buttonImg {
+        height: 350px;
+    }
+
+    .containerFiltro {
+        width: 200px;
+    }
+
+    .containerFiltro h6 a {
+        font-size: clamp(0.1rem, 2.5vw, 2rem);
+    }
+
+    .logo h1 {
+        height: 70px;
+        width: auto;
+    }
+
+    .logo p {
+        font-size: clamp(0.1rem, 1.8vw, 2rem);
+    }
+
+
+    #fotoAnnuncioMobile {
+        height: 650px;
+    }
+    #fotoAnnuncioMobile2 {
+        height: 550px;
+    }
+
+    #ImagineInserimentoArticolo2{
+        height: 550px;
+    }
+    
+
+    #miniFotoAnnuncioMobile {
+        height: 95px;
+        
+    }
+    #miniFotoAnnuncioMobile2 {
+        height: 70px;
+        
+    }
+
+  
+
 }

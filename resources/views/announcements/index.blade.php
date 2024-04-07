@@ -43,7 +43,7 @@
 
                         <div class="boxTitoloCatalogo">
                             <h2>CATALOGO</h2>
-                            <p>Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
+                            <p style="text-align: start">Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
 
                         </div>
                         <div
@@ -65,26 +65,29 @@
 
                         </div>
                         @forelse ($announcements as $announcement)
-                            <div class="col-12 col-ml-6 col-sm-4 p-1">
+                            <div  class="col-12 col-md-6 col-lg-4 col-ml-4 col-sm-12 p-3">
                                 <a style="text-decoration: none" href="{{ route('announcements.show', compact('announcement')) }}">
-                                    <div style="border: #5d5d5d5c 0.5px solid; height: 710px" class="BoxInformazioni">
+                                    <div id="BoxInformazioniMobile"  class="BoxInformazioni">
                                         <div id="showCarousel-{{ $announcement->id }}" class="carousel slide">
                                             <div class="carousel-inner">
                                                 @if ($announcement->images->isEmpty())
                                                     <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
                                                     <div class="carousel-item active">
-                                                        <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
+                                                        <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
                                                             src="{{ Storage::url('images/default.jpg') }}" alt="Default Image" class="img-fluid rounded" height="100%">
                                                     </div>
                                                 @else
                                                     @foreach ($announcement->images as $key => $image)
                                                         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                            <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
+                                                            <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
                                                                 src="{{ $image->getUrl(600, 500) }}" alt="" class="img-fluid rounded" height="100%">
                                                         </div>
                                                     @endforeach
                                                 @endif
                                             </div>
+                                            @if (
+                                                !$announcement->images->isEmpty() &&
+                                                    $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
                                             <button id="FrecciaPrev" style="height: 86.5%" class="carousel-control-prev" type="button"
                                                 data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="prev">
                                                 <i class="bi bi-arrow-left-circle"></i>
@@ -93,6 +96,7 @@
                                                 data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="next">
                                                 <i class="bi bi-arrow-right-circle"></i>
                                             </button>
+                                            @endif
                                             <div style="display: flex; flex-direction: column; justify-content: start; align-items: start; padding: 5px">
                                                 <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
                                                     <h6 class="d-inline-block text-truncate" style="max-width: 250px; margin-top: 3px;">{{ $announcement->title }}</h6>
