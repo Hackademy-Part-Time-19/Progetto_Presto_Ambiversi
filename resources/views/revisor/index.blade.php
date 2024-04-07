@@ -48,7 +48,7 @@
                                             
                                                     <h2
                                                         style="font-family: CormorantGaramond ;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">
-                                                        Annuncio Nr: {{$counter}} </h2>
+                                                        Annuncio Nr: {{$announcement->id}} </h2>
                                                   
                                                     <div class="cavolo"
                                                         style=" height: 200px; width:100%;display:flex;justify-content: center; align-items: center;;">
