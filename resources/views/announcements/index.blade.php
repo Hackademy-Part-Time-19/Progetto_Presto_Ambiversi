@@ -48,7 +48,7 @@
                         </div>
                         <div
                             style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;">
-                            <p style="margin-top: 0px 0px 3px 0px">{{ $announcements->count() }} prodotti</p>
+                            <p style="margin-top: 0px 0px 3px 0px">{{ $announcements_all->count() }} prodotti</p>
 
 
                             <div class="custom-select" style="width:200px;">
@@ -127,5 +127,54 @@
             </div>
         </div>
     </div>
+</div>
+@if ($announcements instanceof \Illuminate\Pagination\LengthAwarePaginator)
+<div class="d-flex justify-content-end my-4 me-3">
+    <div class="pagination">
+        @if ($announcements->onFirstPage())
+        <span class="disabled me-2">&laquo;</span>
+        @else
+        <a class="me-2" href="{{ $announcements->previousPageUrl() }}">&laquo;</a>
+        @endif
+        @php
+        $currentPage = $announcements->currentPage();
+        $lastPage = $announcements->lastPage();
+        $start = max($currentPage - 2, 1);
+        $end = min($currentPage + 2, $lastPage);
+        @endphp
+
+        @if ($start > 1)
+        <a class="mx-1" href="{{ $announcements->url(1) }}">1</a>
+        @if ($start > 2)
+        <span class="mx-1">...</span>
+        @endif
+        @endif
+
+        @for ($i = $start; $i <= $end; $i++)
+        @if ($i == $currentPage)
+        <span class="active mx-3 text-danger">{{ $i }}</span>
+        @else
+        <a class="mx-1" href="{{ $announcements->url($i) }}">{{ $i }}</a>
+        @endif
+        @endfor
+
+        @if ($end < $lastPage)
+        @if ($end < $lastPage - 1)
+        <span class="mx-1">...</span>
+        @endif
+        <a class="mx-1" href="{{ $announcements->url($lastPage) }}">{{ $lastPage }}</a>
+        @endif
+
+        @if ($announcements->hasMorePages())
+        <a class="ms-2" href="{{ $announcements->nextPageUrl() }}">&raquo;</a>
+        @else
+        <span class="disabled ms-2">&raquo;</span>
+        @endif
+    </div>
+
+</div>
+
+
+@endif
     <x-footer />
 </x-layout>

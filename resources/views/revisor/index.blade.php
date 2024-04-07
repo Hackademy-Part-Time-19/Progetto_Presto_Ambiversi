@@ -30,9 +30,11 @@
     @if ($announcements_to_check->isNotEmpty())
         <div {{-- style="overflow-y: scroll; height: 1300px" --}}>
             @php
-                $counter = count($announcements_to_check);
+                $counter = count($announcements_to_check_all);
             @endphp
+           
             @foreach ($announcements_to_check as $key => $announcement)
+          
                 <div style="border-bottom:#2c2c2c 1px solid;  " class="container text-center">
                     <div class="row">
                         <div class="col-12 col-ml-6 col-sm-12 p-1">
@@ -43,9 +45,11 @@
                                         <div class="col-12 col-ml-4 col-md-4 col-sm-12 p-0 ">
                                             <div style="padding:0px 20px" class="BoxInformazioni2">
                                                 <div style=" height: 100%; " class="ContainterShowDetail">
+                                            
                                                     <h2
                                                         style="font-family: CormorantGaramond ;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">
-                                                        Annuncio Nr: {{ $counter }}</h2>
+                                                        Annuncio Nr: {{$counter}} </h2>
+                                                  
                                                     <div class="cavolo"
                                                         style=" height: 200px; width:100%;display:flex;justify-content: center; align-items: center;;">
 
@@ -224,5 +228,54 @@
             @endforeach
         </div>
     @endif
+</div>
+@if ($announcements_to_check instanceof \Illuminate\Pagination\LengthAwarePaginator)
+<div class="d-flex justify-content-end my-4 me-3">
+    <div class="pagination">
+        @if ($announcements_to_check->onFirstPage())
+        <span class="disabled me-2">&laquo;</span>
+        @else
+        <a class="me-2" href="{{ $announcements_to_check->previousPageUrl() }}">&laquo;</a>
+        @endif
+        @php
+        $currentPage = $announcements_to_check->currentPage();
+        $lastPage = $announcements_to_check->lastPage();
+        $start = max($currentPage - 2, 1);
+        $end = min($currentPage + 2, $lastPage);
+        @endphp
+
+        @if ($start > 1)
+        <a class="mx-1" href="{{ $announcements_to_check->url(1) }}">1</a>
+        @if ($start > 2)
+        <span class="mx-1">...</span>
+        @endif
+        @endif
+
+        @for ($i = $start; $i <= $end; $i++)
+        @if ($i == $currentPage)
+        <span class="active mx-3 text-danger">{{ $i }}</span>
+        @else
+        <a class="mx-1" href="{{ $announcements_to_check->url($i) }}">{{ $i }}</a>
+        @endif
+        @endfor
+
+        @if ($end < $lastPage)
+        @if ($end < $lastPage - 1)
+        <span class="mx-1">...</span>
+        @endif
+        <a class="mx-1" href="{{ $announcements_to_check->url($lastPage) }}">{{ $lastPage }}</a>
+        @endif
+
+        @if ($announcements_to_check->hasMorePages())
+        <a class="ms-2" href="{{ $announcements_to_check->nextPageUrl() }}">&raquo;</a>
+        @else
+        <span class="disabled ms-2">&raquo;</span>
+        @endif
+    </div>
+
+</div>
+
+
+@endif
     <x-footer />
 </x-layout>

@@ -65,8 +65,14 @@
                                 </div>
 
                             </div>
+                            @php 
+               $announcementsCategory = $category->announcements()->orderBy('created_at', 'desc')->get();
+               
+                        
+                            @endphp
 
-                            @forelse ($category->announcements as $announcement)
+
+                            @forelse ($announcementsCategory as $announcement)
                            @if ($announcement->is_accepted)
                            <div  class="col-12 col-md-6 col-lg-4 col-ml-4 col-sm-12 p-3">
                             <a style="text-decoration: none" href="{{ route('announcements.show', compact('announcement')) }}">
