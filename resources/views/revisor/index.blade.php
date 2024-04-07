@@ -31,10 +31,14 @@
         <div {{-- style="overflow-y: scroll; height: 1300px" --}}>
             @php
                 $counter = count($announcements_to_check_all);
+                $currentPage = $announcements_to_check->currentPage();
             @endphp
-           
+            <h2 style="font-family: CormorantGaramond; font-size: 40px; text-align: center; padding:20px">
+                Annunci rimanenti: {{ $counter }}
+            </h2>
+
             @foreach ($announcements_to_check as $key => $announcement)
-          
+
                 <div style="border-bottom:#2c2c2c 1px solid;  " class="container text-center">
                     <div class="row">
                         <div class="col-12 col-ml-6 col-sm-12 p-1">
@@ -45,11 +49,11 @@
                                         <div class="col-12 col-ml-4 col-md-4 col-sm-12 p-0 ">
                                             <div style="padding:0px 20px" class="BoxInformazioni2">
                                                 <div style=" height: 100%; " class="ContainterShowDetail">
-                                            
+
                                                     <h2
                                                         style="font-family: CormorantGaramond ;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">
-                                                        Annuncio Nr: {{$announcement->id}} </h2>
-                                                  
+                                                        Annuncio Nr: {{$currentPage}} </h2>
+
                                                     <div class="cavolo"
                                                         style=" height: 200px; width:100%;display:flex;justify-content: center; align-items: center;;">
 
@@ -148,7 +152,7 @@
                                                                         </figure>
                                                                     </li>
                                                                 </ul>
-                                                                
+
                                                                 @else
                                                                     <!-- Altrimenti, mostra le immagini caricate nel carousel -->
                                                                     @foreach ($announcement->images as $key => $image)
