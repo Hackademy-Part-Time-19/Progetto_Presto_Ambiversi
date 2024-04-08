@@ -9,7 +9,7 @@
     <title>{{ $title ?? config('app.name') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/java.js', 'resources/css/style.css'])
     @livewireStyles
-    
+
 </head>
 
 <body>
@@ -23,6 +23,9 @@
 
 
     <script>
+        
+        {{$script ?? ''}}
+
 
 
 const thumbnails = document.querySelectorAll('.carousel__thumbnails');
