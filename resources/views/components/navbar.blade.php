@@ -195,6 +195,7 @@
                             <div style="position: relative; right:90px">
                                 <div style="position: absolute;left: 0;" class="dropdown-content">
                                     <a class="dropdown-item" >Dati Personali</a>
+                                    <a class="dropdown-item" href="{{ route('announcements.showFavorites') }}">I Miei Preferiti</a>
                                     @auth @if (Auth::user()->isAdmin())
                                         <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
                                             class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>

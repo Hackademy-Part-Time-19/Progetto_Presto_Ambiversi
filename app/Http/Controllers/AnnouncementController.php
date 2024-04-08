@@ -26,7 +26,7 @@ class AnnouncementController extends Controller
     {
         $user = auth()->user();
         if ($user->favoriteAnnouncements->contains($announcement)) {
-           
+
             $user->favoriteAnnouncements()->detach($announcement);
             return redirect()->back()->with('success', 'Annuncio rimosso dai preferiti!');
         } else {
@@ -39,9 +39,10 @@ class AnnouncementController extends Controller
     public function showFavorites()
     {
         $user = auth()->user();
-        $Announcements = $user->favoriteAnnouncements()->orderBy('created_at','desc')->paginate(6);
+        $announcements = $user->favoriteAnnouncements()->orderBy('created_at','desc')->paginate(6);
+        $announcements_all = $user->favoriteAnnouncements()->get();
 
-        return view('announcements.index', compact('Announcements'));
+        return view('announcements.index', compact('announcements','announcements_all'));
     }
 
 }
