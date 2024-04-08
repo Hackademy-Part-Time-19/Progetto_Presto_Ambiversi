@@ -77,16 +77,16 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 ">
-                        <button>Donna</button>
+                      <a href="{{ route('categoryShow', ['2']) }}">  <button>Donna</button></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
-                        <button>Uomo</button>
+                        <a href="{{ route('categoryShow', ['4']) }}"><button>Uomo</button></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
-                        <button>Tech</button>
+                       <a href="{{ route('categoryShow', ['3']) }}"> <button>Tech</button></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
-                        <button>Gioielli</button>
+                        <a href="{{ route('categoryShow', ['1']) }}"><button>Gioielli</button></a>
                     </div>
                 </div>
             </div>
