@@ -33,3 +33,8 @@ php artisan scout:import "App\Models\Announcement"
 ## Da fare sempre: nuovo terminale, lanciare il comando seguente e lasciarlo attivo (apri un altro terminale)
 - php artisan queue:work
 (per chiudere ctrl+c)
+
+## user 4
+- composer require outhebox/blade-flags
+- php artisan vendor:publish --tag=blade-flags-config
+  
