@@ -1,7 +1,7 @@
 <x-layout>
     <div class="headerImage">
 
-        <div style="margin-top: 35px;margin-left: 70px" class="cerca">
+        <div style="margin-top: 35px;margin-left: 70px ; " class="cerca">
             <form action="{{ route('announcements.search') }}" method="GET">
                 <input
                 style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -11,16 +11,20 @@
                 </form>
             </div>
         </div>
-        @if (session()->has('message'))
-        <h2 class="alert alert-success">{{ session('message') }}</h2>
-        @endif
-        @if (session()->has('messageref'))
-        <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
-        @endif
+      
+        
+      <div style="width: 100%; border-top:#2c2c2c 1px solid ">
         <x-success></x-success>
-        <div class="containerCatalogo">
-
-
+            @if (session()->has('message'))
+            <h2 class="alert alert-success">{{ session('message') }}</h2>
+            @endif
+            @if (session()->has('messageref'))
+            <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
+            @endif
+      </div>
+        <div style="border-top:#2c2c2c00 1px solid" class="containerCatalogo">
+            
+            
             <div style=" width:100%; display:flex; justify-content:center;">
                 <div style=" padding: 80px 0px; width:auto " class="container text-center m-0 ">
 

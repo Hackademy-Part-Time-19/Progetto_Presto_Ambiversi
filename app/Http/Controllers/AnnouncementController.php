@@ -35,7 +35,7 @@ class AnnouncementController extends Controller
     {
         $user = auth()->user();
         $user->favoriteAnnouncements()->detach($announcement);
-        return redirect()->back()->with('success', 'Annuncio rimosso dai preferiti!');
+        return redirect()->back()->with('messageref', 'Annuncio rimosso dai preferiti!');
     }
 
     public function showFavorites()
