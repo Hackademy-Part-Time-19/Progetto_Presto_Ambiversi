@@ -19,7 +19,13 @@
 
         <div class="containerFiltro">
             <h6 style="padding-top: 10px">
-                <a href="{{ route('homepage') }}">Home / </a> <a style="cursor: default;">Catalogo</a>
+                <a href="{{ route('homepage') }}">Home / </a> <a style="cursor: default;">
+                    @if(request()->routeIs('announcements.showFavorites'))
+        Preferiti
+    @else
+        Catalogo
+    @endif
+                </a>
             </h6>
             <h3>Categorie </h3>
             <hr>
@@ -27,10 +33,6 @@
                 <a class="dropdown-item"
                     href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
             @endforeach
-
-
-
-
         </div>
 
         <div class="containerProdotti">
@@ -42,7 +44,13 @@
                     <div class="row">
 
                         <div class="boxTitoloCatalogo">
-                            <h2>CATALOGO</h2>
+                            <h2>
+                                @if(request()->routeIs('announcements.showFavorites'))
+        PREFERITI
+    @else
+        CATALOGO
+    @endif
+                            </h2>
                             <p style="text-align: start">Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
 
                         </div>

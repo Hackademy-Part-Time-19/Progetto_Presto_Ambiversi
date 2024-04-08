@@ -139,17 +139,25 @@
                                     style="display: flex; justify-content: space-between ; margin-top: 30px;">
                                     <button style="width: 80%">Aggiungi al carrello</button>
                                     <div style=" display: flex; flex-direction: column;  position: relative; ">
-                                        <form id="favoriteForm" action="{{ route('announcements.addToFavorites', ['announcement' => $announcement->id]) }}" method="POST">
-                                            @csrf
-                                            @if(auth()->user()->favoriteAnnouncements->contains($announcement))
-                                            @method('DELETE')
-                                            @else
-                                            @method('POST')
-                                            @endif
-                                            <button id="toggleHeart" type="submit">
-                                                <i id="AggiuntaPreferiti" class="bi bi-heart{{ auth()->user()->favoriteAnnouncements->contains($announcement) ? ' text-danger' : '' }}"></i>
-                                            </button>
-                                        </form>
+
+                                      @if(auth()->user()->favoriteAnnouncements->contains($announcement))
+                                          <form id="favoriteForm" action="{{ route('announcements.removeFromFavorites', ['announcement' => $announcement->id]) }}" method="POST">
+                                              @csrf
+                                              @method('DELETE')
+                                              <button id="toggleHeart" type="submit">
+                                                  <i id="AggiuntaPreferiti" class="bi bi-heart-fill text-danger"></i>
+                                              </button>
+                                          </form>
+                                      @else
+                                          <form id="favoriteForm" action="{{ route('announcements.addToFavorites', ['announcement' => $announcement->id]) }}" method="POST">
+                                              @csrf
+                                              <button id="toggleHeart" type="submit">
+                                                  <i id="AggiuntaPreferiti" class="bi bi-heart"></i>
+                                              </button>
+                                          </form>
+                                      @endif
+                                      
+
 
                                         <p style="position: absolute; top:50px;width:200px; right:-70px; font-family: CormorantGaramond "
                                         id="message"></p>
@@ -246,32 +254,6 @@
 </div>
 
 </div>
-<x-slot:script>
-document.addEventListener('DOMContentLoaded', function () {
-    const favoriteForm = document.getElementById('favoriteForm');
-    const isFavorite = {{ auth()->user()->favoriteAnnouncements->contains($announcement->id) ? 'true' : 'false' }};
 
-    favoriteForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-
-            fetch(this.action, {
-                method: isFavorite ? 'DELETE' : 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: formData
-            }).then(response => {
-                if (response.ok) {
-                    isFavorite = !isFavorite;
-                    document.getElementById('AggiuntaPreferiti').classList.toggle('text-danger', isFavorite);
-                }
-            }).catch(error => {
-                console.error('Si è verificato un errore:', error);
-            });
-        });
-    });
-
-</x-slot>
 <x-footer />
 </x-layout>
