@@ -19,9 +19,7 @@ class FrontController extends Controller
     }
     public function welcome()
     {
-
-        $announcements = Announcement::where('is_accepted', true)->take(6)->get()->sortByDesc('created_at');
-        return view('homepage', compact('announcements'));
+        return view('homepage');
     }
     public function categoryShow(Category $category)
     {
@@ -30,7 +28,8 @@ class FrontController extends Controller
 
     public function searchAnnouncements(Request $request)
     {
-        $announcements = Announcement::search($request->searched)->where('is_accepted',true)->paginate(6);
-        return view('announcements.index',compact('announcements'));
+        $announcements_all = Announcement::search($request->searched)->where('is_accepted',true)->get();
+        $announcements = Announcement::search($request->searched)->where('is_accepted',true)->orderBy('created_at','desc')->get();
+        return view('announcements.index',compact('announcements','announcements_all'));
     }
 }

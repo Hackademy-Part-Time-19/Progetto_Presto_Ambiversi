@@ -2,7 +2,7 @@
 
 
 
-    <h1 style="width: 100%; text-align: center; padding-top: 20px">Crea il tuo annuncio!</h1>
+    <h1 style="width: 100%; text-align: center; padding-top: 20px;  font-family: CormorantGaramond; ">CREA IL TUO ANNUNCIO!</h1>
 
 
 
@@ -11,7 +11,7 @@
     <div style=" width:100%; display:flex; justify-content:center; ">
         <div style=" padding: 80px 0px; width:auto ;" class="container text-center m-0 ">
 
-            <div style="width: 100%; background-color: #ffffff; padding:30px; border-radius: 10px" class="row  ">
+            <div class="row m-0 " style="width: 100%; background-color: #ffffff; padding:30px; border-radius: 10px; " >
                 <div style="padding-right: 50px" class="col-12 col-ml-12 col-md-8 col-sm-12 p-0 ">
                     <div class="BoxInformazioni2">
                         <div style="height: auto; width:auto">
@@ -36,7 +36,7 @@
                                                     <figure>
 
 
-                                                        <img id="ImagineInserimentoArticolo"
+                                                        <img id="ImagineInserimentoArticolo2"
                                                             style="margin-right: 0px; object-fit: cover"
                                                             src="  {{ $image->temporaryUrl() }}" width="100%"
                                                             height="900px" alt="">
@@ -47,7 +47,7 @@
 
                                             {{-- Imagine Anteprima --}}
                                             @if (empty($images) && empty($ImagineInserimentoArticolo['src']))
-                                                <img style="margin-right: 0px; object-fit: cover;"
+                                                <img id="fotoAnnuncioMobile" style="margin-right: 0px; object-fit: cover;"
                                                     src="{{ Storage::url('/images/default.jpg') }}" width="100%"
                                                     height="900px" alt="">
                                             @endif
@@ -60,16 +60,15 @@
                                         <ul class="carousel__thumbnails">
                                             @foreach (collect($images)->take(6) as $key => $image)
                                                 <div style="position: relative">
-                                                    <button class="cancellaFoto" type="button"
-                                                        wire:click="removeImage({{ $key }})"><i
-                                                            style="font-size: 22px; padding:0px 1.5px "
-                                                            class="bi bi-x-circle"></i></button>
+                                                   
                                                 </div>
                                                 <li style="overflow-x: scroll">
                                                     <label style="height: auto" for="slide-{{ $key + 1 }}">
-                                                        <img style="height: 140px; object-fit: cover; margin-right: 0px;"
+                                                        <img id="miniFotoAnnuncioMobile2"
                                                             src="{{ $image->temporaryUrl() }}" alt="">
+                                                          
                                                     </label>
+                                                    <button class="cancellaFoto" wire:click="removeImage({{ $key }})" type="button" >elimina</button>
                                                 </li>
                                             @endforeach
 

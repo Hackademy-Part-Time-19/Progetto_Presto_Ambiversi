@@ -1,7 +1,7 @@
 <x-layout>
     <div class="headerImage">
 
-        <div style="margin-top: 35px; margin-right: 80px" class="cerca">
+        <div style="margin-top: 35px; margin-right: 40px" class="cerca">
             <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -43,12 +43,12 @@
 
                         <div class="boxTitoloCatalogo">
                             <h2>CATALOGO</h2>
-                            <p>Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
+                            <p style="text-align: start">Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
 
                         </div>
                         <div
                             style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;">
-                            <p style="margin-top: 0px 0px 3px 0px">{{ $announcements->count() }} prodotti</p>
+                            <p style="margin-top: 0px 0px 3px 0px">{{ $announcements_all->count() }} prodotti</p>
 
 
                             <div class="custom-select" style="width:200px;">
@@ -65,52 +65,54 @@
 
                         </div>
                         @forelse ($announcements as $announcement)
-                            <div  class="col-12 col-ml-6 col-sm-4 p-1">
-                                <a style="text-decoration: none"
-                                    href="{{ route('announcements.show', compact('announcement')) }}">
-                                    <div  style="border: #5d5d5d5c 0.5px solid;height: 710px" class="BoxInformazioni">
-                                        <div  id="showCarousel-{{ $announcement->id }}" class="carousel slide">
-                                            <div  class="carousel-inner">
-                                                
-                                                @foreach ($announcement->images as $key => $image)
-                                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                    <img style="object-fit: cover; padding: 0px; height: 585px; width: 500px;"
-                                                        src="{{ $image->getUrl(600, 500)  }} "
-                                                        alt="" class="img-fluid rounded" height="100%">
-                                                </div>
-                                            @endforeach
+                            <div  class="col-12 col-md-6 col-lg-4 col-ml-4 col-sm-12 p-3">
+                                <a style="text-decoration: none" href="{{ route('announcements.show', compact('announcement')) }}">
+                                    <div id="BoxInformazioniMobile"  class="BoxInformazioni">
+                                        <div id="showCarousel-{{ $announcement->id }}" class="carousel slide">
+                                            <div class="carousel-inner">
+                                                @if ($announcement->images->isEmpty())
+                                                    <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
+                                                    <div class="carousel-item active">
+                                                        <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
+                                                            src="{{ Storage::url('images/default.jpg') }}" alt="Default Image" class="img-fluid rounded" height="100%">
+                                                    </div>
+                                                @else
+                                                    @foreach ($announcement->images as $key => $image)
+                                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                                                            <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
+                                                                src="{{ $image->getUrl(600, 500) }}" alt="" class="img-fluid rounded" height="100%">
+                                                        </div>
+                                                    @endforeach
+                                                @endif
                                             </div>
-                                            <button id="FrecciaPrev" style=" height:86.5%; "
-                                                class="carousel-control-prev" type="button"
-                                                data-bs-target="#showCarousel-{{ $announcement->id }}"
-                                                data-bs-slide="prev">
+                                            @if (
+                                                !$announcement->images->isEmpty() &&
+                                                    $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
+                                            <button id="FrecciaPrev" style="height: 86.5%" class="carousel-control-prev" type="button"
+                                                data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="prev">
                                                 <i class="bi bi-arrow-left-circle"></i>
                                             </button>
-                                            <button id="FrecciaNext" style=" height:86.5%" class="carousel-control-next"
-                                                type="button" data-bs-target="#showCarousel-{{ $announcement->id }}"
-                                                data-bs-slide="next">
+                                            <button id="FrecciaNext" style="height: 86.5%" class="carousel-control-next" type="button"
+                                                data-bs-target="#showCarousel-{{ $announcement->id }}" data-bs-slide="next">
                                                 <i class="bi bi-arrow-right-circle"></i>
-                                       </button>
-                                            <div
-                                                style="display: flex;flex-direction:column;justify-content:start;align-items:start; padding:5px ">
-                                              <div class="d-flex justify-content-between align-items-center" style=" width: 100%;">
-                                                    <h6 class="d-inline-block text-truncate;"
-                                                        style="max-width: 250px;margin-top:3px;">{{ $announcement->title }}
-                                                    </h6>
+                                            </button>
+                                            @endif
+                                            <div style="display: flex; flex-direction: column; justify-content: start; align-items: start; padding: 5px">
+                                                <div class="d-flex justify-content-between align-items-center" style="width: 100%;">
+                                                    <h6 class="d-inline-block text-truncate" style="max-width: 250px; margin-top: 3px;">{{ $announcement->title }}</h6>
                                                     <div class="provakeri">
                                                         <p style="color: #2c2c2c;">Info: <a class="categoryCardDescription"
-                                                                href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a>
-                                                             |
+                                                                href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}</a> |
                                                             {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                     </div>
-
-                                              </div>
+                                                </div>
                                                 <p>€ {{ $announcement->price }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
+                            
                             @empty
                             <div class="col-12">
                                 <div class="alert alert-warning py-3 shadow">
@@ -125,5 +127,54 @@
             </div>
         </div>
     </div>
+</div>
+@if ($announcements instanceof \Illuminate\Pagination\LengthAwarePaginator)
+<div class="d-flex justify-content-end my-4 me-3">
+    <div class="pagination">
+        @if ($announcements->onFirstPage())
+        <span class="disabled me-2">&laquo;</span>
+        @else
+        <a class="me-2" href="{{ $announcements->previousPageUrl() }}">&laquo;</a>
+        @endif
+        @php
+        $currentPage = $announcements->currentPage();
+        $lastPage = $announcements->lastPage();
+        $start = max($currentPage - 2, 1);
+        $end = min($currentPage + 2, $lastPage);
+        @endphp
+
+        @if ($start > 1)
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements->url(1) }}">1</a>
+        @if ($start > 2)
+        <span class="mx-1">...</span>
+        @endif
+        @endif
+
+        @for ($i = $start; $i <= $end; $i++)
+        @if ($i == $currentPage)
+        <span class="active mx-3 text-danger">{{ $i }}</span>
+        @else
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements->url($i) }}">{{ $i }}</a>
+        @endif
+        @endfor
+
+        @if ($end < $lastPage)
+        @if ($end < $lastPage - 1)
+        <span class="mx-1">...</span>
+        @endif
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements->url($lastPage) }}">{{ $lastPage }}</a>
+        @endif
+
+        @if ($announcements->hasMorePages())
+        <a style="color: #2c2c2c;text-decoration:none; " class="ms-2" href="{{ $announcements->nextPageUrl() }}">&raquo;</a>
+        @else
+        <span class="disabled ms-2">&raquo;</span>
+        @endif
+    </div>
+
+</div>
+
+
+@endif
     <x-footer />
 </x-layout>

@@ -51,8 +51,8 @@
                         @csrf
                         <h1 style="background-color: white">Accedi</h1>
                         <div style="background-color: white" class="social-container">
-                            <a style="background-color: white" href="{{route('auth.google')}}" class="social"><i
-                                style="background-color: white" id="social" class="bi bi-google"></i></a>
+                            <a style="background-color: white" href="{{ route('auth.google') }}" class="social"><i
+                                    style="background-color: white" id="social" class="bi bi-google"></i></a>
                             <a style="background-color: white" href="https://www.facebook.com/" class="social"><i
                                     style="background-color: white" id="social" class="bi bi-facebook"></i></a>
                             <a style="background-color: white" href="https://www.instagram.com/" class="social"><i
@@ -125,22 +125,26 @@
     <div class="menu">
         <a href="{{ route('homepage') }}">HOME</a>
         <a href="{{ route('announcements.index') }}">SHOP</a>
-        @if(!request()->routeIs('announcements.index') && !request()->routeIs('categoryShow'))
-        <div class="dropdown">
-            <button class="dropbtn">CATEGORIE</button>
-            <div style="z-index: 44" class="dropdown-content">
-              @foreach ($categories as $category)
-                  <a class="dropdown-item" href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
-              @endforeach
+        @if (!request()->routeIs('announcements.index') && !request()->routeIs('categoryShow'))
+            <div class="dropdown">
+                <button class="dropbtn">CATEGORIE</button>
+                <div style="z-index: 44" class="dropdown-content">
+                    @foreach ($categories as $category)
+                        <a class="dropdown-item"
+                            href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+                    @endforeach
+                </div>
             </div>
-        </div>
-@endif
+        @endif
     </div>
-    <div  class="logo">
-        <h1  ><a style="text-decoration: none;color:#2c2c2c" href="{{ route('homepage') }}">PRESTO</a
+    <div class="menuMobile">
+        <a> <i style="color: #2c2c2c" class="bi bi-list"></i></a>
+    </div>
+    <div class="logo">
+        <h1><a style="text-decoration: none;color:#2c2c2c;    " href="{{ route('homepage') }}">PRESTO</a
                 href="{{ route('homepage') }}"></h1>
         <p>ESPLORA. SCEGLI. ACQUISTA. TUTTO IN UN SOLO POSTO.</p>
-        
+
     </div>
     <div class="login">
         <div class="lingua">
@@ -148,22 +152,14 @@
                 <a class="dropdown-toggle lang-cust" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><span class=" h4 bi bi-globe-americas"></span></a>
                 <ul style="background-color: rgba(255, 255, 255, 0); width: 22px; " class=" dropdown-menu ">
-                  
-                 
-                        <div class="dropdown-item text-center">
-                                <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
-                                    alt="">
-                        </div>
-              
-
-                  
-                        <div class="dropdown-item text-center">
-                                <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
-                                    alt="">
-                        </div>
-               
-
-                  
+                    <div class="dropdown-item text-center">
+                        <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
+                            alt="">
+                    </div>
+                    <div class="dropdown-item text-center">
+                        <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
+                            alt="">
+                    </div>
 
                 </ul>
             </div>
@@ -178,9 +174,9 @@
             <div>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <div class="boxLog">
+                    <div id="MenuDestraMobile" class="boxLog">
+                        <p class="messaggioBenvenuto" style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato: </p>
                         <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;  ">
-                            Bentornato:
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
                                     <button
@@ -188,16 +184,15 @@
                                 @endif
                             @endif
                         <div style="" class="dropdown"><button class="dropbtn2"> <a
-                                    style="background-color: rgba(255, 255, 255, 0); border: none"
+                                    style="background-color: rgba(255, 255, 255, 0); border: none; "
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <strong>{{ Auth::user()->name }}</strong>
-
+                                    {{ Auth::user()->name }}
                                 </a>
                             </button>
                             <div style="position: relative; right:90px">
                                 <div style="position: absolute;left: 0;" class="dropdown-content">
-                                    <a class="dropdown-item" href="#">Dati Personali</a>
+                                    <a class="dropdown-item" >Dati Personali</a>
                                     @auth @if (Auth::user()->isAdmin())
                                         <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
                                             class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>
@@ -211,8 +206,7 @@
                                     @endAuth
                                     <button
                                         style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a
-                                            id="EscMenu" class="dropdown-item" type="submit">Esci </a></button>
-
+                                            id="EscMenu"  type="submit">Esci </a></button>
                                 </div>
                             </div>
                         </div>

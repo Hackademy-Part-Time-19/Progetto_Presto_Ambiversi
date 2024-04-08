@@ -9,6 +9,7 @@ use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,5 +50,5 @@ Route::get('/google/redirect', [App\Http\Controllers\GoogleLoginController::clas
 Route::get('/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 
 Route::get('/ricerca/annuncio',[FrontController::class,'searchAnnouncements'])->name('announcements.search');
-
-
+Route::post('/announcements/{announcement}/add-to-favorites', [AnnouncementController::class, 'addToFavorites'])->name('announcements.addToFavorites');
+Route::get('/announcements/favorites', [AnnouncementController::class, 'showFavorites'])->name('announcements.showFavorites');

@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{{ $title ?? config('app.name') }}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/java.js', 'resources/css/style.css'])
     @livewireStyles
-    
+
 </head>
 
 <body>
@@ -23,9 +24,23 @@
 
 
     <script>
+        
+        {{$script ?? ''}}
 
 
+const thumbnails = document.querySelectorAll('.carousel__thumbnails');
+    thumbnails.forEach(thumbnail => {
+        const announcementId = thumbnail.getAttribute('data-announcement-id');
+        const radioButtons = document.querySelectorAll(`input[name="slides${announcementId}"]`);
 
+        thumbnail.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LABEL') {
+                const targetId = event.target.getAttribute('for');
+                const radioBtn = document.getElementById(targetId);
+                radioBtn.checked = true;
+            }
+        });
+    });
 
 
         const categories = [{

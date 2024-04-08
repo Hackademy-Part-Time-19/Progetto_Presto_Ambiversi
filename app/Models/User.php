@@ -49,9 +49,13 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-       
+
         return $this->is_revisor === 1;
     }
+    public function favoriteAnnouncements()
+    {
+        return $this->belongsToMany(Announcement::class, 'user_favorite_announcements', 'user_id', 'announcement_id')->withTimestamps();
+    }
 
-  
+
 }
