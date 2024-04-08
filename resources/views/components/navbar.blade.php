@@ -153,13 +153,15 @@
                     aria-expanded="false"><span class=" h4 bi bi-globe-americas"></span></a>
                 <ul style="background-color: rgba(255, 255, 255, 0); width: 22px; " class=" dropdown-menu ">
                     <div class="dropdown-item text-center">
-                        <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
-                            alt="">
+                        <x-locale lang="it" nation="it"  />
+                        
+                        
                     </div>
                     <div class="dropdown-item text-center">
-                        <img style="margin-right: 5px;" src="{{ Storage::url('/nav/Ita.png') }}" width="37px"
-                            alt="">
+                        <x-locale lang="en" nation="us"/>
+                        
                     </div>
+                  
 
                 </ul>
             </div>

@@ -32,4 +32,10 @@ class FrontController extends Controller
         $announcements = Announcement::search($request->searched)->where('is_accepted',true)->orderBy('created_at','desc')->get();
         return view('announcements.index',compact('announcements','announcements_all'));
     }
+
+    public function setLanguage($lang)
+    {
+        session()->put('locale',$lang);
+        return redirect()->back();
+    }
 }
