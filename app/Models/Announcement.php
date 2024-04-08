@@ -49,5 +49,9 @@ class Announcement extends Model
     {
         return $this->hasMany(Image::class);
     }
+    public function user_favorite_announcements()
+    {
+        return $this->belongsToMany(User::class, 'announcement_user', 'announcement_id', 'user_id')->withTimestamps();
+    }
 
 }
