@@ -60,16 +60,15 @@
                                         <ul class="carousel__thumbnails">
                                             @foreach (collect($images)->take(6) as $key => $image)
                                                 <div style="position: relative">
-                                                    <button class="cancellaFoto" type="button"
-                                                        wire:click="removeImage({{ $key }})"><i
-                                                            style="font-size: 22px; padding:0px 1.5px "
-                                                            class="bi bi-x-circle"></i></button>
+                                                   
                                                 </div>
                                                 <li style="overflow-x: scroll">
                                                     <label style="height: auto" for="slide-{{ $key + 1 }}">
                                                         <img id="miniFotoAnnuncioMobile2"
                                                             src="{{ $image->temporaryUrl() }}" alt="">
+                                                          
                                                     </label>
+                                                    <button class="cancellaFoto" wire:click="removeImage({{ $key }})" type="button" >elimina</button>
                                                 </li>
                                             @endforeach
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

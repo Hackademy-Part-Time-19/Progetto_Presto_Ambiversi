@@ -144,7 +144,7 @@
         @endphp
 
         @if ($start > 1)
-        <a class="mx-1" href="{{ $announcements->url(1) }}">1</a>
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements->url(1) }}">1</a>
         @if ($start > 2)
         <span class="mx-1">...</span>
         @endif
@@ -154,7 +154,7 @@
         @if ($i == $currentPage)
         <span class="active mx-3 text-danger">{{ $i }}</span>
         @else
-        <a class="mx-1" href="{{ $announcements->url($i) }}">{{ $i }}</a>
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements->url($i) }}">{{ $i }}</a>
         @endif
         @endfor
 
@@ -162,11 +162,11 @@
         @if ($end < $lastPage - 1)
         <span class="mx-1">...</span>
         @endif
-        <a class="mx-1" href="{{ $announcements->url($lastPage) }}">{{ $lastPage }}</a>
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements->url($lastPage) }}">{{ $lastPage }}</a>
         @endif
 
         @if ($announcements->hasMorePages())
-        <a class="ms-2" href="{{ $announcements->nextPageUrl() }}">&raquo;</a>
+        <a style="color: #2c2c2c;text-decoration:none; " class="ms-2" href="{{ $announcements->nextPageUrl() }}">&raquo;</a>
         @else
         <span class="disabled ms-2">&raquo;</span>
         @endif

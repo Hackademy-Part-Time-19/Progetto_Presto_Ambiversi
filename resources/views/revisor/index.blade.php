@@ -18,10 +18,13 @@
     @if (session()->has('messageref'))
         <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
     @endif
-
-    <h2 style="font-family: CormorantGaramond; font-size: 40px; text-align: center; padding:20px">
-        {{ $announcements_to_check->isNotEmpty() ? 'ANNUNCI DA REVISIONARE' : 'NESSUN ANNUNCIO DA REVISIONARE' }}
-    </h2>
+    @php
+    $counter = count($announcements_to_check_all);
+    $currentPage = $announcements_to_check->currentPage();
+@endphp
+    <h3 style="font-family: CormorantGaramond; font-size: 40px; text-align: center; padding:20px">
+        {{ $announcements_to_check->isNotEmpty() ? 'ANNUNCI DA REVISIONARE: ' . $counter : 'NESSUN ANNUNCIO DA REVISIONARE' }}
+    </h3>
 
     @if ($announcements_to_check->isEmpty())
         <div style="height: 100vh"></div>
@@ -33,13 +36,11 @@
                 $counter = count($announcements_to_check_all);
                 $currentPage = $announcements_to_check->currentPage();
             @endphp
-            <h2 style="font-family: CormorantGaramond; font-size: 40px; text-align: center; padding:20px">
-                Annunci rimanenti: {{ $counter }}
-            </h2>
+           
 
             @foreach ($announcements_to_check as $key => $announcement)
 
-                <div style="border-bottom:#2c2c2c 1px solid;  " class="container text-center">
+                <div  class="container text-center">
                     <div class="row">
                         <div class="col-12 col-ml-6 col-sm-12 p-1">
                             <div style=" width:100%; display:flex; justify-content:center;">
@@ -221,6 +222,47 @@
                                             </form>
                                         </div>
                                     </div>
+                                    @if ($announcements_to_check instanceof \Illuminate\Pagination\LengthAwarePaginator)
+<div class="d-flex justify-content-end my-4 me-3">
+    <div class="pagination">
+        @if ($announcements_to_check->onFirstPage())
+        <span class="disabled me-2">&laquo;</span>
+        @else
+        <a style="color: #2c2c2c;text-decoration:none; " class="me-2" href="{{ $announcements_to_check->previousPageUrl() }}">&laquo;</a>
+        @endif
+        @php
+        $currentPage = $announcements_to_check->currentPage();
+        $lastPage = $announcements_to_check->lastPage();
+        $start = max($currentPage - 2, 1);
+        $end = min($currentPage + 2, $lastPage);
+        @endphp
+        @if ($start > 1)
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements_to_check->url(1) }}">1</a>
+        @if ($start > 2)
+        <span class="mx-1">...</span>
+        @endif
+        @endif
+        @for ($i = $start; $i <= $end; $i++)
+        @if ($i == $currentPage)
+        <span class="active mx-3 text-danger">{{ $i }}</span>
+        @else
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements_to_check->url($i) }}">{{ $i }}</a>
+        @endif
+        @endfor
+        @if ($end < $lastPage)
+        @if ($end < $lastPage - 1)
+        <span class="mx-1">...</span>
+        @endif
+        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements_to_check->url($lastPage) }}">{{ $lastPage }}</a>
+        @endif
+        @if ($announcements_to_check->hasMorePages())
+        <a style="color: #2c2c2c;text-decoration:none; " class="ms-2" href="{{ $announcements_to_check->nextPageUrl() }}">&raquo;</a>
+        @else
+        <span class="disabled ms-2">&raquo;</span>
+        @endif
+    </div>
+</div>
+@endif
                                 </div>
                             </div>
                         </div>
@@ -233,53 +275,6 @@
         </div>
     @endif
 </div>
-@if ($announcements_to_check instanceof \Illuminate\Pagination\LengthAwarePaginator)
-<div class="d-flex justify-content-end my-4 me-3">
-    <div class="pagination">
-        @if ($announcements_to_check->onFirstPage())
-        <span class="disabled me-2">&laquo;</span>
-        @else
-        <a class="me-2" href="{{ $announcements_to_check->previousPageUrl() }}">&laquo;</a>
-        @endif
-        @php
-        $currentPage = $announcements_to_check->currentPage();
-        $lastPage = $announcements_to_check->lastPage();
-        $start = max($currentPage - 2, 1);
-        $end = min($currentPage + 2, $lastPage);
-        @endphp
 
-        @if ($start > 1)
-        <a class="mx-1" href="{{ $announcements_to_check->url(1) }}">1</a>
-        @if ($start > 2)
-        <span class="mx-1">...</span>
-        @endif
-        @endif
-
-        @for ($i = $start; $i <= $end; $i++)
-        @if ($i == $currentPage)
-        <span class="active mx-3 text-danger">{{ $i }}</span>
-        @else
-        <a class="mx-1" href="{{ $announcements_to_check->url($i) }}">{{ $i }}</a>
-        @endif
-        @endfor
-
-        @if ($end < $lastPage)
-        @if ($end < $lastPage - 1)
-        <span class="mx-1">...</span>
-        @endif
-        <a class="mx-1" href="{{ $announcements_to_check->url($lastPage) }}">{{ $lastPage }}</a>
-        @endif
-
-        @if ($announcements_to_check->hasMorePages())
-        <a class="ms-2" href="{{ $announcements_to_check->nextPageUrl() }}">&raquo;</a>
-        @else
-        <span class="disabled ms-2">&raquo;</span>
-        @endif
-    </div>
-
-</div>
-
-
-@endif
     <x-footer />
 </x-layout>

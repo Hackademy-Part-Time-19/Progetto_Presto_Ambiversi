@@ -19,11 +19,8 @@
     @endif
     <x-success></x-success>
     <div class="containerCatalogo">
-
-
         <div style=" width:100%; display:flex; justify-content:center;">
             <div style=" padding: 80px 0px; width:auto " class="container text-center m-0 ">
-
                 <div style="width: 100%" class="row  ">
                     <div style="padding-right: 0px" class="col-12 col-ml-12 col-md-8 col-sm-12  ">
                         <div class="BoxInformazioni2">
@@ -45,7 +42,8 @@
                                                     <li class="carousel__slide">
                                                         <figure>
                                                             <div>
-                                                                <img id="fotoAnnuncioMobile" src="{{ Storage::url('images/default.jpg') }}"
+                                                                <img id="fotoAnnuncioMobile"
+                                                                    src="{{ Storage::url('images/default.jpg') }}"
                                                                     width="100%" height="900px" alt="Default Image">
                                                             </div>
                                                         </figure>
@@ -57,7 +55,7 @@
                                                     <ul class="carousel__thumbnails">
                                                         <li>
                                                             <label for="slide-1">
-                                                                <img  src="path_to_default_image.jpg" alt="Default Image"
+                                                                <img src="path_to_default_image.jpg" alt="Default Image"
                                                                     style="height: 140px; object-fit: cover; margin-right: 0px;">
                                                             </label>
                                                         </li>
@@ -75,7 +73,8 @@
                                                         <li class="carousel__slide">
                                                             <figure>
                                                                 <div>
-                                                                    <img id="fotoAnnuncioMobile" src="{{ $image->getUrl(600, 500) }}"
+                                                                    <img id="fotoAnnuncioMobile"
+                                                                        src="{{ $image->getUrl(600, 500) }}"
                                                                         width="100%" height="900px" alt="">
                                                                 </div>
                                                             </figure>
@@ -86,9 +85,9 @@
                                                     @foreach ($announcement->images as $key => $image)
                                                         <li style="overflow-x: scroll">
                                                             <label for="slide-{{ $key + 1 }}">
-                                                                <img id="miniFotoAnnuncioMobile" src="{{ $image->getUrl(600, 500) }}"
-                                                                    alt=""
-                                                                  >
+                                                                <img id="miniFotoAnnuncioMobile"
+                                                                    src="{{ $image->getUrl(600, 500) }}"
+                                                                    alt="">
                                                             </label>
                                                         </li>
                                                     @endforeach
