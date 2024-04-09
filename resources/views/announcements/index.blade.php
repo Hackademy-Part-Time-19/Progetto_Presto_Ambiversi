@@ -33,7 +33,7 @@
             <hr>
             @foreach ($categories as $category)
                 <a class="dropdown-item"
-                    href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+                    href="{{ route('categoryShow', compact('category')) }}">{{__('ui.cat'.$category->id)}}</a>
             @endforeach
         </div>
 
@@ -57,7 +57,7 @@
                                 @if (request()->routeIs('announcements.showFavorites'))
                                     Tutti gli articoli preferiti in un unico posto
                                 @else
-                                    Scopri i prodotti adatti per te, a un prezzo imperdibile
+                                    {{__('ui.sentenceA')}}
                                 @endif
 
 
