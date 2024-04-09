@@ -406,6 +406,7 @@ nav {
 
 #AggiuntaPreferiti {
     transition: color 1.5s;
+
 }
 
 
@@ -515,11 +516,11 @@ nav {
 }
 
 #CloseLogin2:hover {
-    color: rgb(247, 59, 59);
+    color: #d73d3d;
 }
 
 #CloseLogin:hover {
-    color: rgb(247, 59, 59);
+    color: #d73d3d;
 }
 
 
@@ -840,7 +841,7 @@ i:hover {
 }
 
 .boxLog i:hover {
-    color: red;
+    color:#d73d3d;
 }
 
 .Informazioni {
@@ -1608,9 +1609,9 @@ section {
 }
 
 #rejectButton:hover {
-    background-color: #EB442C;
+    background-color: #d73d3d;
     color: white;
-    border: #EB442C 1px solid;
+    border: #d73d3d 1px solid;
 }
 
 

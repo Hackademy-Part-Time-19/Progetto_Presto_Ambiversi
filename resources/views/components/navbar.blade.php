@@ -182,7 +182,7 @@
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
                                     <button
-                                        style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                        style="background-color: #d73d3d;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
                                 @endif
                             @endif
                         <div style="" class="dropdown"><button class="dropbtn2"> <a
@@ -197,7 +197,7 @@
                                     <a class="dropdown-item" >Dati Personali</a>
                                     <a class="dropdown-item" href="{{ route('announcements.showFavorites') }}">I Miei Preferiti</a>
                                     @auth @if (Auth::user()->isAdmin())
-                                        <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
+                                        <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: #d73d3d @endif"
                                             class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>
                                     @endif @auth
                                     <a href="{{ route('announcements.create') }}">Inserisci articolo</a>

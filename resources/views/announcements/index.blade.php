@@ -51,7 +51,15 @@
         CATALOGO
     @endif
                             </h2>
-                            <p style="text-align: start">Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
+                            <p style="text-align: start">
+                                @if(request()->routeIs('announcements.showFavorites'))
+                                Tutti gli articoli preferiti in un unico posto
+                            @else
+                            Scopri i prodotti adatti per te, a un prezzo imperdibile
+                            @endif
+                               
+                            
+                            </p>
 
                         </div>
                         <div
@@ -123,8 +131,18 @@
                             
                             @empty
                             <div class="col-12">
-                                <div class="alert alert-warning py-3 shadow">
-                                    <p class="lead">Non ci sono annunci per questa ricerca</p>
+                                <div class="">
+
+                                    <p class="lead">
+                                        @if(request()->routeIs('announcements.showFavorites'))
+                                        Non hai aggiunto nessun articolo ai preferiti
+                                    @else
+                                    Non ci sono annunci per questa ricerca
+                                    @endif
+                                      
+
+                                    </p>
+                                    
                                 </div>
                             </div>
                         @endforelse

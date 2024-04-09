@@ -13,10 +13,10 @@
     </div>
     <x-success />
     @if (session()->has('message'))
-        <h2 class="alert alert-success">{{ session('message') }}</h2>
+        <h2 style="background-color: #0C6B37;color: #ebeaea;; border-radius: 0px;font-family: CormorantGaramond;" class="alert alert-success">{{ session('message') }}</h2>
     @endif
     @if (session()->has('messageref'))
-        <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
+        <h2 style="background-color:#ab3131;color: #ebeaea;; border-radius: 0px;font-family: CormorantGaramond;" class="alert alert-danger">{{ session('messageref') }}</h2>
     @endif
     @php
     $counter = count($announcements_to_check_all);
