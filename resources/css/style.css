@@ -1602,6 +1602,12 @@ section {
 
 
 
+    .dropdown-menu {
+        width: 10px;
+        margin:0px;
+        padding: 0px; /* Imposta la larghezza desiderata */
+    }
+
 #acceptButton:hover {
     background-color: #0C6B37;
     color: white;
@@ -1612,6 +1618,16 @@ section {
     background-color: #d73d3d;
     color: white;
     border: #d73d3d 1px solid;
+}
+
+.ButtonDeleteArticle i{
+   margin-right: 2.5px;
+  
+}
+
+.ButtonDeleteArticle i:hover{
+    color: #d73d3d;
+  
 }
 
 

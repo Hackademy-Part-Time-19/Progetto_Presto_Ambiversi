@@ -151,19 +151,16 @@
             <div class="dropdown mt-0  ">
                 <a class="dropdown-toggle lang-cust" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><span class=" h4 bi bi-globe-americas"></span></a>
-                <ul style="background-color: rgba(255, 255, 255, 0); width: 22px; " class=" dropdown-menu ">
-                    <div class="dropdown-item text-center">
-                        <x-locale lang="it" nation="it"  />
-                        
-                        
-                    </div>
-                    <div class="dropdown-item text-center">
-                        <x-locale lang="en" nation="us"/>
-                        
-                    </div>
-                  
 
+                <ul  class="dropdown-menu " style="background-color: #2c2c2c00" >
+                    <div style="padding-right: 0px;width: auto;margin:0px;font-family: CormorantGaramond" class="dropdown-item text-center m-0  ">
+                        <x-locale lang="it" nation="it" /> Ita
+                    </div>
+                    <div  style="padding-right: 0px; width: auto;margin:0px;font-family: CormorantGaramond" class="dropdown-item text-center m-0 ">
+                        <x-locale lang="en" nation="us" /> Eng
+                    </div>
                 </ul>
+
             </div>
         </div>
         @guest
@@ -177,7 +174,8 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div id="MenuDestraMobile" class="boxLog">
-                        <p class="messaggioBenvenuto" style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato: </p>
+                        <p class="messaggioBenvenuto"
+                            style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato: </p>
                         <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;  ">
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
@@ -194,8 +192,9 @@
                             </button>
                             <div style="position: relative; right:90px">
                                 <div style="position: absolute;left: 0;" class="dropdown-content">
-                                    <a class="dropdown-item" >Dati Personali</a>
-                                    <a class="dropdown-item" href="{{ route('announcements.showFavorites') }}">I Miei Preferiti</a>
+                                    <a class="dropdown-item">Dati Personali</a>
+                                    <a class="dropdown-item" href="{{ route('announcements.showFavorites') }}">I Miei
+                                        Preferiti</a>
                                     @auth @if (Auth::user()->isAdmin())
                                         <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: #d73d3d @endif"
                                             class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>
@@ -209,7 +208,7 @@
                                     @endAuth
                                     <button
                                         style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a
-                                            id="EscMenu"  type="submit">Esci </a></button>
+                                            id="EscMenu" type="submit">Esci </a></button>
                                 </div>
                             </div>
                         </div>

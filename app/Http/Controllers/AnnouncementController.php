@@ -12,6 +12,7 @@ class AnnouncementController extends Controller
     {
         return view('announcements.create');
     }
+    
     public function showAnnouncement(Announcement $announcement)
     {
         return view('announcements.show', compact('announcement'));
@@ -45,6 +46,12 @@ class AnnouncementController extends Controller
         $announcements_all = $user->favoriteAnnouncements()->get();
 
         return view('announcements.index', compact('announcements','announcements_all'));
+    }
+
+    public function deleteAnnouncement(Announcement $announcement)
+    {
+        $announcement->delete();
+        return back()->with('success', 'Annuncio eliminato con successo!');
     }
 
 }
