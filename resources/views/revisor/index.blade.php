@@ -11,13 +11,17 @@
             </form>
         </div>
     </div>
-    <x-success />
-    @if (session()->has('message'))
-        <h2 style="background-color: #0C6B37;color: #ebeaea;; border-radius: 0px;font-family: CormorantGaramond;" class="alert alert-success">{{ session('message') }}</h2>
+ 
+ <div style="height: 50px">
+        @if (session()->has('message'))
+        <h2 id="successMessage" style="background-color: #0C6B37;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-success">{{ session('message') }}</h2>
     @endif
     @if (session()->has('messageref'))
-        <h2 style="background-color:#ab3131;color: #ebeaea;; border-radius: 0px;font-family: CormorantGaramond;" class="alert alert-danger">{{ session('messageref') }}</h2>
+        <h2 id="errorMessage" style="background-color:#ab3131;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-danger">{{ session('messageref') }}</h2>
     @endif
+ </div>
+
+
     @php
     $counter = count($announcements_to_check_all);
     $currentPage = $announcements_to_check->currentPage();

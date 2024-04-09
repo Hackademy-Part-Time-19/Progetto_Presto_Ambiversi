@@ -13,14 +13,14 @@
         </div>
       
         
-      <div style="width: 100%; border-top:#2c2c2c 1px solid ">
+      <div style="width: 100%; border-top:#2c2c2c 1px solid;height: 50px; ">
         <x-success></x-success>
-            @if (session()->has('message'))
-            <h2  class="alert alert-success">{{ session('message') }}</h2>
-            @endif
-            @if (session()->has('messageref'))
-            <h2 style="background-color:#ab3131;color: #ebeaea;; border-radius: 0px;font-family: CormorantGaramond;" class="alert alert-danger">{{ session('messageref') }}</h2>
-            @endif
+        @if (session()->has('message'))
+        <h2 id="successMessage" style="background-color: #0C6B37;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-success">{{ session('message') }}</h2>
+    @endif
+    @if (session()->has('messageref'))
+        <h2 id="errorMessage" style="background-color:#ab3131;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-danger">{{ session('messageref') }}</h2>
+    @endif
       </div>
         <div style="border-top:#2c2c2c00 1px solid" class="containerCatalogo">
             

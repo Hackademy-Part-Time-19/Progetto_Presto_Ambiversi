@@ -25,8 +25,19 @@
 
     <script>
         
-        {{$script ?? ''}}
+        setTimeout(function() {
+        document.getElementById('successMessage').style.opacity = '0';
+        setTimeout(function() {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000); // Rimuove il messaggio di successo dopo la transizione
+    }, 1500); // Nasconde il messaggio di successo dopo 5 secondi
 
+    setTimeout(function() {
+        document.getElementById('errorMessage').style.opacity = '0';
+        setTimeout(function() {
+            document.getElementById('errorMessage').style.display = 'none';
+        }, 1000); // Rimuove il messaggio di errore dopo la transizione
+    }, 1500); // Nasconde il messaggio di errore dopo 5 secondi
 
 const thumbnails = document.querySelectorAll('.carousel__thumbnails');
     thumbnails.forEach(thumbnail => {
