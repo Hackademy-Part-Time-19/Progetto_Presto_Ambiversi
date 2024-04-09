@@ -149,15 +149,17 @@
     <div class="login">
         <div class="lingua">
             <div class="dropdown mt-0  ">
-                <a  role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><span class=" h4 bi bi-globe-americas"></span></a>
+                <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><span
+                        class=" h4 bi bi-globe-americas"></span></a>
 
-                <ul  class="dropdown-menu " style="background-color: #2c2c2c00" >
-                    <div style="padding-right: 0px;width: auto;margin:0px;font-family: CormorantGaramond" class="dropdown-item text-center m-0  ">
-                        <x-locale lang="it" nation="it" /> Ita
+                <ul class="dropdown-menu " style="background-color: #2c2c2c00">
+                    <div style="padding-right: 0px;width: auto;margin:0px;font-family: CormorantGaramond"
+                        class="dropdown-item text-center m-0  ">
+                        <x-locale lang="it" nation="it" /> Italiano
                     </div>
-                    <div  style="padding-right: 0px; width: auto;margin:0px;font-family: CormorantGaramond" class="dropdown-item text-center m-0 ">
-                        <x-locale lang="en" nation="us" /> Eng
+                    <div style="padding-right: 0px; width: auto;margin:0px;font-family: CormorantGaramond"
+                        class="dropdown-item text-center m-0 ">
+                        <x-locale lang="en" nation="us" /> Inglese
                     </div>
                 </ul>
 
@@ -175,20 +177,18 @@
                     @csrf
                     <div id="MenuDestraMobile" class="boxLog">
                         <p class="messaggioBenvenuto"
-                            style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato: </p>
-                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;  ">
+                            style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato:</p>
+                        <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px; ">
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
                                     <button
-                                        style="background-color: #d73d3d;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                        style="background-color: #d73d3d;padding: 0.5px;margin-right:4px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
                                 @endif
                             @endif
-                        <div style="" class="dropdown"><button class="dropbtn2"> <a
+                        <div style="" class="dropdown"><button style="padding-left:0px;padding-bottom:5.5px " class="dropbtn2"><a
                                     style="background-color: rgba(255, 255, 255, 0); border: none; "
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-                                </a>
+                                    data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                             </button>
                             <div style="position: relative; right:90px">
                                 <div style="position: absolute;left: 0;" class="dropdown-content">
