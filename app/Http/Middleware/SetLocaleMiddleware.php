@@ -9,15 +9,15 @@ use Illuminate\Support\Facades\App;
 class SetLocaleMiddleware
 {
     /**
-     
-     * Handle an incoming request.*
+     * Handle an incoming request.
+     *
      * @param  \Illuminate\Http\Request $request 
      * @param \Closure $next
-     * @param mixed
+     * * @param mixed
      */
     public function handle(Request $request, Closure $next)
     {
-        $localeLanguage = session('locale', 'it');
+        $localeLanguage = session('locale','it');
         App::setlocale($localeLanguage);
         return $next($request);
     }
