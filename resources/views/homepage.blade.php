@@ -16,7 +16,7 @@
     </div>
     <div id="SfondoCategorie" class="categorie">
         <div class="divCategorie">
-            <h2>CATEGORIE</h2>
+            <h2>{{__('ui.allCategories')}}</h2>
         </div>
 
 
@@ -27,27 +27,27 @@
                   <div style="padding-right: 0px" class="col-12 col-md-3 col-lg-3 col-ml-3 col-sm-12">
                     <div class="listaCategorie">
                         <ul >
-                            <li> <a  onclick="Tech(),TechLink()" id="Tech" class="aMenuCategori"> <span>01. </span>Tech</a>
+                            <li> <a  onclick="Tech(),TechLink()" id="Tech" class="aMenuCategori"> <span>01. </span>{{__('ui.catA')}}</a>
                             </li>
                             <hr>
-                            <li> <a onclick="Donna(),DonnaLink()" id="Donna" class="aMenuCategori"> <span>02. </span>Donna</a></li>
+                            <li> <a onclick="Donna(),DonnaLink()" id="Donna" class="aMenuCategori"> <span>02. </span>{{__('ui.catB')}}</a></li>
                             <hr>
-                            <li> <a onclick="Gioielli(),GioielliLink()" id="Gioielli" class="aMenuCategori"> <span>03. </span>Gioielli</a></li>
+                            <li> <a onclick="Gioielli(),GioielliLink()" id="Gioielli" class="aMenuCategori"> <span>03. </span>{{__('ui.catC')}}</a></li>
                             <hr>
-                            <li> <a onclick="Uomo(),UomoLink()" id="Uomo" class="aMenuCategori"> <span>04. </span>Uomo</a></li>
+                            <li> <a onclick="Uomo(),UomoLink()" id="Uomo" class="aMenuCategori"> <span>04. </span>{{__('ui.catD')}}</a></li>
                             <hr>
-                            <li> <a onclick="Giochi(),GiochiLink()" id="Giochi" class="aMenuCategori"> <span>05. </span>Giochi</a></li>
+                            <li> <a onclick="Giochi(),GiochiLink()" id="Giochi" class="aMenuCategori"> <span>05. </span>{{__('ui.catE')}}</a></li>
                             <hr>
-                            <li> <a onclick="Sport(),SportLink()" id="Sport" class="aMenuCategori"> <span>06. </span>Sport</a></li>
+                            <li> <a onclick="Sport(),SportLink()" id="Sport" class="aMenuCategori"> <span>06. </span>{{__('ui.catF')}}</a></li>
                             <hr>
                             
-                            <li> <a onclick="Auto(),AutoLink()" id="Auto" class="aMenuCategori"> <span>07. </span>Auto</a></li>
+                            <li> <a onclick="Auto(),AutoLink()" id="Auto" class="aMenuCategori"> <span>07. </span>{{__('ui.catG')}}</a></li>
                             <hr>
-                            <li> <a onclick="Orologio(),OrologioLink()" id="Orologio" class="aMenuCategori"> <span>08. </span>Orologio</a></li>
+                            <li> <a onclick="Orologio(),OrologioLink()" id="Orologio" class="aMenuCategori"> <span>08. </span>{{__('ui.catH')}}</a></li>
                             <hr>
-                            <li> <a onclick="Film(),FilmLink()" id="Film" class="aMenuCategori"> <span>09. </span>Film</a></li>
+                            <li> <a onclick="Film(),FilmLink()" id="Film" class="aMenuCategori"> <span>09. </span>{{__('ui.catK')}}</a></li>
                             <hr>
-                            <li> <a onclick="Musica(),MusicaLink()" id="Musica" class="aMenuCategori"> <span>10. </span>Musica</a></li>
+                            <li> <a onclick="Musica(),MusicaLink()" id="Musica" class="aMenuCategori"> <span>10. </span>{{__('ui.catI')}}</a></li>
                             <hr>
                         </ul>
                     </div>
@@ -77,16 +77,16 @@
             <div class="container text-center">
                 <div class="row">
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 ">
-                      <a href="{{ route('categoryShow', ['2']) }}">  <button>Donna</button></a>
+                      <a href="{{ route('categoryShow', ['2']) }}">  <button>{{__('ui.catB')}}</button></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
-                        <a href="{{ route('categoryShow', ['4']) }}"><button>Uomo</button></a>
+                        <a href="{{ route('categoryShow', ['4']) }}"><button>{{__('ui.catD')}}</button></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
-                       <a href="{{ route('categoryShow', ['3']) }}"> <button>Tech</button></a>
+                       <a href="{{ route('categoryShow', ['3']) }}"> <button>{{__('ui.catA')}}</button></a>
                     </div>
                     <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
-                        <a href="{{ route('categoryShow', ['1']) }}"><button>Gioielli</button></a>
+                        <a href="{{ route('categoryShow', ['1']) }}"><button>{{__('ui.catC')}}</button></a>
                     </div>
                 </div>
             </div>

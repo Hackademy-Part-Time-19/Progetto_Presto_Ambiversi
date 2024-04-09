@@ -14,7 +14,7 @@
 
                     <form action="/register" method="POST">
                         @csrf
-                        <h1 style="background-color: white ">Registrati</h1>
+                        <h1 style="background-color: white ">{{__('ui.registration')}}</h1>
                         <div style="background-color: white " class="social-container">
                             <a style="background-color: white " href="https://www.facebook.com/" class="social"><i
                                     style="background-color: white " id="social" class="bi bi-facebook"></i></a>
@@ -23,7 +23,7 @@
                             <a style="background-color: white " href="https://twitter.com/?lang=it" class="social"><i
                                     style="background-color: white " id="social" class="bi bi-twitter-x"></i></a>
                         </div>
-                        <span style="background-color: white ">oppure inserisci i dati</span>
+                        <span style="background-color: white ">{{__('ui.logForm')}}</span>
 
                         <input name="name" type="text" id="name" placeholder="Nome">
                         @error('name')
@@ -40,7 +40,7 @@
                         <input input name="password_confirmation" type="password" id="password_confirmation"
                             placeholder="Conferma Password">
 
-                        <button style="margin-top: 20px" type="submit">Crea account</button>
+                        <button style="margin-top: 20px" type="submit">{{__('ui.create')}}</button>
                     </form>
                 </div>
 
@@ -49,7 +49,7 @@
                 <div class="form-container sign-in-container">
                     <form class="mt-5" action="/login" method="POST">
                         @csrf
-                        <h1 style="background-color: white">Accedi</h1>
+                        <h1 style="background-color: white">{{__('ui.logForm')}}</h1>
                         <div style="background-color: white" class="social-container">
                             <a style="background-color: white" href="{{ route('auth.google') }}" class="social"><i
                                     style="background-color: white" id="social" class="bi bi-google"></i></a>
@@ -60,7 +60,7 @@
                             <a style="background-color: white" href="https://twitter.com/?lang=it" class="social"><i
                                     style="background-color: white" id="social" class="bi bi-twitter-x"></i></a>
                         </div>
-                        <span style="background-color: white"> oppure usa il tuo account
+                        <span style="background-color: white"> {{__('ui.moreLog')}}
                         </span>
 
                         <input name= "email" type="email" id="email" placeholder="Email">
@@ -76,7 +76,7 @@
                                     style="color: rgb(243, 70, 70);background-color: white">{{ $message }}</span>
                             </div>
                         @enderror
-                        <a style="background-color: white" href="">Hai dimenticato la password?</a>
+                        <a style="background-color: white" href="">{{__('ui.forgot')}}</a>
                         <button type="submit">Login</button>
                     </form>
                 </div>
@@ -88,14 +88,14 @@
                         <div style="background-color: black" class="overlay-panel overlay-left">
                             <h1 style="font-weight: bold;
                         margin: 0;background-color: black">
-                                Bentornato!</h1>
+                                {{__('ui.welcome')}}</h1>
                             <p
                                 style="	font-size: 14px;
                                 font-weight: 100;
                                 line-height: 20px;
                                 letter-spacing: 0.5px;
                                 margin: 20px 0 30px;background-color: black">
-                                Effettua il login con i tuoi dati.</p>
+                                {{__('ui.reWelcome')}}!</p>
                             <button class="ghost" id="signIn">Login</button>
                         </div>
                         <div style="background-color: black" class="overlay-panel overlay-right">
@@ -106,15 +106,15 @@
                             </div>
                             <h1 style="font-weight: bold;
                         margin: 0;background-color: black">
-                                Ciao!</h1>
+                               {{__('ui.hello')}}</h1>
                             <p
                                 style="	font-size: 14px;
                             font-weight: 100;
                             line-height: 20px;
                             letter-spacing: 0.5px;
                         margin: 20px 0 30px;background-color: black">
-                                Inserisci i tuoi dati e inizia il viaggio con noi.</p>
-                            <button class="ghost" id="signUp">Crea account</button>
+                                {{__('ui.journey')}}</p>
+                            <button class="ghost" id="signUp">{{__('ui.create')}}</button>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
         <a href="{{ route('announcements.index') }}">SHOP</a>
         @if (!request()->routeIs('announcements.index') && !request()->routeIs('categoryShow'))
             <div class="dropdown">
-                <button class="dropbtn">CATEGORIE</button>
+                <button class="dropbtn">{{__('ui.allCategories')}}</button>
                 <div style="z-index: 44" class="dropdown-content">
                     @foreach ($categories as $category)
                         <a class="dropdown-item"
@@ -143,33 +143,32 @@
     <div class="logo">
         <h1><a style="text-decoration: none;color:#2c2c2c;    " href="{{ route('homepage') }}">PRESTO</a
                 href="{{ route('homepage') }}"></h1>
-        <p>ESPLORA. SCEGLI. ACQUISTA. TUTTO IN UN SOLO POSTO.</p>
+        <p>{{__('ui.subTitle')}}</p>
 
     </div>
     <div class="login">
         <div class="lingua">
             <div class="dropdown mt-0  ">
-                <a class="dropdown-toggle lang-cust" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><span class=" h4 bi bi-globe-americas"></span></a>
-                <ul style="background-color: rgba(255, 255, 255, 0); width: 22px; " class=" dropdown-menu ">
-                    <div class="dropdown-item text-center">
-                        <x-locale lang="it" nation="it"  />
-                        
-                        
-                    </div>
-                    <div class="dropdown-item text-center">
-                        <x-locale lang="en" nation="us"/>
-                        
-                    </div>
-                  
+                <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><span
+                        class=" h4 bi bi-globe-americas"></span></a>
 
+                <ul class="dropdown-menu " style="background-color: #2c2c2c00">
+                    <div style="padding-right: 0px;width: auto;margin:0px;font-family: CormorantGaramond;"
+                        class="dropdown-item text-center m-0  ">
+                        <x-locale lang="it" nation="it" /> Italiano
+                    </div>
+                    <div style="padding-right: 0px; width: auto;margin:0px;font-family: CormorantGaramond"
+                        class="dropdown-item text-center m-0 ">
+                        <x-locale lang="en" nation="us" /> Inglese
+                    </div>
                 </ul>
+
             </div>
         </div>
         @guest
             <div onclick="OpenLogin()" style="display: flex;align-items: center;">
                 <i style="padding-right:10px " class="bi bi-person-fill"> </i>
-                <a class="loginA">ACCEDI</a>
+                <a class="loginA">{{__('ui.login')}}</a>
             </div>
         @endguest
         @auth
@@ -177,39 +176,37 @@
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <div id="MenuDestraMobile" class="boxLog">
-                        <p class="messaggioBenvenuto" style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">Bentornato: </p>
+                        <p class="messaggioBenvenuto" style=" font-family: CormorantGaramond;margin:0px;margin-right:5px ">{{__('ui.welcome')}}: </p>
                         <p style="margin: 0px;font-family: CormorantGaramond;font-size: 20px;  ">
                             @if (Auth::user()->isAdmin())
                                 @if (App\Models\Announcement::toBeRevisionedCount() > 0)
                                     <button
-                                        style="background-color: #f04040;padding: 0.5px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
+                                        style="background-color: #d73d3d;padding: 0.5px;margin-right:4px; border-radius: 100%; height: 10px;width: 10px; font-family: magnoglia; color:white;font-size:7px;cursor: default; position: relative; bottom:2px">{{ App\Models\Announcement::toBeRevisionedCount() }}</button>
                                 @endif
                             @endif
-                        <div style="" class="dropdown"><button class="dropbtn2"> <a
+                        <div style="" class="dropdown"><button style="padding-left:0px;padding-bottom:5.5px " class="dropbtn2"><a
                                     style="background-color: rgba(255, 255, 255, 0); border: none; "
                                     class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-                                </a>
+                                    data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                             </button>
                             <div style="position: relative; right:90px">
                                 <div style="position: absolute;left: 0;" class="dropdown-content">
-                                    <a class="dropdown-item" >Dati Personali</a>
-                                    <a class="dropdown-item" href="{{ route('announcements.showFavorites') }}">I Miei Preferiti</a>
+                                    <a class="dropdown-item" >{{__('ui.userA')}}</a>
+                                    <a class="dropdown-item" href="{{ route('announcements.showFavorites') }}">{{__('ui.userB')}}</a>
                                     @auth @if (Auth::user()->isAdmin())
                                         <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
-                                            class="dropdown-item" href="{{ route('revisor.index') }}">Revisione </a>
+                                            class="dropdown-item" href="{{ route('revisor.index') }}">{{__('ui.userC')}} </a>
                                     @endif @auth
-                                    <a href="{{ route('announcements.create') }}">Inserisci articolo</a>
+                                    <a href="{{ route('announcements.create') }}">{{__('ui.userD')}}</a>
                                     @endauth @endauth
                                     @Auth
                                         <div @if (Auth::user()->is_revisor) style="display:none;" @endif>
-                                            <a href="{{ route('become.revisor') }}">Diventa revisore</a>
+                                            <a href="{{ route('become.revisor') }}">{{__('ui.guestRevisor')}}</a>
                                         </div>
                                     @endAuth
                                     <button
                                         style="background-color: rgba(255, 255, 255, 0);text-align: left;padding:0px;"type="submit"><a
-                                            id="EscMenu"  type="submit">Esci </a></button>
+                                            id="EscMenu"  type="submit">{{__('ui.userE')}} </a></button>
                                 </div>
                             </div>
                         </div>

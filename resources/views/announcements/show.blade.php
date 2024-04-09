@@ -1,7 +1,7 @@
 <x-layout>
     <div class="headerImage">
 
-        <div style="margin-top: 35px;margin-left: 70px" class="cerca">
+        <div style="margin-top: 35px;margin-left: 70px ; " class="cerca">
             <form action="{{ route('announcements.search') }}" method="GET">
                 <input
                 style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -11,16 +11,19 @@
                 </form>
             </div>
         </div>
-        @if (session()->has('message'))
-        <h2 class="alert alert-success">{{ session('message') }}</h2>
-        @endif
+      
+        
+      <div style="width: 100%; border-top:#2c2c2c 1px solid;height: 50px; ">
         @if (session()->has('messageref'))
-        <h2 class="alert alert-danger">{{ session('messageref') }}</h2>
-        @endif
+        <h2 id="errorMessage" style="background-color:#ab3131;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-danger">{{ session('messageref') }}</h2>
+    @endif
         <x-success></x-success>
-        <div class="containerCatalogo">
-
-
+      
+   
+      </div>
+        <div style="border-top:#2c2c2c00 1px solid" class="containerCatalogo">
+            
+            
             <div style=" width:100%; display:flex; justify-content:center;">
                 <div style=" padding: 80px 0px; width:auto " class="container text-center m-0 ">
 
@@ -139,17 +142,25 @@
                                     style="display: flex; justify-content: space-between ; margin-top: 30px;">
                                     <button style="width: 80%">Aggiungi al carrello</button>
                                     <div style=" display: flex; flex-direction: column;  position: relative; ">
-                                        <form id="favoriteForm" action="{{ route('announcements.addToFavorites', ['announcement' => $announcement->id]) }}" method="POST">
-                                            @csrf
-                                            @if(auth()->user()->favoriteAnnouncements->contains($announcement))
-                                            @method('DELETE')
-                                            @else
-                                            @method('POST')
-                                            @endif
-                                            <button id="toggleHeart" type="submit">
-                                                <i id="AggiuntaPreferiti" class="bi bi-heart{{ auth()->user()->favoriteAnnouncements->contains($announcement) ? ' text-danger' : '' }}"></i>
-                                            </button>
-                                        </form>
+
+                                      @if(auth()->user()->favoriteAnnouncements->contains($announcement))
+                                          <form id="favoriteForm" action="{{ route('announcements.removeFromFavorites', ['announcement' => $announcement->id]) }}" method="POST">
+                                              @csrf
+                                              @method('DELETE')
+                                              <button id="toggleHeart" type="submit">
+                                                  <i id="AggiuntaPreferiti" class="bi bi-heart-fill text-danger"></i>
+                                              </button>
+                                          </form>
+                                      @else
+                                          <form id="favoriteForm" action="{{ route('announcements.addToFavorites', ['announcement' => $announcement->id]) }}" method="POST">
+                                              @csrf
+                                              <button id="toggleHeart" type="submit">
+                                                  <i id="AggiuntaPreferiti" class="bi bi-heart"></i>
+                                              </button>
+                                          </form>
+                                      @endif
+                                      
+
 
                                         <p style="position: absolute; top:50px;width:200px; right:-70px; font-family: CormorantGaramond "
                                         id="message"></p>
@@ -246,32 +257,6 @@
 </div>
 
 </div>
-<x-slot:script>
-document.addEventListener('DOMContentLoaded', function () {
-    const favoriteForm = document.getElementById('favoriteForm');
-    const isFavorite = {{ auth()->user()->favoriteAnnouncements->contains($announcement->id) ? 'true' : 'false' }};
 
-    favoriteForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const formData = new FormData(this);
-
-            fetch(this.action, {
-                method: isFavorite ? 'DELETE' : 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: formData
-            }).then(response => {
-                if (response.ok) {
-                    isFavorite = !isFavorite;
-                    document.getElementById('AggiuntaPreferiti').classList.toggle('text-danger', isFavorite);
-                }
-            }).catch(error => {
-                console.error('Si è verificato un errore:', error);
-            });
-        });
-    });
-
-</x-slot>
 <x-footer />
 </x-layout>

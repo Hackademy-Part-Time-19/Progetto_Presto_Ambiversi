@@ -12,6 +12,7 @@ class AnnouncementController extends Controller
     {
         return view('announcements.create');
     }
+    
     public function showAnnouncement(Announcement $announcement)
     {
         return view('announcements.show', compact('announcement'));
@@ -25,15 +26,17 @@ class AnnouncementController extends Controller
     public function addToFavorites(Announcement $announcement)
     {
         $user = auth()->user();
-        if ($user->favoriteAnnouncements->contains($announcement)) {
 
-            $user->favoriteAnnouncements()->detach($announcement);
-            return redirect()->back()->with('success', 'Annuncio rimosso dai preferiti!');
-        } else {
 
             $user->favoriteAnnouncements()->attach($announcement);
             return redirect()->back()->with('success', 'Annuncio aggiunto ai preferiti!');
-        }
+
+    }
+    public function removeFromFavorites (Announcement $announcement)
+    {
+        $user = auth()->user();
+        $user->favoriteAnnouncements()->detach($announcement);
+        return redirect()->back()->with('messageref', 'Annuncio rimosso dai preferiti!');
     }
 
     public function showFavorites()
@@ -43,6 +46,12 @@ class AnnouncementController extends Controller
         $announcements_all = $user->favoriteAnnouncements()->get();
 
         return view('announcements.index', compact('announcements','announcements_all'));
+    }
+
+    public function deleteAnnouncement(Announcement $announcement)
+    {
+        $announcement->delete();
+        return back()->with('success', 'Annuncio eliminato con successo!');
     }
 
 }
