@@ -92,7 +92,7 @@
                                                 @if ($announcement->images->isEmpty())
                                                     <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
                                                     <div class="carousel-item active">
-                                                        <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
+                                                        <img style="object-fit: cover; padding: 0px; height: 500px; width: 100%;"
                                                             src="{{ Storage::url('images/default.jpg') }}"
                                                             alt="Default Image" class="img-fluid rounded"
                                                             height="100%">
@@ -100,7 +100,7 @@
                                                 @else
                                                     @foreach ($announcement->images as $key => $image)
                                                         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                            <img style="object-fit: cover; padding: 0px; height: 555px; width: auto;"
+                                                            <img style="object-fit: cover; padding: 0px; height: 500px; width: auto;"
                                                                 src="{{ $image->getUrl(600, 500) }}" alt=""
                                                                 class="img-fluid rounded" height="100%">
                                                         </div>
