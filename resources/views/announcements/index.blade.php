@@ -142,24 +142,24 @@
                                                 <div style="display: flex;justify-content: space-between;width: 100%;alig-items: center;">
                                                     <p>€ {{ $announcement->price }}</p>
 
-                                                   @auth
-                                                   @if (Auth::user()->isAdmin())
-                                                        @if (App\Models\Announcement::toBeRevisionedCount() > 0)
-                                                            <form style="width: auto; "
-                                                                action="{{ route('announcements.delete', $announcement) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="ButtonDeleteArticle"
-                                                                    style="width: auto;  background-color: #2c2c2c00; "
-                                                                    type="submit"
-                                                                    onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')"><i
-                                                                        style="font-size: 20px"
-                                                                        class="bi bi-trash3"></i></button>
-                                                            </form>
-                                                        @endif
-                                                        @endif
-                                               @endauth
+                                                    @auth
+                                                    @if (Auth::user()->isAdmin())
+                                                        
+                                                             <form style="width: auto; "
+                                                                 action="{{ route('announcements.delete', $announcement) }}"
+                                                                 method="POST">
+                                                                 @csrf
+                                                                 @method('DELETE')
+                                                                 <button class="ButtonDeleteArticle"
+                                                                     style="width: auto;  background-color: #2c2c2c00; "
+                                                                     type="submit"
+                                                                     onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')"><i
+                                                                         style="font-size: 20px"
+                                                                         class="bi bi-trash3"></i></button>
+                                                             </form>
+                                                     
+                                                         @endif
+                                                @endauth
 
 
                                                 </div>

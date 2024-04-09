@@ -139,7 +139,7 @@
 
                                                @auth
                                                @if (Auth::user()->isAdmin())
-                                                    @if (App\Models\Announcement::toBeRevisionedCount() > 0)
+                                                   
                                                         <form style="width: auto; "
                                                             action="{{ route('announcements.delete', $announcement) }}"
                                                             method="POST">
@@ -152,7 +152,7 @@
                                                                     style="font-size: 20px"
                                                                     class="bi bi-trash3"></i></button>
                                                         </form>
-                                                    @endif
+                                                  
                                                     @endif
                                                 @endauth
 
