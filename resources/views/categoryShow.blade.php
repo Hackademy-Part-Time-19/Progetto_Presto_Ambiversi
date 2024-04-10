@@ -96,22 +96,20 @@
                                                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                                                 <img style="object-fit: cover; padding: 0px; height: 550px; width: 100%;"
                                                                     src="{{ $image->getUrl(600, 500) }}" alt=""
-                                                                    class="img-fluid rounded" height="100%">
+                                                                    class="img-fluid " height="100%">
                                                             </div>
                                                         @endforeach
                                                     @endif
 
                                                 </div>
-                                                @if (
-                                                    !$announcement->images->isEmpty() &&
-                                                        $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
-                                                    <button id="FrecciaPrev" style="height: 86.5%"
+                                                @if (!$announcement->images->isEmpty() && count($announcement->images) > 1 && $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
+                                                    <button id="FrecciaPrev" style="height:88%"
                                                         class="carousel-control-prev" type="button"
                                                         data-bs-target="#showCarousel-{{ $announcement->id }}"
                                                         data-bs-slide="prev">
                                                         <i class="bi bi-arrow-left-circle"></i>
                                                     </button>
-                                                    <button id="FrecciaNext" style="height: 86.5%"
+                                                    <button id="FrecciaNext" style="height: 88%"
                                                         class="carousel-control-next" type="button"
                                                         data-bs-target="#showCarousel-{{ $announcement->id }}"
                                                         data-bs-slide="next">
@@ -138,22 +136,7 @@
                                                         style="display: flex;justify-content: space-between;width: 100%;alig-items: center;">
                                                         <p>€ {{ $announcement->price }}</p>
 
-                                                        @auth
-                                                            @if (Auth::check() && Auth::user()->id == $announcement->user_id)
-                                                                <form style="width: auto;"
-                                                                    action="{{ route('announcements.delete', $announcement) }}"
-                                                                    method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button class="ButtonDeleteArticle"
-                                                                        style="width: auto; background-color: #2c2c2c00;"
-                                                                        type="submit"
-                                                                        onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')">
-                                                                        <i style="font-size: 20px" class="bi bi-trash3"></i>
-                                                                    </button>
-                                                                </form>
-                                                            @endif
-                                                        @endauth
+                                                       
 
 
                                                     </div>

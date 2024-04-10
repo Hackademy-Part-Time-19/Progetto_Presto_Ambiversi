@@ -24,8 +24,10 @@ class CreateAnnouncement extends Component
     public $image;
     public $announcement;
     public $selectedImage = 0;
+    public $name;
     
 
+    
     protected $rules = [
         'title' => 'required|min:4',
         'body' => 'required|min:8',
@@ -108,6 +110,8 @@ class CreateAnnouncement extends Component
     }
 
 
+    
+    
 
     
 }
