@@ -10,14 +10,14 @@
                         class="bi bi-search"></i></button>
             </form>
         </div>
-        <div style="width: 100%; border-top:#2c2c2c 1px solid;margin-bottom: 30px">  
-            <x-success>
-            
-            </x-success>
-  
+        <div style="width: 100%; border-top:#2c2c2c 1px solid;margin-bottom: 30px">
+            <x-success></x-success>
+            <x-delete></x-delete>
+            <x-warning></x-warning>
+
       </div>
     </div>
-   
+
     <div style="border-top: #2c2c2c00 1px solid" class="containerCatalogo">
 
         <div class="containerFiltro">
@@ -68,10 +68,10 @@
                                 </div>
 
                             </div>
-                            @php 
+                            @php
                $announcementsCategory = $category->announcements()->orderBy('created_at', 'desc')->get();
-               
-                        
+
+
                             @endphp
 
 
@@ -104,7 +104,7 @@
                                         @if (
                                             !$announcement->images->isEmpty() &&
                                                 $announcement->images->first()->getUrl(600, 500) != Storage::url('images/default.jpg'))
-                                          
+
                                           <button id="FrecciaPrev" style="height: 86.5%"
                                                 class="carousel-control-prev" type="button"
                                                 data-bs-target="#showCarousel-{{ $announcement->id }}"
@@ -139,7 +139,7 @@
 
                                                @auth
                                                @if (Auth::user()->isAdmin())
-                                                   
+
                                                         <form style="width: auto; "
                                                             action="{{ route('announcements.delete', $announcement) }}"
                                                             method="POST">
@@ -152,7 +152,7 @@
                                                                     style="font-size: 20px"
                                                                     class="bi bi-trash3"></i></button>
                                                         </form>
-                                                  
+
                                                     @endif
                                                 @endauth
 
@@ -168,21 +168,21 @@
                         @endif
                         @empty
                         <h2 style="font-family: CormorantGaramond;">Non sono presenti annunci per questa categoria!</h2>
-                           
-                      
-                        
+
+
+
                         @endforelse
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
- 
 
-   
+
+
 
     <x-footer />
 </x-layout>

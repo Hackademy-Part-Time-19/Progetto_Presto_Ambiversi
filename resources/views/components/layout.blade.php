@@ -16,15 +16,12 @@
 <body>
     <x-navbar></x-navbar>
 
-    <x-delete></x-delete>
-    <x-warning></x-warning>
-
     {{ $slot }}
     @livewireScripts
 
 
     <script>
-        
+
         setTimeout(function() {
         document.getElementById('successMessage').style.opacity = '0';
         setTimeout(function() {

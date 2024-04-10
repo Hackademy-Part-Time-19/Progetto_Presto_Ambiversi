@@ -11,19 +11,20 @@
                 </form>
             </div>
         </div>
-      
-        
+
+
       <div style="width: 100%; border-top:#2c2c2c 1px solid;height: 50px; ">
         @if (session()->has('messageref'))
         <h2 id="errorMessage" style="background-color:#ab3131;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-danger">{{ session('messageref') }}</h2>
     @endif
         <x-success></x-success>
-      
-   
+        <x-warning></x-warning>
+
+
       </div>
         <div style="border-top:#2c2c2c00 1px solid" class="containerCatalogo">
-            
-            
+
+
             <div style=" width:100%; display:flex; justify-content:center;">
                 <div style=" padding: 80px 0px; width:auto " class="container text-center m-0 ">
 
@@ -159,7 +160,7 @@
                                               </button>
                                           </form>
                                       @endif
-                                      
+
 
 
                                         <p style="position: absolute; top:50px;width:200px; right:-70px; font-family: CormorantGaramond "

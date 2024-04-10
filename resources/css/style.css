@@ -351,7 +351,7 @@ nav {
 }
 
 #message {
-  display: bloack;
+  display: block;
   color: #f04040;
   font-size: 16px;
   transition: opacity 1s;
@@ -1217,7 +1217,7 @@ footer hr {
   }
 }
 
-// Styling
+/* Styling */
 
 section {
   background: #f4f4f4;

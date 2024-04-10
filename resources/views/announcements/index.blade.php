@@ -10,11 +10,11 @@
                         class="bi bi-search"></i></button>
             </form>
         </div>
-        <div style="width: 100%; border-top:#2c2c2c 1px solid;margin-bottom: 30px">  
-              <x-success>
-              
-              </x-success>
-    
+        <div style="width: 100%; border-top:#2c2c2c 1px solid;margin-bottom: 30px">
+            <x-success></x-success>
+            <x-delete></x-delete>
+            <x-warning></x-warning>
+
         </div>
     </div>
     <div style="border-top: #2c2c2c00 1px solid" class="containerCatalogo">
@@ -144,7 +144,7 @@
 
                                                     @auth
                                                     @if (Auth::user()->isAdmin())
-                                                        
+
                                                              <form style="width: auto; "
                                                                  action="{{ route('announcements.delete', $announcement) }}"
                                                                  method="POST">
@@ -157,7 +157,7 @@
                                                                          style="font-size: 20px"
                                                                          class="bi bi-trash3"></i></button>
                                                              </form>
-                                                     
+
                                                          @endif
                                                 @endauth
 
