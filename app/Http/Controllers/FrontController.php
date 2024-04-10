@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Crypt;
 
 class FrontController extends Controller
 {
@@ -26,16 +28,20 @@ class FrontController extends Controller
         return view('categoryShow', compact('category'));
     }
 
+
+
     public function searchAnnouncements(Request $request)
     {
-        $announcements_all = Announcement::search($request->searched)->where('is_accepted',true)->get();
-        $announcements = Announcement::search($request->searched)->where('is_accepted',true)->orderBy('created_at','desc')->get();
-        return view('announcements.index',compact('announcements','announcements_all'));
+        $announcements_all = Announcement::search($request->searched)->where('is_accepted', true)->get();
+        $announcements = Announcement::search($request->searched)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        return view('announcements.index', compact('announcements', 'announcements_all'));
     }
 
     public function setLanguage($lang)
     {
-        session()->put('locale',$lang);
+        session()->put('locale', $lang);
         return redirect()->back();
     }
+
+
 }

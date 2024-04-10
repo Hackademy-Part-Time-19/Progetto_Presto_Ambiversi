@@ -24,34 +24,33 @@
 
 
     <script>
-        
         setTimeout(function() {
-        document.getElementById('successMessage').style.opacity = '0';
+            document.getElementById('successMessage').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 1000); // Rimuove il messaggio di successo dopo la transizione
+        }, 1500); // Nasconde il messaggio di successo dopo 5 secondi
+
         setTimeout(function() {
-            document.getElementById('successMessage').style.display = 'none';
-        }, 1000); // Rimuove il messaggio di successo dopo la transizione
-    }, 1500); // Nasconde il messaggio di successo dopo 5 secondi
+            document.getElementById('errorMessage').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('errorMessage').style.display = 'none';
+            }, 1000); // Rimuove il messaggio di errore dopo la transizione
+        }, 1500); // Nasconde il messaggio di errore dopo 5 secondi
 
-    setTimeout(function() {
-        document.getElementById('errorMessage').style.opacity = '0';
-        setTimeout(function() {
-            document.getElementById('errorMessage').style.display = 'none';
-        }, 1000); // Rimuove il messaggio di errore dopo la transizione
-    }, 1500); // Nasconde il messaggio di errore dopo 5 secondi
+        const thumbnails = document.querySelectorAll('.carousel__thumbnails');
+        thumbnails.forEach(thumbnail => {
+            const announcementId = thumbnail.getAttribute('data-announcement-id');
+            const radioButtons = document.querySelectorAll(`input[name="slides${announcementId}"]`);
 
-const thumbnails = document.querySelectorAll('.carousel__thumbnails');
-    thumbnails.forEach(thumbnail => {
-        const announcementId = thumbnail.getAttribute('data-announcement-id');
-        const radioButtons = document.querySelectorAll(`input[name="slides${announcementId}"]`);
-
-        thumbnail.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LABEL') {
-                const targetId = event.target.getAttribute('for');
-                const radioBtn = document.getElementById(targetId);
-                radioBtn.checked = true;
-            }
+            thumbnail.addEventListener('click', (event) => {
+                if (event.target.tagName === 'LABEL') {
+                    const targetId = event.target.getAttribute('for');
+                    const radioBtn = document.getElementById(targetId);
+                    radioBtn.checked = true;
+                }
+            });
         });
-    });
 
 
         const categories = [{
@@ -222,6 +221,51 @@ const thumbnails = document.querySelectorAll('.carousel__thumbnails');
                 }, 2000);
             }
         });
+
+        function mostraContenuto(sezione) {
+            document.querySelectorAll('.boxContent').forEach(element => {
+                element.style.display = 'none';
+            });
+            document.querySelector(`.box${sezione}`).style.display = 'block';
+        }
+
+
+
+
+  function color(elementId) {
+            var elements = document.querySelectorAll('.infoPers, .myArticle, .myMessage, .setInfoPers');
+            
+            elements.forEach(function(element) {
+                if (element.id === elementId) {
+                    element.style.color = '#6b6b6b';
+                } else {
+                    element.style.color = '#e9e9e9';
+                }
+            });
+        }
+        
+        function togglePassword(button) {
+            var passwordInput = document.getElementById('passwordInput');
+            var eyeIcon = document.getElementById('eyeIcon');
+            var password = passwordInput.getAttribute('data-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordInput.value = password;
+                eyeIcon.classList.remove('bi-eye');
+                eyeIcon.classList.add('bi-eye-slash');
+                button.style.backgroundColor = '#ffffff'; // Cambia il colore di sfondo a bianco
+                button.style.border = '1px solid #2c2c2c'; // Cambia il colore del bordo a grigio scuro
+            } else {
+                passwordInput.type = 'password';
+                passwordInput.value = '';
+                eyeIcon.classList.remove('bi-eye-slash');
+                eyeIcon.classList.add('bi-eye');
+                button.style.backgroundColor = '#2c2c2c'; // Cambia il colore di sfondo a grigio scuro
+                button.style.border = '1px solid #ffffff'; // Cambia il colore del bordo a bianco
+            }
+        }
+
     </script>
 
 </body>

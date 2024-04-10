@@ -10,11 +10,11 @@
                         class="bi bi-search"></i></button>
             </form>
         </div>
-        <div style="width: 100%; border-top:#2c2c2c 1px solid;margin-bottom: 30px">  
-              <x-success>
-              
-              </x-success>
-    
+        <div style="width: 100%; border-top:#2c2c2c 1px solid;margin-bottom: 30px">
+            <x-success>
+
+            </x-success>
+
         </div>
     </div>
     <div style="border-top: #2c2c2c00 1px solid" class="containerCatalogo">
@@ -33,7 +33,7 @@
             <hr>
             @foreach ($categories as $category)
                 <a class="dropdown-item"
-                    href="{{ route('categoryShow', compact('category')) }}">{{__('ui.cat'.$category->id)}}</a>
+                    href="{{ route('categoryShow', compact('category')) }}">{{ __('ui.cat' . $category->id) }}</a>
             @endforeach
         </div>
 
@@ -57,7 +57,7 @@
                                 @if (request()->routeIs('announcements.showFavorites'))
                                     Tutti gli articoli preferiti in un unico posto
                                 @else
-                                    {{__('ui.sentenceA')}}
+                                    {{ __('ui.sentenceA') }}
                                 @endif
 
 
@@ -91,16 +91,15 @@
                                             <div class="carousel-inner">
                                                 @if ($announcement->images->isEmpty())
                                                     <!-- Se non ci sono immagini caricate, visualizza un'immagine di default -->
-                                                    <div class="carousel-item active">
-                                                        <img style="object-fit: cover; padding: 0px; height: 500px; width: 100%;"
+                                                    <div>
+                                                        <img style="object-fit:cover; padding: 0px;height: 550px; width: 100%;"
                                                             src="{{ Storage::url('images/default.jpg') }}"
-                                                            alt="Default Image" class="img-fluid rounded"
-                                                            height="100%">
+                                                            height="100%" width="100%">
                                                     </div>
                                                 @else
                                                     @foreach ($announcement->images as $key => $image)
                                                         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                            <img style="object-fit: cover; padding: 0px; height: 500px; width: auto;"
+                                                            <img style="object-fit: cover; padding: 0px; height: 550px; width: 100%;"
                                                                 src="{{ $image->getUrl(600, 500) }}" alt=""
                                                                 class="img-fluid rounded" height="100%">
                                                         </div>
@@ -139,27 +138,28 @@
                                                             {{ $announcement->created_at->format('d/m/Y') }}</p>
                                                     </div>
                                                 </div>
-                                                <div style="display: flex;justify-content: space-between;width: 100%;alig-items: center;">
+                                                <div
+                                                    style="display: flex;justify-content: space-between;width: 100%;alig-items: center;">
                                                     <p>€ {{ $announcement->price }}</p>
 
                                                     @auth
-                                                    @if (Auth::user()->isAdmin())
-                                                        
-                                                             <form style="width: auto; "
-                                                                 action="{{ route('announcements.delete', $announcement) }}"
-                                                                 method="POST">
-                                                                 @csrf
-                                                                 @method('DELETE')
-                                                                 <button class="ButtonDeleteArticle"
-                                                                     style="width: auto;  background-color: #2c2c2c00; "
-                                                                     type="submit"
-                                                                     onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')"><i
-                                                                         style="font-size: 20px"
-                                                                         class="bi bi-trash3"></i></button>
-                                                             </form>
-                                                     
-                                                         @endif
-                                                @endauth
+                                                        @if (Auth::check() && Auth::user()->id == $announcement->user_id)
+                                                            <form style="width: auto;"
+                                                                action="{{ route('announcements.delete', $announcement) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="ButtonDeleteArticle"
+                                                                    style="width: auto; background-color: #2c2c2c00;"
+                                                                    type="submit"
+                                                                    onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')">
+                                                                    <i style="font-size: 20px" class="bi bi-trash3"></i>
+                                                                </button>
+                                                            </form>
+                                                        @endif
+                                                    @endauth
+
+
 
 
                                                 </div>
@@ -174,17 +174,13 @@
                         @empty
                             <div class="col-12">
                                 <div class="">
-
                                     <p class="lead">
                                         @if (request()->routeIs('announcements.showFavorites'))
                                             Non hai aggiunto nessun articolo ai preferiti
                                         @else
                                             Non ci sono annunci per questa ricerca
                                         @endif
-
-
                                     </p>
-
                                 </div>
                             </div>
                         @endforelse

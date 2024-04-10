@@ -11,7 +11,7 @@
     <div style=" width:100%; display:flex; justify-content:center; ">
         <div style=" padding: 80px 0px; width:auto ;" class="container text-center m-0 ">
 
-            <div class="row m-0 " style="width: 100%; background-color: #ffffff; padding:30px; border-radius: 10px; " >
+            <div class="row m-0 " style="width: 100%; background-color: #ffffff; padding:30px; border-radius: 10px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; " >
                 <div style="padding-right: 50px" class="col-12 col-ml-12 col-md-8 col-sm-12 p-0 ">
                     <div class="BoxInformazioni2">
                         <div style="height: auto; width:auto">
