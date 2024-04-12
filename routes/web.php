@@ -49,7 +49,7 @@ Route::get('/google/redirect', [App\Http\Controllers\GoogleLoginController::clas
 
 Route::get('/google/callback', [App\Http\Controllers\GoogleLoginController::class, 'handleGoogleCallback'])->name('google.callback');
 
-Route::get('/ricerca/annuncio',[FrontController::class,'searchAnnouncements'])->name('announcements.search');
+Route::get('/ricerca/annuncio', [FrontController::class, 'searchAnnouncements'])->name('announcements.search');
 Route::post('/announcements/{announcement}/add-to-favorites', [AnnouncementController::class, 'addToFavorites'])->name('announcements.addToFavorites');
 Route::get('/announcements/favorites', [AnnouncementController::class, 'showFavorites'])->name('announcements.showFavorites');
 Route::delete('/announcements/{announcement}/remove-from-favorites', [AnnouncementController::class, 'removeFromFavorites'])
@@ -57,3 +57,4 @@ Route::delete('/announcements/{announcement}/remove-from-favorites', [Announceme
 Route::post('/lingua/{lang}', [FrontController::class, 'setLanguage'])->name('set_language_locale');
 
 Route::delete('/announcements/{announcement}', [AnnouncementController::class, 'deleteAnnouncement'])->name('announcements.delete');
+Route::get('/profilo-utente', [AnnouncementController::class, 'showUserProfile'])->name('userProfile');

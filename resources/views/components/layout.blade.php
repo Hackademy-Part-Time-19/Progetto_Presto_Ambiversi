@@ -10,49 +10,50 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/java.js', 'resources/css/style.css'])
     @livewireStyles
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+     	integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
 <body>
     <x-navbar></x-navbar>
 
+    <x-delete></x-delete>
+    <x-warning></x-warning>
+
     {{ $slot }}
     @livewireScripts
 
 
     <script>
+        setTimeout(function() {
+            document.getElementById('successMessage').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 1000); // Rimuove il messaggio di successo dopo la transizione
+        }, 1500); // Nasconde il messaggio di successo dopo 5 secondi
 
         setTimeout(function() {
-        document.getElementById('successMessage').style.opacity = '0';
-        setTimeout(function() {
-            document.getElementById('successMessage').style.display = 'none';
-        }, 1000); // Rimuove il messaggio di successo dopo la transizione
-    }, 1500); // Nasconde il messaggio di successo dopo 5 secondi
+            document.getElementById('errorMessage').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('errorMessage').style.display = 'none';
+            }, 1000); // Rimuove il messaggio di errore dopo la transizione
+        }, 1500); // Nasconde il messaggio di errore dopo 5 secondi
 
-    setTimeout(function() {
-        document.getElementById('errorMessage').style.opacity = '0';
-        setTimeout(function() {
-            document.getElementById('errorMessage').style.display = 'none';
-        }, 1000); // Rimuove il messaggio di errore dopo la transizione
-    }, 1500); // Nasconde il messaggio di errore dopo 5 secondi
+        const thumbnails = document.querySelectorAll('.carousel__thumbnails');
+        thumbnails.forEach(thumbnail => {
+            const announcementId = thumbnail.getAttribute('data-announcement-id');
+            const radioButtons = document.querySelectorAll(`input[name="slides${announcementId}"]`);
 
-const thumbnails = document.querySelectorAll('.carousel__thumbnails');
-    thumbnails.forEach(thumbnail => {
-        const announcementId = thumbnail.getAttribute('data-announcement-id');
-        const radioButtons = document.querySelectorAll(`input[name="slides${announcementId}"]`);
-
-        thumbnail.addEventListener('click', (event) => {
-            if (event.target.tagName === 'LABEL') {
-                const targetId = event.target.getAttribute('for');
-                const radioBtn = document.getElementById(targetId);
-                radioBtn.checked = true;
-            }
+            thumbnail.addEventListener('click', (event) => {
+                if (event.target.tagName === 'LABEL') {
+                    const targetId = event.target.getAttribute('for');
+                    const radioBtn = document.getElementById(targetId);
+                    radioBtn.checked = true;
+                }
+            });
         });
-    });
 
 
         const categories = [{
@@ -223,6 +224,51 @@ const thumbnails = document.querySelectorAll('.carousel__thumbnails');
                 }, 2000);
             }
         });
+
+        function mostraContenuto(sezione) {
+            document.querySelectorAll('.boxContent').forEach(element => {
+                element.style.display = 'none';
+            });
+            document.querySelector(`.box${sezione}`).style.display = 'block';
+        }
+
+
+
+
+  function color(elementId) {
+            var elements = document.querySelectorAll('.infoPers, .myArticle, .myMessage, .setInfoPers');
+            
+            elements.forEach(function(element) {
+                if (element.id === elementId) {
+                    element.style.color = '#6b6b6b';
+                } else {
+                    element.style.color = '#e9e9e9';
+                }
+            });
+        }
+        
+        function togglePassword(button) {
+            var passwordInput = document.getElementById('passwordInput');
+            var eyeIcon = document.getElementById('eyeIcon');
+            var password = passwordInput.getAttribute('data-password');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordInput.value = password;
+                eyeIcon.classList.remove('bi-eye');
+                eyeIcon.classList.add('bi-eye-slash');
+                button.style.backgroundColor = '#ffffff'; // Cambia il colore di sfondo a bianco
+                button.style.border = '1px solid #2c2c2c'; // Cambia il colore del bordo a grigio scuro
+            } else {
+                passwordInput.type = 'password';
+                passwordInput.value = '';
+                eyeIcon.classList.remove('bi-eye-slash');
+                eyeIcon.classList.add('bi-eye');
+                button.style.backgroundColor = '#2c2c2c'; // Cambia il colore di sfondo a grigio scuro
+                button.style.border = '1px solid #ffffff'; // Cambia il colore del bordo a bianco
+            }
+        }
+
     </script>
 
 </body>

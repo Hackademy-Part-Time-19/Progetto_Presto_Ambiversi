@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnnouncementController extends Controller
 {
@@ -12,7 +13,7 @@ class AnnouncementController extends Controller
     {
         return view('announcements.create');
     }
-
+    
     public function showAnnouncement(Announcement $announcement)
     {
         return view('announcements.show', compact('announcement'));
@@ -51,7 +52,23 @@ class AnnouncementController extends Controller
     public function deleteAnnouncement(Announcement $announcement)
     {
         $announcement->delete();
-        return back()->with('delete', 'Annuncio eliminato con successo!');
+        return back()->with('success', 'Annuncio eliminato con successo!');
     }
+    
+
+public function showUserProfile()
+  {
+      if (Auth::check()) {
+          $user = Auth::user();
+          $announcements = $user->announcements()->orderBy('created_at', 'desc')->paginate(6);
+          $announcements_all = $user->announcements()->get();
+  
+          return view('userProfile', compact('user', 'announcements', 'announcements_all'));
+      } else {
+          return redirect()->route('login');
+      }
+  }
+  
+    
 
 }
