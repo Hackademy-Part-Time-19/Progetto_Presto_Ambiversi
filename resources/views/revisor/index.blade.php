@@ -11,21 +11,25 @@
             </form>
         </div>
     </div>
- 
- <div style="height: 50px">
+
+    <div style="height: 50px">
         @if (session()->has('message'))
-        <h2 id="successMessage" style="background-color: #0C6B37;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-success">{{ session('message') }}</h2>
-    @endif
-    @if (session()->has('messageref'))
-        <h2 id="errorMessage" style="background-color:#ab3131;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;" class="alert alert-danger">{{ session('messageref') }}</h2>
-    @endif
- </div>
+            <h2 id="successMessage"
+                style="background-color: #0C6B37;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;"
+                class="alert alert-success">{{ session('message') }}</h2>
+        @endif
+        @if (session()->has('messageref'))
+            <h2 id="errorMessage"
+                style="background-color:#ab3131;color: #ebeaea;border-radius: 0px;font-family: CormorantGaramond; opacity: 1; transition: opacity 1s;"
+                class="alert alert-danger">{{ session('messageref') }}</h2>
+        @endif
+    </div>
 
 
     @php
-    $counter = count($announcements_to_check_all);
-    $currentPage = $announcements_to_check->currentPage();
-@endphp
+        $counter = count($announcements_to_check_all);
+        $currentPage = $announcements_to_check->currentPage();
+    @endphp
     <h3 style="font-family: CormorantGaramond; font-size: 40px; text-align: center; padding:20px">
         {{ $announcements_to_check->isNotEmpty() ? 'ANNUNCI DA REVISIONARE: ' . $counter : 'NESSUN ANNUNCIO DA REVISIONARE' }}
     </h3>
@@ -40,11 +44,10 @@
                 $counter = count($announcements_to_check_all);
                 $currentPage = $announcements_to_check->currentPage();
             @endphp
-           
+
 
             @foreach ($announcements_to_check as $key => $announcement)
-
-                <div  class="container text-center">
+                <div class="container text-center">
                     <div class="row">
                         <div class="col-12 col-ml-6 col-sm-12 p-1">
                             <div style=" width:100%; display:flex; justify-content:center;">
@@ -57,7 +60,7 @@
 
                                                     <h2
                                                         style="font-family: CormorantGaramond ;text-align:start;background-color:#2c2c2c;color: #e9e9e9;width:100%;height:50px;padding:5px">
-                                                        Annuncio Nr: {{$currentPage}} </h2>
+                                                        Annuncio Nr: {{ $currentPage }} </h2>
 
                                                     <div class="cavolo"
                                                         style=" height: 200px; width:100%;display:flex;justify-content: center; align-items: center;;">
@@ -148,16 +151,19 @@
                                                                         name="slides{{ $announcement->id }}"
                                                                         checked="checked"
                                                                         id="slide-{{ $announcement->id }}-1">
-                                                                <ul class="carousel__slides">
-                                                                    <li class="carousel__slide">
-                                                                        <figure>
-                                                                            <div>
-                                                                                <img id="fotoAnnuncioMobile" src="{{ Storage::url('images/default.jpg') }}" width="100%" height="{{ Storage::url('images/default.jpg') == Storage::url('images/default.jpg') ? '1000px' : '900px' }}" alt="Default Image">
-                                                                            </div>
-                                                                        </figure>
-                                                                    </li>
-                                                                </ul>
-
+                                                                    <ul class="carousel__slides">
+                                                                        <li class="carousel__slide">
+                                                                            <figure>
+                                                                                <div>
+                                                                                    <img id="fotoAnnuncioMobile"
+                                                                                        src="{{ Storage::url('images/default.jpg') }}"
+                                                                                        width="100%"
+                                                                                        height="{{ Storage::url('images/default.jpg') == Storage::url('images/default.jpg') ? '1000px' : '900px' }}"
+                                                                                        alt="Default Image">
+                                                                                </div>
+                                                                            </figure>
+                                                                        </li>
+                                                                    </ul>
                                                                 @else
                                                                     <!-- Altrimenti, mostra le immagini caricate nel carousel -->
                                                                     @foreach ($announcement->images as $key => $image)
@@ -171,7 +177,8 @@
                                                                             <li class="carousel__slide">
                                                                                 <figure>
                                                                                     <div>
-                                                                                        <img id="fotoAnnuncioMobile"  src="{{ $image->getUrl(600, 500) }}"
+                                                                                        <img id="fotoAnnuncioMobile"
+                                                                                            src="{{ $image->getUrl(600, 500) }}"
                                                                                             width="100%"
                                                                                             height="900px"
                                                                                             alt="">
@@ -200,13 +207,14 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <h5>
-                                                                                Tags                                                                          
+                                                                                Tags
                                                                             </h5>
                                                                             @if ($image->labels)
-                                                                                
-                                                                            <p>@foreach ($image->labels as $key=>$label)
-                                                                            {{$label}},                                                                         
-                                                                            @endforeach</p>
+                                                                                <p>
+                                                                                    @foreach ($image->labels as  $label)
+                                                                                        {{ $label }},
+                                                                                    @endforeach
+                                                                                </p>
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -216,14 +224,24 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <h5>Revisione immagini</h5>
-                                                 
-                                                                            <p>Adulti: <span class="{{$image->adult}}"></span></p>
-                                                                            <p>Satira: <span class="{{$image->spoof}}"></span></p>
-                                                                            <p>Medicina: <span class="{{$image->medical}}"></span></p>
-                                                                            <p>Violenza: <span class="{{$image->violence}}"></span></p>
-                                                                            <p>Contenuto Ammiccante: <span class="{{$image->racy}}"></span></p>
+
+                                                                            <p>Adulti: <span
+                                                                                    class="{{ $image->adult }}"></span>
+                                                                            </p>
+                                                                            <p>Satira: <span
+                                                                                    class="{{ $image->spoof }}"></span>
+                                                                            </p>
+                                                                            <p>Medicina: <span
+                                                                                    class="{{ $image->medical }}"></span>
+                                                                            </p>
+                                                                            <p>Violenza: <span
+                                                                                    class="{{ $image->violence }}"></span>
+                                                                            </p>
+                                                                            <p>Contenuto Ammiccante: <span
+                                                                                    class="{{ $image->racy }}"></span>
+                                                                            </p>
                                                                         </div>
-                                                                        
+
                                                                     </div>
 
                                                                 </div>
@@ -258,46 +276,53 @@
                                         </div>
                                     </div>
                                     @if ($announcements_to_check instanceof \Illuminate\Pagination\LengthAwarePaginator)
-<div class="d-flex justify-content-end my-4 me-3">
-    <div class="pagination">
-        @if ($announcements_to_check->onFirstPage())
-        <span class="disabled me-2">&laquo;</span>
-        @else
-        <a style="color: #2c2c2c;text-decoration:none; " class="me-2" href="{{ $announcements_to_check->previousPageUrl() }}">&laquo;</a>
-        @endif
-        @php
-        $currentPage = $announcements_to_check->currentPage();
-        $lastPage = $announcements_to_check->lastPage();
-        $start = max($currentPage - 2, 1);
-        $end = min($currentPage + 2, $lastPage);
-        @endphp
-        @if ($start > 1)
-        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements_to_check->url(1) }}">1</a>
-        @if ($start > 2)
-        <span class="mx-1">...</span>
-        @endif
-        @endif
-        @for ($i = $start; $i <= $end; $i++)
-        @if ($i == $currentPage)
-        <span class="active mx-3 text-danger">{{ $i }}</span>
-        @else
-        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements_to_check->url($i) }}">{{ $i }}</a>
-        @endif
-        @endfor
-        @if ($end < $lastPage)
-        @if ($end < $lastPage - 1)
-        <span class="mx-1">...</span>
-        @endif
-        <a style="color: #2c2c2c;text-decoration:none; " class="mx-1" href="{{ $announcements_to_check->url($lastPage) }}">{{ $lastPage }}</a>
-        @endif
-        @if ($announcements_to_check->hasMorePages())
-        <a style="color: #2c2c2c;text-decoration:none; " class="ms-2" href="{{ $announcements_to_check->nextPageUrl() }}">&raquo;</a>
-        @else
-        <span class="disabled ms-2">&raquo;</span>
-        @endif
-    </div>
-</div>
-@endif
+                                        <div class="d-flex justify-content-end my-4 me-3">
+                                            <div class="pagination">
+                                                @if ($announcements_to_check->onFirstPage())
+                                                    <span class="disabled me-2">&laquo;</span>
+                                                @else
+                                                    <a style="color: #2c2c2c;text-decoration:none; " class="me-2"
+                                                        href="{{ $announcements_to_check->previousPageUrl() }}">&laquo;</a>
+                                                @endif
+                                                @php
+                                                    $currentPage = $announcements_to_check->currentPage();
+                                                    $lastPage = $announcements_to_check->lastPage();
+                                                    $start = max($currentPage - 2, 1);
+                                                    $end = min($currentPage + 2, $lastPage);
+                                                @endphp
+                                                @if ($start > 1)
+                                                    <a style="color: #2c2c2c;text-decoration:none; " class="mx-1"
+                                                        href="{{ $announcements_to_check->url(1) }}">1</a>
+                                                    @if ($start > 2)
+                                                        <span class="mx-1">...</span>
+                                                    @endif
+                                                @endif
+                                                @for ($i = $start; $i <= $end; $i++)
+                                                    @if ($i == $currentPage)
+                                                        <span
+                                                            class="active mx-3 text-danger">{{ $i }}</span>
+                                                    @else
+                                                        <a style="color: #2c2c2c;text-decoration:none; "
+                                                            class="mx-1"
+                                                            href="{{ $announcements_to_check->url($i) }}">{{ $i }}</a>
+                                                    @endif
+                                                @endfor
+                                                @if ($end < $lastPage)
+                                                    @if ($end < $lastPage - 1)
+                                                        <span class="mx-1">...</span>
+                                                    @endif
+                                                    <a style="color: #2c2c2c;text-decoration:none; " class="mx-1"
+                                                        href="{{ $announcements_to_check->url($lastPage) }}">{{ $lastPage }}</a>
+                                                @endif
+                                                @if ($announcements_to_check->hasMorePages())
+                                                    <a style="color: #2c2c2c;text-decoration:none; " class="ms-2"
+                                                        href="{{ $announcements_to_check->nextPageUrl() }}">&raquo;</a>
+                                                @else
+                                                    <span class="disabled ms-2">&raquo;</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -309,7 +334,7 @@
             @endforeach
         </div>
     @endif
-</div>
+    </div>
 
     <x-footer />
 </x-layout>
