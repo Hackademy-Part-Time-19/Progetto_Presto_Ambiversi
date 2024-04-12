@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Jobs\GoogleVisionLabelImage;
+use App\Jobs\GoogleVisionSafeSearch;
 use App\Jobs\ResizeImage;
 use App\Models\Announcement;
 use App\Models\Category;
@@ -24,7 +26,7 @@ class CreateAnnouncement extends Component
     public $image;
     public $announcement;
     public $selectedImage = 0;
-    
+
 
     protected $rules = [
         'title' => 'required|min:4',
@@ -48,7 +50,7 @@ class CreateAnnouncement extends Component
     public function updatedTemporaryImages()
     {
         if ($this->validate([
-            'temporary_images.*'=>'image|max:2048'
+            'temporary_images.*' => 'image|max:2048'
         ])) {
             foreach ($this->temporary_images as $image) {
                 $this->images[] = $image;
@@ -64,7 +66,7 @@ class CreateAnnouncement extends Component
             $this->images = array_values($this->images); // Reimposta gli indici delle immagini
         }
     }
-    
+
 
     public function store()
     {
@@ -76,8 +78,10 @@ class CreateAnnouncement extends Component
             foreach ($this->images as $image) {
                 //$this->announcement->images()->create(['path'=>$image->store('images','public')]);
                 $newFileName = "announcements/{$this->announcement->id}";
-                $newImage = $this->announcement->images()->create(['path'=>$image->store($newFileName,'public')]);
-                dispatch(new ResizeImage($newImage->path , 600 , 500));
+                $newImage = $this->announcement->images()->create(['path' => $image->store($newFileName, 'public')]);
+                dispatch(new ResizeImage($newImage->path, 600, 500));
+                dispatch(new GoogleVisionSafeSearch($newImage->id));
+                dispatch(new GoogleVisionLabelImage($newImage->id));
             }
             File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
@@ -106,8 +110,4 @@ class CreateAnnouncement extends Component
     {
         return view('livewire.create-announcement');
     }
-
-
-
-    
 }

@@ -126,10 +126,10 @@
                                                         style="font-family: CormorantGaramond;margin:0px;text-align:start; margin-top:30px">
                                                         <strong style="font-size: 25px">Descrizione:</strong>
                                                     </h5>
-                                                    <p
+                                                    <div
                                                         style="text-align: start;font-family: CormorantGaramond;font-size:20px;overflow-y: scroll;height: 200px ;width: 100%;padding: 5px;border-top: #b8b8b8 0.5px solid">
                                                         {{ $announcement->body }}
-                                                    </p>
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -196,6 +196,37 @@
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <h5>
+                                                                                Tags                                                                          
+                                                                            </h5>
+                                                                            @if ($image->labels)
+                                                                                
+                                                                            <p>@foreach ($image->labels as $key=>$label)
+                                                                            {{$label}},                                                                         
+                                                                            @endforeach</p>
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="container">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <h5>Revisione immagini</h5>
+                                                 
+                                                                            <p>Adulti: <span class="{{$image->adult}}"></span></p>
+                                                                            <p>Satira: <span class="{{$image->spoof}}"></span></p>
+                                                                            <p>Medicina: <span class="{{$image->medical}}"></span></p>
+                                                                            <p>Violenza: <span class="{{$image->violence}}"></span></p>
+                                                                            <p>Contenuto Ammiccante: <span class="{{$image->racy}}"></span></p>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+
+                                                                </div>
 
                                                             </div>
 
