@@ -203,13 +203,15 @@
                                                                         </li>
                                                                     @endforeach
                                                                 </ul>
+                                                                @if(!empty($image))
                                                                 <div class="container">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <h5>
                                                                                 Tags
                                                                             </h5>
-                                                                            @if ($image->labels)
+
+                                                                            @if ( $image->labels)
                                                                                 <p>
                                                                                     @foreach ($image->labels as  $label)
                                                                                         {{ $label }},
@@ -242,9 +244,11 @@
                                                                             </p>
                                                                         </div>
 
+
                                                                     </div>
 
                                                                 </div>
+                                                                @endif
 
                                                             </div>
 
