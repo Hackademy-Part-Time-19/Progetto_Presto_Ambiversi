@@ -39,4 +39,5 @@ php artisan scout:import "App\Models\Announcement"
 - php artisan vendor:publish --tag=blade-flags-config
 
 ## user 7
+- php artisan migrate
 - composer require google/cloud-vision
