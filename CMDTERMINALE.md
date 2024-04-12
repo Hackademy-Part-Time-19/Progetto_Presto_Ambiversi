@@ -37,4 +37,6 @@ php artisan scout:import "App\Models\Announcement"
 ## user 4
 - composer require outhebox/blade-flags
 - php artisan vendor:publish --tag=blade-flags-config
-  
+
+## user 7
+- composer require google/cloud-vision
