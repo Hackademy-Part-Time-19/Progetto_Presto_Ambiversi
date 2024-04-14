@@ -69,15 +69,29 @@
                             <p style="margin-top: 0px 0px 3px 0px">{{ $announcements_all->count() }} prodotti</p>
 
 
-                            <div class="custom-select" style="width:200px;">
-                                <select name="order" style="width: 100%;">
+                            <div class="dropdown">
+                                <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ordina per
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="{{route('announcements.index.price.asc')}}">Prezzo (dal più basso al più alto)</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index.price.desc')}}">Prezzo (dal più alto al più basso)</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index')}}">Dal più recente</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index.time.asc')}}">Dal più vecchio</a></li>
+                                </ul>
+                              </div>
+
+
+                            {{--<div class="custom-select" style="width:200px;">
+                                <select name="pagina" id="pagina" style="width: 100%;">
                                     <option value="0">Ordina per</option>
-                                    <option value="1">Prezzo (dal più basso al più alto)</option>
-                                    <option value="2">Prezzo (dal più alto al più basso)</option>
-                                    <option value="3">Dal più recente</option>
-                                    <option value="4">Dal più vecchio</option>
+                                    <option value="{{route('announcements.index.price.asc')}}">Prezzo (dal più basso al più alto)</option>
+                                    <option value="{{route('announcements.index.price.desc')}}">Prezzo (dal più alto al più basso)</option>
+                                    <option value="{{route('announcements.index')}}">Dal più recente</option>
+                                    <option value="{{route('announcements.index.time.asc')}}">Dal più vecchio</option>
                                 </select>
-                            </div>
+                            </div>--}}
 
 
 
@@ -140,7 +154,7 @@
                                                     style="display: flex;justify-content: space-between;width: 100%;alig-items: center;">
                                                     <p>€ {{ $announcement->price }}</p>
 
-                                                  
+
 
 
 
@@ -227,5 +241,17 @@
 
 
     @endif
+    <script>
+        function navigaPagina(){
+            var selectElement=
+            document.getElementById('seleziona Pagina');
+            var selectedRoute =
+            selectedElement.value;
+            if(selectedRoute){
+                window.location.href =
+                selectedRoute;
+            }
+        }
+    </script>
     <x-footer />
 </x-layout>

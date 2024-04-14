@@ -27,6 +27,7 @@
 
 
     <script>
+        {{$script ?? ''}}
         setTimeout(function() {
             document.getElementById('successMessage').style.opacity = '0';
             setTimeout(function() {
@@ -200,7 +201,7 @@
                 heartIcon.classList.remove('bi-heart');
                 heartIcon.classList.add('bi-heart-fill');
                 heartIcon.style.color = 'red';
-           
+
                 message.style.display = 'block';
                 setTimeout(function() {
                     message.style.opacity = '0';
@@ -213,7 +214,7 @@
                 heartIcon.classList.remove('bi-heart-fill');
                 heartIcon.classList.add('bi-heart');
                 heartIcon.style.color = '#ffffff';
-              
+
                 message.style.display = 'block';
                 setTimeout(function() {
                     message.style.opacity = '0';
@@ -237,7 +238,7 @@
 
   function color(elementId) {
             var elements = document.querySelectorAll('.infoPers, .myArticle, .myMessage, .setInfoPers');
-            
+
             elements.forEach(function(element) {
                 if (element.id === elementId) {
                     element.style.color = '#6b6b6b';
@@ -246,12 +247,12 @@
                 }
             });
         }
-        
+
         function togglePassword(button) {
             var passwordInput = document.getElementById('passwordInput');
             var eyeIcon = document.getElementById('eyeIcon');
             var password = passwordInput.getAttribute('data-password');
-            
+
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 passwordInput.value = password;
