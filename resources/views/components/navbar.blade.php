@@ -42,7 +42,6 @@
 
                         <button style="margin-top: 20px" type="submit">{{__('ui.create')}}</button>
                     </form>
-                    
                 </div>
 
 

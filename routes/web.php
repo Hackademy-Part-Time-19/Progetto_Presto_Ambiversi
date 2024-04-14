@@ -7,7 +7,8 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,3 @@ Route::post('/lingua/{lang}', [FrontController::class, 'setLanguage'])->name('se
 
 Route::delete('/announcements/{announcement}', [AnnouncementController::class, 'deleteAnnouncement'])->name('announcements.delete');
 Route::get('/profilo-utente', [AnnouncementController::class, 'showUserProfile'])->name('userProfile');
-Route::post('/profile-photo', [UserController::class,'upload'])->name('fotoProfiloUpload');
