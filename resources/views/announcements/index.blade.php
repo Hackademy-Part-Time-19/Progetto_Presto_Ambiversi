@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="headerImage">
+    <div  class="headerImage">
 
         <div style="margin-top: 35px; margin-right: 40px" class="cerca">
             <form action="{{ route('announcements.search') }}" method="GET">
@@ -46,7 +46,7 @@
                     <div class="row">
 
                         <div class="boxTitoloCatalogo">
-                            <h2>
+                            <h2 style="font-size: clamp(0.3rem, 9.0vw, 2.8rem);">
                                 @if (request()->routeIs('announcements.showFavorites'))
                                     PREFERITI
                                 @else
@@ -64,17 +64,16 @@
                             </p>
 
                         </div>
-                        <div
-                            style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;">
-                            <p style="margin-top: 0px 0px 3px 0px">{{ $announcements_all->count() }} prodotti</p>
+                        <div style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;padding:0px">
+                            <p style="margin:  0px;display:flex;align-items: center;padding-left: 20px">{{ $announcements_all->count() }} prodotti</p>
 
 
-                            <div class="dropdown">
-                                <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div style="padding-right: 20px" class="dropdown">
+                                <a style="background-color: #ebeaea;border:#2c2c2c 0.5px " class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Ordina per
                                 </a>
 
-                                <ul class="dropdown-menu">
+                                <ul style="width: auto;background-color: #ebeaea" class="dropdown-menu">
                                   <li><a class="dropdown-item" href="{{route('announcements.index.price.asc')}}">Prezzo (dal più basso al più alto)</a></li>
                                   <li><a class="dropdown-item" href="{{route('announcements.index.price.desc')}}">Prezzo (dal più alto al più basso)</a></li>
                                   <li><a class="dropdown-item" href="{{route('announcements.index')}}">Dal più recente</a></li>
@@ -83,15 +82,7 @@
                               </div>
 
 
-                            {{--<div class="custom-select" style="width:200px;">
-                                <select name="pagina" id="pagina" style="width: 100%;">
-                                    <option value="0">Ordina per</option>
-                                    <option value="{{route('announcements.index.price.asc')}}">Prezzo (dal più basso al più alto)</option>
-                                    <option value="{{route('announcements.index.price.desc')}}">Prezzo (dal più alto al più basso)</option>
-                                    <option value="{{route('announcements.index')}}">Dal più recente</option>
-                                    <option value="{{route('announcements.index.time.asc')}}">Dal più vecchio</option>
-                                </select>
-                            </div>--}}
+                           
 
 
 

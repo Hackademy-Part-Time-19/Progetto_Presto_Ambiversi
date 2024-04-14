@@ -12,17 +12,9 @@
                                 class="bi bi-x-circle"></i></a>
                     </div>
 
-                    <form action="/register" method="POST">
+                    <form id="FormRegistrati" action="/register" method="POST">
                         @csrf
                         <h1 style="background-color: white ">{{__('ui.registration')}}</h1>
-                        <div style="background-color: white " class="social-container">
-                            <a style="background-color: white " href="https://www.facebook.com/" class="social"><i
-                                    style="background-color: white " id="social" class="bi bi-facebook"></i></a>
-                            <a style="background-color: white " href="https://www.instagram.com/" class="social"><i
-                                    style="background-color: white " id="social" class="bi bi-instagram"></i></a>
-                            <a style="background-color: white " href="https://twitter.com/?lang=it" class="social"><i
-                                    style="background-color: white " id="social" class="bi bi-twitter-x"></i></a>
-                        </div>
                         <span style="background-color: white ">{{__('ui.logForm')}}</span>
 
                         <input name="name" type="text" id="name" placeholder="Nome">
@@ -48,18 +40,14 @@
 
 
                 <div class="form-container sign-in-container">
-                    <form class="mt-5" action="/login" method="POST">
+                    <form style="margin-top: 0px" id="aceddiLogin" class=" " action="/login" method="POST">
                         @csrf
                         <h1 style="background-color: white">{{__('ui.logForm')}}</h1>
                         <div style="background-color: white" class="social-container">
                             <a style="background-color: white" href="{{ route('auth.google') }}" class="social"><i
                                     style="background-color: white" id="social" class="bi bi-google"></i></a>
-                            <a style="background-color: white" href="https://www.facebook.com/" class="social"><i
-                                    style="background-color: white" id="social" class="bi bi-facebook"></i></a>
-                            <a style="background-color: white" href="https://www.instagram.com/" class="social"><i
-                                    style="background-color: white" id="social" class="bi bi-instagram"></i></a>
-                            <a style="background-color: white" href="https://twitter.com/?lang=it" class="social"><i
-                                    style="background-color: white" id="social" class="bi bi-twitter-x"></i></a>
+                         
+                           
                         </div>
                         <span style="background-color: white"> {{__('ui.moreLog')}}
                         </span>
@@ -77,7 +65,7 @@
                                     style="color: rgb(243, 70, 70);background-color: white">{{ $message }}</span>
                             </div>
                         @enderror
-                        <a style="background-color: white" href="">{{__('ui.forgot')}}</a>
+                       
                         <button type="submit">Login</button>
                     </form>
                 </div>

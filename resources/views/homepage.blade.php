@@ -73,16 +73,16 @@
         <div>
             <div class="container text-center">
                 <div class="row">
-                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 ">
+                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 p-0">
                       <a href="{{ route('categoryShow', ['2']) }}">  <button>{{__('ui.cat2')}}</button></a>
                     </div>
-                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
+                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 p-0">
                         <a href="{{ route('categoryShow', ['4']) }}"><button>{{__('ui.cat4')}}</button></a>
                     </div>
-                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
+                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 p-0">
                        <a href="{{ route('categoryShow', ['3']) }}"> <button>{{__('ui.cat3')}}</button></a>
                     </div>
-                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6">
+                    <div class="col-6 col-md-6 col-lg-3 col-ml-3 col-sm-6 p-0">
                         <a href="{{ route('categoryShow', ['1']) }}"><button>{{__('ui.cat1')}}</button></a>
                     </div>
                 </div>
@@ -146,28 +146,28 @@
     <div  class="Informazioni">
         <div class="container text-center">
             <div class="row">
-                <div class="col-6 col-sm-3">
+                <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-truck"></i>
                         <h6> <strong>SPEDIZIONE</strong> </h6>
                         <p>Gratis in store, a domicilio a partire da €49.99</p>
                     </div>
                 </div>
-                <div class="col-6 col-sm-3">
+                <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-box2-heart"></i>
                         <h6> <strong>RESO GRATIS</strong></h6>
                         <p>Hai 30 giorni di tempo per ripensarci!</p>
                     </div>
                 </div>
-                <div class="col-6 col-sm-3">
+                <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-credit-card"></i>
                         <h6> <strong>PAGAMENTI SICURI</strong> </h6>
                         <p>Dati protetti con codifica SSL</p>
                     </div>
                 </div>
-                <div class="col-6 col-sm-3">
+                <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-chat-dots"></i>
                         <h6> <strong>SUPPORTO</strong></h6>

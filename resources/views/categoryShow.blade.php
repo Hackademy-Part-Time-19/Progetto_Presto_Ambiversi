@@ -45,14 +45,14 @@
                     <div class="row">
 
                         <div class="boxTitoloCatalogo">
-                            <h2>{{ $category->name }}</h2>
+                            <h2  style="font-size: clamp(0.3rem, 9.0vw, 2.8rem);">{{ $category->name }}</h2>
 
                             <p style="text-align: start">Scopri i prodotti adatti per te, a un prezzo imperdibile</p>
 
                         </div>
                         <div
                             style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;">
-                            <p style="margin-top: 0px 0px 3px 0px">
+                            <p style="margin:  0px;display:flex;align-items: center;padding-left: 10px">
                                 @if ($category->announcements->where('is_accepted', 1)->count() > 0)
                                     {{ $category->announcements->where('is_accepted', 1)->count() }}
                                 @else
@@ -61,13 +61,7 @@
 
                                 prodotti
                             </p>
-                            <div class="custom-select" style="width:200px;">
-                                <select name="order" id="orderSelect" style="width: 100%;">
-                                    <option value="0">Recenti</option>
-                                    <option value="1">Prezzo (dal più basso al più alto)</option>
-                                    <option value="2">Prezzo (dal più alto al più basso)</option>
-                                </select>
-                            </div>
+                     
 
                         </div>
                         @php
