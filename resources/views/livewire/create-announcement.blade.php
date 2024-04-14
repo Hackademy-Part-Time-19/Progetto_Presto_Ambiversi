@@ -125,20 +125,17 @@
                             </div>
 
 
-                            <div class="mb-3">
+                     <div class="mb-3">
                                 <div class="input-group">
-                                    <input wire:model="temporary_images" type="file" class="form-control"
-                                        id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                                        aria-label="Upload" multiple
-                                        class=" @error('temporary_images.*') is-invalid @enderror">
+                                    <input wire:model="temporary_images" type="file" class="form-control @error('temporary_images.*') is-invalid @enderror"
+                                        id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" multiple>
                                 </div>
-
-
-
+                            
                                 @error('temporary_images.*')
                                     <p class="text-danger mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
+                            
 
 
                             <button class="creaBotton" type="submit"> Crea Articolo</button>
