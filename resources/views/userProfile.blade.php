@@ -72,11 +72,7 @@
                             <i style="margin-right: 20px;" class="bi bi-newspaper"></i>
                             <a style="text-align:start">I miei articoli</a>
                         </div>
-                        <div id="myMessage" onclick="color('myMessage');mostraContenuto('MyMessage')" class="myMessage"
-                        style="display: flex; margin-top: 30px">
-                        <i style="margin-right: 20px;" class="bi bi-chat"></i>
-                        <a style="text-align:start">I miei messaggi</a>
-                    </div>
+                
                     <div id="setInfoPers" onclick="color('setInfoPers');mostraContenuto('SetInfoPers')"
                     class="setInfoPers" style="display: flex; margin-top: 30px">
                     <i style="margin-right: 20px;" class="bi bi-gear-wide-connected"></i>
@@ -413,9 +409,7 @@ onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')">
 
 
 </div>
-<div class="boxContent boxMyMessage">
-    <h2 class="h2BoxProfile">I miei messaggi</h2>
-</div>
+
 <div class="boxContent boxSetInfoPers">
     <h2 class="h2BoxProfile">Impostazioni dell'account</h2>
     <div class="mb-3">

@@ -1592,14 +1592,7 @@ section {
   
 }
 
-.boxMyMessage {
-  background-color: rgb(255, 255, 255);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  display: none;
-  padding: 80px 20px;
-}
+
 
 
 .boxSetInfoPers {

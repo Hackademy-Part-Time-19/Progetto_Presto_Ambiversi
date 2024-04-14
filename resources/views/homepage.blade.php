@@ -1,4 +1,5 @@
 <x-layout>
+    <x-success> </x-success>
     <div class="headerImage">
         <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
         <div style="margin-left: 70px" class="cerca">
@@ -11,6 +12,7 @@
             </form>
         </div>
     </div>
+   
     <div id="SfondoCategorie" class="categorie">
         <div class="divCategorie">
             <h2>{{__('ui.allCategories')}}</h2>
@@ -91,6 +93,7 @@
         </div>
 
     </div>
+ 
     <div id="BoxContatti" class="BoxContatti">
 
 
@@ -124,7 +127,7 @@
                         <div style="width: 100%;display: flex;justify-content: space-between ">
                             <input style="width: 85%; text-align: start;color:white" name="body" type="text" placeholder="Messaggio..">
                             @error('body') <div><span class="text-danger">{{$message}}</span></div>@enderror
-                           > <button style="width: auto; height: 170px;" type="submit">Invia</button>
+                            <button style="width: auto; height: 170px;" type="submit">Invia</button>
                         </div>
                     </form>
                 </div>

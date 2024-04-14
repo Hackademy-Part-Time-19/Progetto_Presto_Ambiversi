@@ -185,7 +185,7 @@
                                     @auth @if (Auth::user()->isAdmin())
                                         <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
                                             class="dropdown-item" href="{{ route('revisor.index') }}">{{__('ui.userC')}} </a>
-                                            <a class="dropdown-item" href="{{ route('push.newsletter') }}">manda newsletter</a>
+                                          
 
 
                                     @endif @auth
