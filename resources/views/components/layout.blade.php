@@ -200,7 +200,7 @@
                 heartIcon.classList.remove('bi-heart');
                 heartIcon.classList.add('bi-heart-fill');
                 heartIcon.style.color = 'red';
-                message.textContent = 'Aggiungi ai preferiti';
+           
                 message.style.display = 'block';
                 setTimeout(function() {
                     message.style.opacity = '0';
@@ -213,7 +213,7 @@
                 heartIcon.classList.remove('bi-heart-fill');
                 heartIcon.classList.add('bi-heart');
                 heartIcon.style.color = '#ffffff';
-                message.textContent = 'Rimosso dai preferiti';
+              
                 message.style.display = 'block';
                 setTimeout(function() {
                     message.style.opacity = '0';
