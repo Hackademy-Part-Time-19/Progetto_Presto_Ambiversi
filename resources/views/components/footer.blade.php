@@ -17,10 +17,10 @@
 </div>
 </div>
 <div class="FooterPaymentBox">
-<i class="fa fa-cc-mastercard" style="font-size:24px;color:#e9e9e9"></i>
-<i class="fa fa-cc-visa" style="font-size:24px;color:#e9e9e9"></i>
-<i class="fa fa-cc-amex" style="font-size:24px;color:#e9e9e9"></i>
-<i class="fa fa-paypal" style="font-size:24px;color:#e9e9e9"></i>
+<i class="fa-brands fa-cc-mastercard" style="font-size:24px;color:#e9e9e9"></i>
+<i class="fa-brands fa-cc-visa" style="font-size:24px;color:#e9e9e9"></i>
+<i class="fa-brands fa-cc-amex" style="font-size:24px;color:#e9e9e9"></i>
+<i class="fa-brands fa-paypal" style="font-size:24px;color:#e9e9e9"></i>
 </div>
 <p>Contatti | Copyright © 2024 Presto | Tutti diriti riservati</p>
 </div>
