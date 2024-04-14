@@ -66,7 +66,7 @@
                                                         style=" height: 200px; width:100%;display:flex;justify-content: center; align-items: center;;">
 
                                                         <img style="object-fit: cover; border-radius: 100%;"
-                                                            src="https://sb.kaleidousercontent.com/67418/1672x1018/6463a5af0d/screenshot-2022-05-24-at-15-22-28.png"
+                                                        src="{{ $announcement->user->profile_photo_path !== null ? $announcement->user->getUrl(150, 150) : Storage::url('images/user.jpg') }}"
                                                             height="170px" width="170px" alt="">
 
                                                     </div>
