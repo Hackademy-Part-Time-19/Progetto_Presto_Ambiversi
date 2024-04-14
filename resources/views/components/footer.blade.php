@@ -5,11 +5,14 @@
 <h3>Iscriviti alla nostra newsletter!</h3>
 <div >
 <div class="cerca">
-    <form action="/action_page.php">
+    <form action="{{route('newsletter.suscribe')}}" method="POST">
+        @csrf
         <input
             style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
-            type="text" placeholder=" Indirizzo email" name="search">
-        <button type="submit">Iscriviti</button>
+            type="email" placeholder=" Indirizzo email" name="email">
+
+        <button type="submit"  >Iscriviti</button>
+        @error('email') <div><span class="text-danger">{{$message}}</span></div>@enderror
     </form>
 </div>
 </div>

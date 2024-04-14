@@ -42,7 +42,7 @@
 
                         <button style="margin-top: 20px" type="submit">{{__('ui.create')}}</button>
                     </form>
-                    
+
                 </div>
 
 
@@ -197,6 +197,9 @@
                                     @auth @if (Auth::user()->isAdmin())
                                         <a style=" @if (App\Models\Announcement::toBeRevisionedCount() > 0) background-color: rgb(240, 64, 64) @endif"
                                             class="dropdown-item" href="{{ route('revisor.index') }}">{{__('ui.userC')}} </a>
+                                            <a class="dropdown-item" href="{{ route('push.newsletter') }}">manda newsletter</a>
+
+
                                     @endif @auth
                                     <a href="{{ route('announcements.create') }}">{{__('ui.userD')}}</a>
                                     @endauth @endauth

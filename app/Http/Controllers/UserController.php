@@ -20,6 +20,6 @@ class UserController extends Controller
             Auth()->user()->update(['profile_photo_path'=>$profile_path]);
             dispatch(new ResizeImage($profile_path, 150, 150));
         }
-        return redirect()->back();
+        return redirect()->back()->with('message','foto profilo caricata');
     }
 }

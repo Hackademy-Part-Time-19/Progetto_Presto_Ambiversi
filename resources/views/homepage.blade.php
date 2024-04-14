@@ -1,7 +1,4 @@
 <x-layout>
-   
-   
-
     <div class="headerImage">
         <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
         <div style="margin-left: 70px" class="cerca">
@@ -40,7 +37,7 @@
                             <hr>
                             <li> <a onclick="Sport(),SportLink()" id="Sport" class="aMenuCategori"> <span>06. </span>{{__('ui.cat6')}}</a></li>
                             <hr>
-                            
+
                             <li> <a onclick="Auto(),AutoLink()" id="Auto" class="aMenuCategori"> <span>07. </span>{{__('ui.cat7')}}</a></li>
                             <hr>
                             <li> <a onclick="Orologio(),OrologioLink()" id="Orologio" class="aMenuCategori"> <span>08. </span>{{__('ui.cat8')}}</a></li>
@@ -63,10 +60,10 @@
                 </div>
               </div>
 
-        
 
 
-        
+
+
 
 
         </div>
@@ -112,29 +109,35 @@
                   </div>
               <div class="col-12 col-md-12 col-lg-7 col-ml-8 col-sm-12 ">
                 <div style="height: 100%;width: 100%;display: flex;justify-content: center;align-items: center">
-                    <form class="formContatto" action="">
-                        <input style="width: 100%;color:white" type="text" placeholder="Nome e Cognome">
+                    <form class="formContatto" action="{{route('contact.send')}}"  method="POST">
+                        @csrf
+                        <input style="width: 100%;color:white" name="name" type="text" placeholder="Nome e Cognome" >
+                        @error('name') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 63%;color:white" type="tel" placeholder="Telefono">
-                            <input style="width: 35%;color:white" type="text" placeholder="N. Ordine">
+                            <input style="width: 63%;color:white" name="telephone_number" type="tel" placeholder="Telefono">
+                            @error('telephone_number') <div><span class="text-danger">{{$message}}</span></div>@enderror
+                            <input style="width: 35%;color:white" name="order_number" type="text" placeholder="N. Ordine">
+                            @error('order_number') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         </div>
-                        <input style="width: 100%;color:white" type="email" placeholder="Email">
+                        <input style="width: 100%;color:white" name="email" type="email" placeholder="Email">
+                        @error('email') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 85%; text-align: start;color:white" type="tel" placeholder="Messaggio..">
+                            <input style="width: 85%; text-align: start;color:white" name="body" type="text" placeholder="Messaggio..">
+                            @error('body') <div><span class="text-danger">{{$message}}</span></div>@enderror
                            > <button style="width: auto; height: 170px;" type="submit">Invia</button>
                         </div>
                     </form>
                 </div>
               </div>
 
-         
+
             </div>
           </div>
 
 
-       
 
-       
+
+
 
 
 
