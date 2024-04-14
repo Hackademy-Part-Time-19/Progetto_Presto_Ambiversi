@@ -62,6 +62,7 @@ Route::post('/newsletter-subscription', [NewsletterController::class,'addEmail']
 Route::get('dispatcher', [NewsletterController::class, 'sendNewsletter'])->middleware('auth')->name('push.newsletter');
 Route::post('/contatti/invio',[NewsletterController::class,'sendContact'])->name('contact.send');
 Route::post('photo-update',[UserController::class,'upload'])->name('photo-upload');
+Route::post('phone-number-update',[UserController::class,'numberUpdate'])->name('number-upload');
 Route::get('tutti/annunci/vecchi-nuovi', [AnnouncementController::class, 'indexAnnouncementTimeAsc'])->name('announcements.index.time.asc');
 Route::get('tutti/annunci/prezzo-discendente', [AnnouncementController::class, 'indexAnnouncementPriceDesc'])->name('announcements.index.price.desc');
 Route::get('tutti/annunci/prezzo-ascendente', [AnnouncementController::class, 'indexAnnouncementPriceAsc'])->name('announcements.index.price.asc');

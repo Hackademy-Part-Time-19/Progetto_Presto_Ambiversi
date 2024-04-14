@@ -143,7 +143,7 @@
                                     style="display: flex; justify-content: space-between ; margin-top: 30px;">
                                     <button style="width: 80%">Aggiungi al carrello</button>
                                     <div style=" display: flex; flex-direction: column;  position: relative; ">
-
+                                        @auth
                                       @if(auth()->user()->favoriteAnnouncements->contains($announcement))
                                           <form id="favoriteForm" action="{{ route('announcements.removeFromFavorites', ['announcement' => $announcement->id]) }}" method="POST">
                                               @csrf
@@ -160,6 +160,7 @@
                                               </button>
                                           </form>
                                       @endif
+                                      @endauth
 
 
 
