@@ -8,8 +8,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\NewsletterController;
-
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +61,4 @@ Route::get('/profilo-utente', [AnnouncementController::class, 'showUserProfile']
 Route::post('/newsletter-subscription', [NewsletterController::class,'addEmail'])->name('newsletter.suscribe');
 Route::get('dispatcher', [NewsletterController::class, 'sendNewsletter'])->middleware('auth')->name('push.newsletter');
 Route::post('/contatti/invio',[NewsletterController::class,'sendContact'])->name('contact.send');
+Route::post('photo-update',[UserController::class,'upload'])->name('photo-upload');

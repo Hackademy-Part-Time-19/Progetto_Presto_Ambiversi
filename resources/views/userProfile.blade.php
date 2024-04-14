@@ -24,16 +24,16 @@
     <div style="width: 100%; ;height: 50px; ">
 
 
- 
-   
 
-       
+
+
+
 
 
         <h1 style="width: 100%; text-align: center; padding-top: 20px;  font-family: CormorantGaramond; ">DATI PERSONALI
         </h1>
 
-     
+
 
 
 
@@ -46,7 +46,8 @@
                     <div class="boxUserLeft">
                         <div>
                             <img style="object-fit: cover; border-radius: 100%;"
-                                src="https://sb.kaleidousercontent.com/67418/1672x1018/6463a5af0d/screenshot-2022-05-24-at-15-22-28.png"
+                            src="{{ Auth::user()->profile_photo_path !== null ? Auth::user()->getUrl(150, 150) : Storage::url('images/user.jpg') }}"
+
                                 height="150px" width="150px" alt="">
                         </div>
                         <h3 style="color: #e9e9e9; font-family: CormorantGaramond; font-size: 30px;margin-top:5px">
@@ -82,31 +83,31 @@
                             <label style="text-align: start; width: 100%;margin-top:20px" for="name"
                                 class="block text-sm font-medium text-gray-700">Nome e Cognome</label>
                                 <p style="height: auto;padding:10px 0px; width:100% ;border-bottom:#ababab 0.8px solid;margin:0px;text-align:start;padding-left:10px;font-family:CoromorantGaramond  ">{{ Auth::user()->name }}</p>
-                       
+
                                 <label style="text-align: start; width: 100%;margin-top:20px" for="name"
                                 class="block text-sm font-medium text-gray-700">Email</label>
                                 <p style="height: auto;padding:10px 0px; width:100% ;border-bottom:#ababab 0.8px solid;margin:0px;text-align:start;padding-left:10px;font-family:CoromorantGaramond  ">{{ Auth::user()->email }}</p>
-                       
 
 
 
-                           
+
+
 
                             <div style="display: flex; justify-content: space-between;">
                                 <div style="width: 45%">
                                     <label style="text-align: start; width: 100%;margin-top:20px" for="name"
                                     class="block text-sm font-medium text-gray-700">Data creazione account</label>
                                     <p style="height: auto;padding:10px 0px; width:100% ;border-bottom:#ababab 0.8px solid;margin:0px;text-align:start;padding-left:10px;font-family:CoromorantGaramond  ">{{ Auth::user()->created_at }}</p>
-                           
-    
+
+
                                 </div>
                                 <div style="width: 45%;">
 
                                     <label style="text-align: start; width: 100%;margin-top:20px" for="name"
                                     class="block text-sm font-medium text-gray-700">Telefono</label>
                                     <p style="height: auto;padding:10px 0px; width:100% ;border-bottom:#ababab 0.8px solid;margin:0px;text-align:start;padding-left:10px;font-family:CoromorantGaramond  ">+39 0471 165592</p>
-                           
-    
+
+
                                 </div>
                             </div>
                             <h5 style="font-family:CoromorantGaramond;font-size:20px;text-align:start;margin-top:30px ;"><strong>Informazioni sugli annunci</strong></h5>
@@ -116,32 +117,32 @@
                                     @foreach ($announcements as $announcement)
                                         @if ($announcement->is_accepted && $announcement->user_id == auth()->id())
                                             @php          $userAnnouncementCount++;     @endphp
-                                            
+
                                         @endif
                                     @endforeach
                                     <i style="font-size: 30px;cursor: default;" class="bi bi-file-earmark-text"></i>
                                     <h5 style="font-family:CoromorantGaramond;font-size:17px ">Articoli publicati</h5>
                                     <p style="margin: 0px" > {{ $userAnnouncementCount }}</p>
                          </div>
-    
-    
+
+
                          <div style="display: flex;flex-direction:column" >
-                                        
+
                             @foreach ($announcements as $announcement)
                                 @if ($announcement->is_accepted && $announcement->user_id == auth()->id())
                                     @php          $userAnnouncementCount++;     @endphp
-                                    
+
                                 @endif
                             @endforeach
-                            
+
                             <i style="font-size: 30px;color: #d73d3d;cursor: default;" class="bi bi-suit-heart-fill"></i>
                             <h5 style="font-family:CoromorantGaramond;font-size:17px ">Articoli preferiti</h5>
                             <p style="margin: 0px">{{ auth()->user()->favoriteAnnouncements->count() }}</p>
                  </div>
-    
-    
-                         
-                 <div style="display: flex;flex-direction:column" >       
+
+
+
+                 <div style="display: flex;flex-direction:column" >
                     @php
                                     $pendingAnnouncementsCount = $announcements->where('is_accepted', false)->count();
                                 @endphp
@@ -149,9 +150,9 @@
                                 <h5 style="font-family:CoromorantGaramond;font-size:17px ">Articoli da revisionare</h5>
                                 <p style="margin: 0px">{{ $pendingAnnouncementsCount }}</p>
                             </div>
-    
+
                    </div>
-                        
+
 
 
 
@@ -236,10 +237,10 @@
                                                     style="height: auto;width:80%; resize: none;border-radius:5px;  font-family: CormorantGaramond;;background:rgb(255, 255, 255);padding:5px"
                                                     name="" id="" cols="30" rows="10">{{ $announcement->body }}</textarea>
                                             </div>
-                                            
 
 
-                                      
+
+
                                                   @if(auth()->user()->favoriteAnnouncements->contains($announcement))
                                               <form style="display: flex;width:45px;margin-right:5px"  action="{{ route('announcements.removeFromFavorites', ['announcement' => $announcement->id]) }}" method="POST">
                                                   @csrf
@@ -256,7 +257,7 @@
                                                   </button>
                                               </form>
                                           @endif
-                                    
+
 
 
                                             @auth
@@ -266,16 +267,16 @@
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="DivDeleteArticle" 
+                                                    <button class="DivDeleteArticle"
                                                         type="submit"
                                                         onclick="return confirm('Sei sicuro di voler eliminare questo annuncio?')">
                                                         <i style="font-size: 20px" class="bi bi-trash3"></i>
                                             @endif
-                                            
+
                                             </button>
                                             </form>
                                         @endauth
-                                            
+
                                         </div>
                                     </a>
                                 @endif
@@ -413,7 +414,14 @@
                                 class="block text-sm font-medium text-gray-700">Nome e Cognome</label>
                             <input id="name" style="height: 50px" placeholder="{{ Auth::user()->name }}"
                                 type="text" class="form-control">
-
+                            <label style="text-align: start; width: 100%;margin-top:40px" for="name"
+                                class="block text-sm font-medium text-gray-700">Cambia immagine</label>
+                                <form action="{{route('photo-upload')}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                            <input id="image" name="image" style="height: 50px"
+                                type="file" class="form-control">
+                                <input type="submit" value="Upload">
+                            </form>
 
 
 
