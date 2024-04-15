@@ -52,7 +52,7 @@ class AnnouncementController extends Controller
     public function deleteAnnouncement(Announcement $announcement)
     {
         $announcement->delete();
-        return back()->with('success', 'Annuncio eliminato con successo!');
+        return back()->with('messageref', 'Annuncio eliminato con successo!');
     }
 
 
