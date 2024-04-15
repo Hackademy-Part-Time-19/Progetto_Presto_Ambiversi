@@ -81,20 +81,12 @@ class CreateAnnouncement extends Component
                 //$this->announcement->images()->create(['path'=>$image->store('images','public')]);
                 $newFileName = "announcements/{$this->announcement->id}";
                 $newImage = $this->announcement->images()->create(['path' => $image->store($newFileName, 'public')]);
-<<<<<<< HEAD
 
-                RemoveFaces::withChain([
-                    new ResizeImage($newImage->path, 600, 500),
-                    new GoogleVisionSafeSearch($newImage->id),
-                    new GoogleVisionLabelImage($newImage->id)
-=======
                 RemoveFaces::withChain([
                     new WatermarkLogo($newImage->id),
                     new ResizeImage($newImage->path, 600, 500),
                     new GoogleVisionSafeSearch($newImage->id),
                     new GoogleVisionLabelImage($newImage->id),
-
->>>>>>> 49958fee1329a06a8909b2f9928284b6f25d71d9
                 ])->dispatch($newImage->id);
             }
 
