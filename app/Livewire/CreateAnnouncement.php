@@ -52,7 +52,7 @@ class CreateAnnouncement extends Component
     public function updatedTemporaryImages()
     {
         if ($this->validate([
-            'temporary_images.*' => 'image|max:2048'
+            'temporary_images.*' => 'image|max:2048|mimes:png,jpg,jpeg,webp,gif,bmp,tiff'
         ])) {
             foreach ($this->temporary_images as $image) {
                 $this->images[] = $image;

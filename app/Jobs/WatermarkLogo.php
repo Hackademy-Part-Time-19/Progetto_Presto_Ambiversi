@@ -43,7 +43,7 @@ class WatermarkLogo implements ShouldQueue
         $h= ($image->getHeight())/10;
         $w = $h * 3.7;
         $image->watermark(base_path('storage/app/public/images/logo.png'))
-        ->watermarkPosition('top')
+        ->watermarkPosition('bottom')
         ->watermarkPadding($paddingX, $paddingY)
         ->watermarkWidth($w, Manipulations::UNIT_PIXELS)
         ->watermarkHeight($h, Manipulations::UNIT_PIXELS)
