@@ -2,7 +2,7 @@
     <x-success> </x-success>
     <div class="headerImage">
         <img src="{{ Storage::url('/Imagini/image-header.png') }}" width="100%" alt="">
-        <div style="margin-left: 70px" class="cerca">
+        <div id="cercaHOME"  class="cerca">
             <form action="{{route('announcements.search')}}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
@@ -55,7 +55,7 @@
                     <div class="boxImagineCategoria">
                         <div  id="ImagineContainerCategory" class="img"></div>
                         <div class="buttonImg">
-                         <a id="frecciaHref" href="{{ route('categoryShow', ['3']) }}" >   <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i></a>
+                         <a  id="frecciaHref" href="{{ route('categoryShow', ['3']) }}" >   <i style="padding-left: 50px;" class="bi bi-arrow-right-circle"></i></a>
                         </div>
                     </div>
                   </div>
@@ -99,7 +99,7 @@
 
         <div class="container text-center">
             <div class="row">
-                <div class="col-12 col-md-12 col-lg-5 col-ml-4 col-sm-12 ">
+                <div id="contattiBox" class="col-12 col-md-12 col-lg-5 col-ml-4 col-sm-12 ">
                     <div class="BoxDesContatti">
                         <h2>{{__('ui.contact')}}</h2>
                         <h5>
@@ -125,7 +125,7 @@
                         <input style="width: 100%;color:white" name="email" type="email" placeholder="Email">
                         @error('email') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 85%; text-align: start;color:white;" name="body" type="text" placeholder="Messaggio..">
+                            <input id="inputMessaggioDes" name="body" type="text" placeholder="Messaggio..">
                             @error('body') <div><span class="text-danger">{{$message}}</span></div>@enderror
                             <button style="width: auto; height: 170px;" type="submit">Invia</button>
                         </div>

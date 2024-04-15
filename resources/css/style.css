@@ -1447,7 +1447,7 @@ section {
   width: 10px;
   margin: 0px;
   padding: 0px;
-  /* Imposta la larghezza desiderata */
+
 }
 
 #acceptButton:hover {
@@ -1750,14 +1750,72 @@ color:  #d73d3d;
   width: 77%
 } 
 
+#inputMessaggioDes{
+  width: 85%; text-align: start;color:white;
+}
+.cerca{
+  margin-top: 35px; margin-left: 0px
+}
+
+
+#cercaShow{
+  margin-top: 35px; margin-left: 90px
+}
+
+#cercaHOME{
+  margin-left: 70px
+}
+
+#cercaDati{
+  margin-left: 90px
+}
+
+#finestraLingue{
+  background-color: #e9e9e9;
+
+ padding: 0px;
+
+}
+
+
+
 @media screen and (max-width: 850px) {
 
+  #finestraLingue{
+
+  }
+
+  #cercaHOME{
+    margin-left: 0px
+  }
+  #cercaDati{
+    margin-left: 0px
+  }
+
+  .cerca{
+    margin-top: 35px; margin-left: 70px
+  }
+
+#cercaShow{
+  margin-top: 35px; margin-left: 0px
+}
+
+#frecciaHref i{
+  font-size: 30px;
+}
+
+#inputMessaggioDes{
+  width: 76%; 
+}
+
+  #contattiBox{
+    margin-left: 50px;
+ }
 
   .DivDeleteArticle{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-
 
   .cancellaFoto {
     height: 32px;
@@ -1779,14 +1837,15 @@ color:  #d73d3d;
   }
 
   #MenuDestraMobile {
-    width: 100px;
+    width: auto;
     display: flex;
     justify-content: end;
   }
 
-  .lingua {
-    display: none;
+  .cerca{
+    margin-left: 10px;
   }
+  
 
   .loginA {
     display: none;
@@ -1825,6 +1884,7 @@ color:  #d73d3d;
   .boxImagineCategoria {
     position: relative;
     padding-left: 30px;
+   
   }
 
   #ImagineContainerCategory {
@@ -1898,7 +1958,7 @@ color:  #d73d3d;
 }
 
 .container{
-  padding-right:0px
+  padding:0px
 }
 .formContatto{
   width: auto;
@@ -1913,4 +1973,8 @@ color:  #d73d3d;
   width: 65%
 }
 
+
+
 }
+
+
