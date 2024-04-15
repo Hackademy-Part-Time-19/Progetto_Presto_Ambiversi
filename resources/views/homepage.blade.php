@@ -26,7 +26,7 @@
                   <div style="padding-right: 0px" class="col-12 col-md-3 col-lg-3 col-ml-3 col-sm-12">
                     <div class="listaCategorie">
                         <ul >
-                            <li> <a  onclick="Tech(),TechLink()" id="Tech" class="aMenuCategori"> <span>01. </span>{{__('ui.cat3')}}</a>
+                            <li> <a style="color: white" onclick="Tech(),TechLink()" id="Tech" class="aMenuCategori"> <span>01. </span>{{__('ui.cat3')}}</a>
                             </li>
                             <hr>
                             <li> <a onclick="Donna(),DonnaLink()" id="Donna" class="aMenuCategori"> <span>02. </span>{{__('ui.cat2')}}</a></li>
@@ -125,7 +125,7 @@
                         <input style="width: 100%;color:white" name="email" type="email" placeholder="Email">
                         @error('email') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 85%; text-align: start;color:white" name="body" type="text" placeholder="Messaggio..">
+                            <input style="width: 85%; text-align: start;color:white;" name="body" type="text" placeholder="Messaggio..">
                             @error('body') <div><span class="text-danger">{{$message}}</span></div>@enderror
                             <button style="width: auto; height: 170px;" type="submit">Invia</button>
                         </div>

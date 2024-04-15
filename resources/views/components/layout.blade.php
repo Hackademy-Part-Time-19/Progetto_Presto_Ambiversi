@@ -270,7 +270,39 @@
             }
         }
 
+
+
+        
+        $(document).ready(function() {
+        $('#submitForms').click(function() {
+            var formData1 = $('#form1').serialize();
+            var formData2 = $('#form2').serialize();
+
+            
+            $.when(
+                $.ajax({
+                    type: 'PUT',
+                    url: '/user/profile-information',
+                    data: formData1
+                }),
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('number-upload') }}',
+                    data: formData2
+                })
+            ).then(function(response1, response2) {
+                console.log('Entrambi i form inviati con successo');
+               
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.error('Errore durante l\'invio dei form:', errorThrown);
+            });
+        });
+    });
     </script>
+  
+
+
+  
 
 </body>
 
