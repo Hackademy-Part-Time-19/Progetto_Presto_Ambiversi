@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class AnnouncementController extends Controller
 {
@@ -52,6 +53,7 @@ class AnnouncementController extends Controller
     public function deleteAnnouncement(Announcement $announcement)
     {
         $announcement->delete();
+        File::deleteDirectory(storage_path('app/public/announcements/'.$announcement->id));
         return back()->with('messageref', 'Annuncio eliminato con successo!');
     }
 
