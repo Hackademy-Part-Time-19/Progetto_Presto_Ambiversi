@@ -6,6 +6,7 @@ use App\Jobs\GoogleVisionLabelImage;
 use App\Jobs\GoogleVisionSafeSearch;
 use App\Jobs\RemoveFaces;
 use App\Jobs\ResizeImage;
+use App\Jobs\WatermarkLogo;
 use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class CreateAnnouncement extends Component
         'category' => 'required',
         'price' => 'required|numeric|max:999999',
         'images.*' => 'image|max:2048',
-        'temporary_images.*' => 'image|max:2048',
+        'temporary_images.*' => 'image|max:2048|mimes:png,jpg,jpeg,webp,gif,bmp,tiff',
     ];
     protected $messages = [
         'required' => 'il campo :attribute è richiesto',
@@ -51,7 +52,7 @@ class CreateAnnouncement extends Component
     public function updatedTemporaryImages()
     {
         if ($this->validate([
-            'temporary_images.*' => 'image|max:2048'
+            'temporary_images.*' => 'image|max:2048|mimes:png,jpg,jpeg,webp,gif,bmp,tiff'
         ])) {
             foreach ($this->temporary_images as $image) {
                 $this->images[] = $image;
@@ -80,11 +81,20 @@ class CreateAnnouncement extends Component
                 //$this->announcement->images()->create(['path'=>$image->store('images','public')]);
                 $newFileName = "announcements/{$this->announcement->id}";
                 $newImage = $this->announcement->images()->create(['path' => $image->store($newFileName, 'public')]);
+<<<<<<< HEAD
 
                 RemoveFaces::withChain([
                     new ResizeImage($newImage->path, 600, 500),
                     new GoogleVisionSafeSearch($newImage->id),
                     new GoogleVisionLabelImage($newImage->id)
+=======
+                RemoveFaces::withChain([
+                    new WatermarkLogo($newImage->id),
+                    new ResizeImage($newImage->path, 600, 500),
+                    new GoogleVisionSafeSearch($newImage->id),
+                    new GoogleVisionLabelImage($newImage->id),
+
+>>>>>>> 49958fee1329a06a8909b2f9928284b6f25d71d9
                 ])->dispatch($newImage->id);
             }
 

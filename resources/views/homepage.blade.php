@@ -49,6 +49,11 @@
                             <li> <a onclick="Musica(),MusicaLink()" id="Musica" class="aMenuCategori"> <span>10. </span>{{__('ui.cat10')}}</a></li>
                             <hr>
                         </ul>
+                        <i id="FrecciaIndicativaBasso" class="bi bi-caret-down-fill"></i>
+                        <i id="FrecciaIndicativaDestra" class="  bi bi-caret-right-fill"></i>
+                      
+
+
                     </div>
                   </div>
                   <div style="padding-right: 0px" class="col-12 col-md-9 col-lg-9 col-ml-9 col-sm-12">

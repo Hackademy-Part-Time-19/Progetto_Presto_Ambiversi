@@ -2,13 +2,14 @@
 
 namespace App\Jobs;
 
+use Spatie\Image\Image;
 use Illuminate\Bus\Queueable;
+use Intervention\Image\ImageManager;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Intervention\Image\ImageManager;
-
+use Spatie\Image\Manipulations;
 
 class ResizeImage implements ShouldQueue
 {
@@ -35,16 +36,13 @@ class ResizeImage implements ShouldQueue
      */
     public function handle(): void
     {
-        $manager = ImageManager::gd();
-        $w = $this->w;
-        $h = $this->h;
+
+        $w = intval($this->w);
+        $h = intval($this->h);
         $srcPath = storage_path() . '/app/public/' . $this->path . '/' . $this->fileName;
         $destPath = storage_path() . '/app/public/' . $this->path . "/crop_{$w}x{$h}_" . $this->fileName;
-        $image= $manager->read($srcPath);
-        $startX = max(0, ($image->width() - $w) / 2);
-        $startY = max(0, ($image->height() - $h) / 2);
+        $image= Image::load($srcPath);
 
-
-        $croppedImage = $image->coverDown($w, $h, 'center')->save($destPath);
+        $croppedImage = $image->crop(Manipulations::CROP_CENTER, $w, $h)->save($destPath);
     }
 }
