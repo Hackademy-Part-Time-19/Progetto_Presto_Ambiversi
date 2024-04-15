@@ -132,25 +132,27 @@
     <div class="logo">
         <h1><a style="text-decoration: none;color:#2c2c2c;    " href="{{ route('homepage') }}">PRESTO</a
                 href="{{ route('homepage') }}"></h1>
-        <p>{{__('ui.subTitle')}}</p>
+        <p  id="vaiGiu">{{__('ui.subTitle')}}</p>
 
     </div>
     <div class="login">
         <div class="lingua">
-            <div class="dropdown mt-0  ">
+            <div  class="dropdown mt-0  ">
                 <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><span
                         class=" h4 bi bi-globe-americas"></span></a>
 
-                <ul class="dropdown-menu " style="background-color: #2c2c2c00">
-                    <div style="padding-right: 0px;width: auto;margin:0px;font-family: CormorantGaramond;"
-                        class="dropdown-item text-center m-0  ">
-                        <x-locale lang="it" nation="it" /> Italiano
-                    </div>
-                    <div style="padding-right: 0px; width: auto;margin:0px;font-family: CormorantGaramond"
-                        class="dropdown-item text-center m-0 ">
-                        <x-locale lang="en" nation="us" /> Inglese
-                    </div>
-                </ul>
+
+                    <ul  id="finestraLingue" class="dropdown-menu " >
+                        <div style="padding-right: 0px;width: auto;margin:0px;font-family: CormorantGaramond;"
+                            class="dropdown-item text-center m-0  ">
+                            <x-locale lang="it" nation="it" /> Italiano
+                        </div>
+                        <div style="padding-right: 0px; width: auto;margin:0px;font-family: CormorantGaramond"
+                            class="dropdown-item text-center m-0 ">
+                            <x-locale lang="en" nation="us" /> Inglese
+                        </div>
+                    </ul>
+
 
             </div>
         </div>
