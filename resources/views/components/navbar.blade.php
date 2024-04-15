@@ -17,7 +17,7 @@
                         <h1 style="background-color: white ">{{__('ui.registration')}}</h1>
                         <span style="background-color: white ">{{__('ui.logForm')}}</span>
 
-                        <input name="name" type="text" id="name" placeholder="Nome">
+                        <input name="name" type="text" id="name" placeholder={{__('ui.form7')}}>
                         @error('name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

@@ -114,20 +114,20 @@
                 <div style="height: 100%;width: 100%;display: flex;justify-content: center;align-items: center">
                     <form class="formContatto" action="{{route('contact.send')}}"  method="POST">
                         @csrf
-                        <input style="width: 100%;color:white" name="name" type="text" placeholder="Nome e Cognome" >
+                        <input style="width: 100%;color:white" name="name" type="text" placeholder="{{__('ui.form1')}}" >
                         @error('name') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input style="width: 63%;color:white" name="telephone_number" type="tel" placeholder="Telefono">
+                            <input style="width: 63%;color:white" name="telephone_number" type="tel" placeholder="{{__('ui.form2')}}">
                             @error('telephone_number') <div><span class="text-danger">{{$message}}</span></div>@enderror
-                            <input style="width: 35%;color:white" name="order_number" type="text" placeholder="N. Ordine">
+                            <input style="width: 35%;color:white" name="order_number" type="text" placeholder="{{__('ui.form3')}}">
                             @error('order_number') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         </div>
-                        <input style="width: 100%;color:white" name="email" type="email" placeholder="Email">
+                        <input style="width: 100%;color:white" name="email" type="email" placeholder="{{__('ui.form4')}}">
                         @error('email') <div><span class="text-danger">{{$message}}</span></div>@enderror
                         <div style="width: 100%;display: flex;justify-content: space-between ">
-                            <input id="inputMessaggioDes" name="body" type="text" placeholder="Messaggio..">
+                            <input id="inputMessaggioDes" name="body" type="text" placeholder="{{__('ui.form5')}}">
                             @error('body') <div><span class="text-danger">{{$message}}</span></div>@enderror
-                            <button style="width: auto; height: 170px;" type="submit">Invia</button>
+                            <button style="width: auto; height: 170px;" type="submit">{{__('ui.form6')}}</button>
                         </div>
                     </form>
                 </div>
@@ -152,29 +152,29 @@
                 <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-truck"></i>
-                        <h6> <strong>SPEDIZIONE</strong> </h6>
-                        <p>Gratis in store, a domicilio a partire da €49.99</p>
+                        <h6> <strong>{{__('ui.footer1')}}</strong> </h6>
+                        <p>{{__('ui.footer2')}}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-box2-heart"></i>
-                        <h6> <strong>RESO GRATIS</strong></h6>
-                        <p>Hai 30 giorni di tempo per ripensarci!</p>
+                        <h6> <strong>{{__('ui.footer3')}}</strong></h6>
+                        <p>{{__('ui.footer4')}}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-credit-card"></i>
-                        <h6> <strong>PAGAMENTI SICURI</strong> </h6>
-                        <p>Dati protetti con codifica SSL</p>
+                        <h6> <strong>{{__('ui.footer5')}}</strong> </h6>
+                        <p>{{__('ui.footer6')}}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-3 p-0">
                     <div style="cursor: default" class="BoxInformazioni">
                         <i class="bi bi-chat-dots"></i>
-                        <h6> <strong>SUPPORTO</strong></h6>
-                        <p>Dal lunedi al venerdi dalle 9:00 alle 18:00</p>
+                        <h6> <strong>{{__('ui.footer7')}}</strong></h6>
+                        <p>{{__('ui.footer8')}}</p>
                     </div>
                 </div>
             </div>

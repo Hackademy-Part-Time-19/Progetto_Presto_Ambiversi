@@ -2,6 +2,7 @@
 
 return [
     'allCategories' => 'CATEGORIES',
+    'allCategories2' => 'Categories',
     'registration' => 'Sign in',
     'login' => 'LOGIN',
     'subTitle' => 'EXPLORE. CHOOSE. BUY. ALL IN ONE SINGLE PLACE.',
@@ -33,4 +34,35 @@ return [
     'sentenceA' => 'Discover the right products for you, at an unmissable price',
     'beloved' => 'Most beloved',
     'contact' => 'CONTACTS',
+    'form1' => 'Name and surname',
+    'form2' => 'Phone number',
+    'form3' => 'Order number',
+    'form4' => 'Email',
+    'form5' => 'Message..',
+    'form6' => 'Send',
+    'footer1' => 'SHIPPING',
+    'footer2' => 'Free in store, home delivery starting from €49.99',
+    'footer3' => 'FREE RETURNS',
+    'footer4' => 'You have 30 days to change your mind!',
+    'footer5' => 'SAFE PAYMENTS',
+    'footer6' => 'Data protected with SSL encryption',
+    'footer7' => 'SUPPORT',
+    'footer8' => 'From Monday to Friday from 9:00 to 18:00',
+    'news1' => 'Sign up to our newsletter!',
+    'news2' => 'Email address',
+    'news3' => 'Subscribe',
+    'news4' => 'Contacts | Copyright © 2024 Soon | All rights reserved',
+    'index1' => 'CATALOGUE',
+    'product1' => 'products',
+    'filter1' => 'Sort by',
+    'filter2' => 'Price (lowest to highest)',
+    'filter3' => 'Price (high to low)',
+    'filter4' => 'Newest',
+    'filter5' => 'Oldest',
+    'form7' => 'Name',
+    'form8' => 'Password confirmation',
+    'find' => 'Find..',
+
+
+
 ];

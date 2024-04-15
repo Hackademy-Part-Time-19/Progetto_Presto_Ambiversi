@@ -19,6 +19,8 @@
         "livewire/livewire": "^3.4",
         "outhebox/blade-flags": "^1.5",
         "spatie/image": "^3.4",
+        "spatie/laravel-image-optimizer": "^1.8",
+        "spatie/laravel-permission": "^6.4",
         "teamtnt/laravel-scout-tntsearch-driver": "^14.0"
     },
     "require-dev": {

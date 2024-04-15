@@ -5,7 +5,7 @@
             <form action="{{ route('announcements.search') }}" method="GET">
                 <input
                     style="font-size: 20px; font-family: CormorantGaramond; background-color: rgba(255, 255, 255, 0); "
-                    type="search" placeholder=" cerca.." name="searched">
+                    type="search" placeholder={{__('ui.find')}} name="searched">
                 <button type="submit"><i style="color: white; background-color: #2c2c2c; height: 100%;"
                         class="bi bi-search"></i></button>
             </form>
@@ -29,7 +29,7 @@
                     @endif
                 </a>
             </h6>
-            <h3>Categorie </h3>
+            <h3>{{__('ui.allCategories2')}} </h3>
             <hr>
             @foreach ($categories as $category)
                 <a class="dropdown-item"
@@ -50,7 +50,7 @@
                                 @if (request()->routeIs('announcements.showFavorites'))
                                     PREFERITI
                                 @else
-                                    CATALOGO
+                                {{__('ui.index1')}}
                                 @endif
                             </h2>
                             <p style="text-align: start">
@@ -65,19 +65,19 @@
 
                         </div>
                         <div style="width: 100%;display: flex;justify-content: space-between; border-bottom: 1px solid #2c2c2c;margin-bottom: 15px;padding:0px">
-                            <p style="margin:  0px;display:flex;align-items: center;padding-left: 20px">{{ $announcements_all->count() }} prodotti</p>
+                            <p style="margin:  0px;display:flex;align-items: center;padding-left: 20px">{{ $announcements_all->count() }} {{__('ui.product1')}}</p>
 
 
                             <div style="padding-right: 20px" class="dropdown">
                                 <a style="background-color: #ebeaea;border:#2c2c2c 0.5px " class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Ordina per
+                                    {{__('ui.filter1')}}
                                 </a>
 
                                 <ul style="width: auto;background-color: #ebeaea" class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="{{route('announcements.index.price.asc')}}">Prezzo (dal più basso al più alto)</a></li>
-                                  <li><a class="dropdown-item" href="{{route('announcements.index.price.desc')}}">Prezzo (dal più alto al più basso)</a></li>
-                                  <li><a class="dropdown-item" href="{{route('announcements.index')}}">Dal più recente</a></li>
-                                  <li><a class="dropdown-item" href="{{route('announcements.index.time.asc')}}">Dal più vecchio</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index.price.asc')}}">{{__('ui.filter2')}}</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index.price.desc')}}">{{__('ui.filter3')}}</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index')}}">{{__('ui.filter4')}}</a></li>
+                                  <li><a class="dropdown-item" href="{{route('announcements.index.time.asc')}}">{{__('ui.filter5')}}</a></li>
                                 </ul>
                               </div>
 

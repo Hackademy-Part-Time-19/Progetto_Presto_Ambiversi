@@ -2,6 +2,7 @@
 
 return [
     'allCategories' => 'CATEGORIE',
+    'allCategories2' => 'Categorie',
     'registration' => 'Registrati',
     'login' => 'ACCEDI',
     'subTitle' => 'ESPLORA. SCEGLI. ACQUISTA. TUTTO IN UN SOLO POSTO.',
@@ -33,7 +34,38 @@ return [
     'sentenceA' => 'Scopri i prodotti adatti per te, a un prezzo imperdibile',
     'beloved' => 'I più amati',
     'contact' => 'CONTATTI',
+    'form1' => 'Nome e cognome',
+    'form2' => 'Telefono',
+    'form3' => 'N. Ordine',
+    'form4' => 'Email',
+    'form5' => 'Messaggio..',
+    'form6' => 'Invia',
+    'footer1' => 'SPEDIZIONE',
+    'footer2' => 'Gratis in store, a domicilio a partire da €49.99',
+    'footer3' => 'RESO GRATIS',
+    'footer4' => 'Hai 30 giorni di tempo per ripensarci!',
+    'footer5' => 'PAGAMENTI SICURI',
+    'footer6' => 'Dati protetti con codifica SSL',
+    'footer7' => 'SUPPORTO',
+    'footer8' => 'Dal lunedi al venerdi dalle 9:00 alle 18:00',
+    'news1' => 'Iscriviti alla nostra newsletter!',
+    'news2' => 'Indirizzo email',
+    'news3' => 'Iscriviti',
+    'news4' => 'Contatti | Copyright © 2024 Presto | Tutti diriti riservati',
+    'index1' => 'CATALOGO',
+    'product1' => 'prodotti',
+    'filter1' => 'Ordina per',
+    'filter2' => 'Prezzo (dal più basso al più alto)',
+    'filter3' => 'Prezzo (dal più alto al più basso)',
+    'filter4' => 'Dal più recente',
+    'filter5' => 'Dal più vecchio',
+    'form7' => 'Nome',
+    'form8' => 'Conferma password',
+    'find' => 'Cerca..',
 
 
 
+
+
+    // {{__('ui.')}}
 ];
