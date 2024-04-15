@@ -36,7 +36,7 @@ class CreateAnnouncement extends Component
         'category' => 'required',
         'price' => 'required|numeric|max:999999',
         'images.*' => 'image|max:2048',
-        'temporary_images.*' => 'image|max:2048',
+        'temporary_images.*' => 'image|max:2048|mimes:png,jpg,jpeg,webp,gif,bmp,tiff',
     ];
     protected $messages = [
         'required' => 'il campo :attribute è richiesto',
