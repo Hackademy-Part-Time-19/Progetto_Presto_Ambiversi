@@ -1777,16 +1777,11 @@ color:  #d73d3d;
 
 }
 
-@media screen and (max-width: 850px){
-  #vaiGiu{
-    margin-top:10px
-  }
-}
 
 @media screen and (max-width: 850px) {
 
-  #finestraLingue{
-
+  #vaiGiu{
+    margin-top:10px
   }
 
   #cercaHOME{
@@ -1863,12 +1858,7 @@ color:  #d73d3d;
     padding: 0px;
   }
 
-  .listaCategorie ul {
-    display: flex;
-    overflow-x: scroll;
-    width: 90%;
-    height: auto;
-  }
+
 
   .listaCategorie ul li a {
     display: flex;
@@ -1982,3 +1972,14 @@ color:  #d73d3d;
 }
 
 
+
+@media screen and (max-width: 800px){
+ 
+
+  .listaCategorie ul {
+    display: flex;
+    overflow-y: scroll;
+    width: 90%;
+    height: auto;
+  }
+}
