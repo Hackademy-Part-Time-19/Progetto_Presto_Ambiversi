@@ -62,6 +62,26 @@ return [
     'form7' => 'Nome',
     'form8' => 'Conferma password',
     'find' => 'Cerca..',
+    'show1' => 'Catalogo',
+    'show2' => 'Categoria',
+    'show3' => 'Quantità',
+    'show4' => 'Aggiungi al carrello',
+    'show5' => 'Informazioni di qualità sul prodotto',
+    'show6' => 'Presso la nostra azienda, la qualità è al centro di tutto ciò che facciamo. Ogni articolo che offriamo è sottoposto a rigorosi controlli di qualità per garantire che soddisfi i nostri standard più elevati prima di essere consegnato ai nostri clienti.',
+    'show7' => 'Politica di Reso e Rimborso',
+    'show8' => "Accettiamo resi entro 30 giorni dall'acquisto. Per essere idoneo a un reso, il tuo articolo deve essere non utilizzato e nelle stesse condizioni in cui lo hai ricevuto. Deve essere anche nella confezione originale.",
+    'show9' => 'Informazioni sulla Spedizione',
+    'show10' => 'Spedizione Standard',
+    'show11' => 'Costo: €5,00',
+    'show12' => 'Tempi di consegna: 3-5 giorni lavorativi',
+    'show13' => 'Tracciamento: Disponibile',
+    'show14' => "La nostra spedizione standard offre un'opzione conveniente per ricevere i tuoi prodotti entro 3-5 giorni lavorativi dalla data di spedizione. Puoi monitorare il tuo pacco utilizzando il servizio di tracciamento incluso.",
+    'show15' => 'Spedizione Veloce:',
+    'show16' => 'Costo: €10,00',
+    'show17' => 'Tempi di consegna: 1-2 giorni lavorativi',
+    'show18' => 'Tracciamento: Disponibile',
+    'show19' => 'Per coloro che desiderano ricevere i loro ordini il prima possibile, offriamo la spedizione veloce. Consegneremo i tuoi articoli direttamente al tuo indirizzo entro 1-2 giorni lavorativi dalla data di spedizione, con tracciamento disponibile per tenerti aggiornato sullo stato della consegna.',
+
 
 
 

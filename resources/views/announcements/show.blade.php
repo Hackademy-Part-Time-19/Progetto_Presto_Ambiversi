@@ -37,7 +37,7 @@
                                 <div class="percorsoShowCard"
                                     style="width: 100%; text-align:start;padding:5px 25px; padding-top:0px ">
                                     <a href="{{ route('homepage') }}">Home / </a> <a
-                                        href="{{ route('announcements.index') }} "> Catalogo / </a> <a
+                                        href="{{ route('announcements.index') }} "> {{__('ui.show1')}} / </a> <a
                                         href="{{ route('categoryShow', ['category' => $announcement->category->id]) }}">{{ $announcement->category->name }}
                                         /</a> <a> {{ $announcement->title }} </a>
                                 </div>
@@ -117,7 +117,7 @@
                                     {{ $announcement->title }}
                                 </h2>
                                 <p style="text-align: start;font-family: CormorantGaramond;">
-                                    <strong>Categoria: </strong>{{ $announcement->category->name }}
+                                    <strong>{{__('ui.show2')}}: </strong>{{ $announcement->category->name }}
                                 </p>
                                 <h4 style="font-family:'Times New Roman', Times, serif">€ {{ $announcement->price }}
                                 </h4>
@@ -125,7 +125,7 @@
 
                                     {{ $announcement->body }}</p>
                                 <p style="margin: 0px;font-family: CormorantGaramond;">
-                                    Quantità</p>
+                                    {{__('ui.show3')}}</p>
                                 <div style="border-bottom: 1px solid grey; width: 150px;" class="input-group">
                                     <span class="input-group-btn">
                                         <button id="buttonMinus" style="border: none" type="button"
@@ -144,7 +144,7 @@
                             </div>
                             <div class="boxShowButton"
                                 style="display: flex; justify-content: space-between ; margin-top: 30px;">
-                                <button style="width: 80%">Aggiungi al carrello</button>
+                                <button style="width: 80%">{{__('ui.show4')}}</button>
                                 <div style=" display: flex; flex-direction: column;  position: relative; ">
                                     @auth
                                         @if (auth()->user()->favoriteAnnouncements->contains($announcement))
@@ -184,7 +184,7 @@
                                             class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            Informazioni di qualità sul prodotto
+                                            {{__('ui.show5')}}
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show"
@@ -192,7 +192,7 @@
                                         <div style="background-color: #e9e9e9;" class="accordion-body">
                                             <p
                                                 style="text-align: start;   font-family: CormorantGaramond;font-size:18px">
-                                                Presso la nostra azienda, la qualità è al centro di tutto ciò che facciamo. Ogni articolo che offriamo è sottoposto a rigorosi controlli di qualità per garantire che soddisfi i nostri standard più elevati prima di essere consegnato ai nostri clienti.</p>
+                                                {{__('ui.show6')}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +203,7 @@
                                             class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                             aria-expanded="false" aria-controls="collapseTwo">
-                                            Politica di Reso e Rimborso
+                                            {{__('ui.show7')}}
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse"
@@ -211,7 +211,7 @@
                                         <div style="background-color:#e9e9e9;" class="accordion-body">
                                             <p
                                                 style="text-align: start;   font-family: CormorantGaramond;font-size:18px">
-                                                Accettiamo resi entro 30 giorni dall'acquisto. Per essere idoneo a un reso, il tuo articolo deve essere non utilizzato e nelle stesse condizioni in cui lo hai ricevuto. Deve essere anche nella confezione originale.</p>
+                                                {{__('ui.show8')}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@
                                             class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                             aria-expanded="false" aria-controls="collapseThree">
-                                            Informazioni sulla Spedizione
+                                            {{__('ui.show9')}}
                                         </button>
                                     </h2>
                                     <div style="background-color: rgba(255, 0, 0, 0)" id="collapseThree"
@@ -230,19 +230,19 @@
                                         <div style="background-color:#e9e9e9;;" class="accordion-body">
                                             <p
                                                 style="text-align: start;   font-family: CormorantGaramond;font-size:18px">
-                                                Spedizione Standard: <br> <br>
+                                                {{__('ui.show10')}}: <br> <br>
 
-                                                Costo: €5,00 <br>
-                                                Tempi di consegna: 3-5 giorni lavorativi <br>
-                                                Tracciamento: Disponibile <br> <br>
-                                                La nostra spedizione standard offre un'opzione conveniente per ricevere i tuoi prodotti entro 3-5 giorni lavorativi dalla data di spedizione. Puoi monitorare il tuo pacco utilizzando il servizio di tracciamento incluso. <br><br>
+                                                {{__('ui.show11')}} <br>
+                                                {{__('ui.show12')}} <br>
+                                                {{__('ui.show13')}} <br> <br>
+                                                {{__('ui.show14')}} <br><br>
                                                 
-                                                Spedizione Veloce: <br><br>
+                                                {{__('ui.show15')}} <br><br>
                                                 
-                                                Costo: €10,00 <br>
-                                                Tempi di consegna: 1-2 giorni lavorativi <br>
-                                                Tracciamento: Disponibile <br> <br>
-                                                Per coloro che desiderano ricevere i loro ordini il prima possibile, offriamo la spedizione veloce. Consegneremo i tuoi articoli direttamente al tuo indirizzo entro 1-2 giorni lavorativi dalla data di spedizione, con tracciamento disponibile per tenerti aggiornato sullo stato della consegna.
+                                                {{__('ui.show16')}} <br>
+                                                {{__('ui.show17')}} <br>
+                                                {{__('ui.show18')}} <br> <br>
+                                                {{__('ui.show19')}}
                                             </p>
                                         </div>
                                     </div>
