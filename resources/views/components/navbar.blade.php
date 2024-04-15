@@ -132,7 +132,7 @@
     <div class="logo">
         <h1><a style="text-decoration: none;color:#2c2c2c;    " href="{{ route('homepage') }}">PRESTO</a
                 href="{{ route('homepage') }}"></h1>
-        <p>{{__('ui.subTitle')}}</p>
+        <p  id="vaiGiu">{{__('ui.subTitle')}}</p>
 
     </div>
     <div class="login">
