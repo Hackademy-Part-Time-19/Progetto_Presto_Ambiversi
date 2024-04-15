@@ -1,6 +1,6 @@
-<?php return array(
-  'providers' =>
-  array(
+<?php return array (
+  'providers' => 
+  array (
     0 => 'Illuminate\\Auth\\AuthServiceProvider',
     1 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
     2 => 'Illuminate\\Bus\\BusServiceProvider',
@@ -37,38 +37,19 @@
     33 => 'Termwind\\Laravel\\TermwindServiceProvider',
     34 => 'OutheBox\\BladeFlags\\BladeFlagsServiceProvider',
     35 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    36 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
-    37 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
-    38 => 'Laravel\\Scout\\ScoutServiceProvider',
-    39 => 'App\\Providers\\FortifyServiceProvider',
-    40 => 'App\\Providers\\AppServiceProvider',
-    41 => 'App\\Providers\\AuthServiceProvider',
-    42 => 'App\\Providers\\EventServiceProvider',
-    43 => 'App\\Providers\\RouteServiceProvider',
-    24 => 'Laravel\\Sail\\SailServiceProvider',
-    25 => 'Laravel\\Sanctum\\SanctumServiceProvider',
-    26 => 'Laravel\\Scout\\ScoutServiceProvider',
-    27 => 'Laravel\\Socialite\\SocialiteServiceProvider',
-    28 => 'Laravel\\Tinker\\TinkerServiceProvider',
-    29 => 'Livewire\\LivewireServiceProvider',
-    30 => 'Carbon\\Laravel\\ServiceProvider',
-    31 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    32 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    33 => 'OutheBox\\BladeFlags\\BladeFlagsServiceProvider',
-    34 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    35 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
-    36 => 'Spatie\\Permission\\PermissionServiceProvider',
-    37 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
+    36 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
+    37 => 'Spatie\\Permission\\PermissionServiceProvider',
     38 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
-    39 => 'Laravel\\Scout\\ScoutServiceProvider',
-    40 => 'App\\Providers\\FortifyServiceProvider',
-    41 => 'App\\Providers\\AppServiceProvider',
-    42 => 'App\\Providers\\AuthServiceProvider',
-    43 => 'App\\Providers\\EventServiceProvider',
-    44 => 'App\\Providers\\RouteServiceProvider',
+    39 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
+    40 => 'Laravel\\Scout\\ScoutServiceProvider',
+    41 => 'App\\Providers\\FortifyServiceProvider',
+    42 => 'App\\Providers\\AppServiceProvider',
+    43 => 'App\\Providers\\AuthServiceProvider',
+    44 => 'App\\Providers\\EventServiceProvider',
+    45 => 'App\\Providers\\RouteServiceProvider',
   ),
-  'eager' =>
-  array(
+  'eager' => 
+  array (
     0 => 'Illuminate\\Auth\\AuthServiceProvider',
     1 => 'Illuminate\\Cookie\\CookieServiceProvider',
     2 => 'Illuminate\\Database\\DatabaseServiceProvider',
@@ -90,35 +71,19 @@
     18 => 'Termwind\\Laravel\\TermwindServiceProvider',
     19 => 'OutheBox\\BladeFlags\\BladeFlagsServiceProvider',
     20 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    21 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
-    22 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
-    23 => 'Laravel\\Scout\\ScoutServiceProvider',
-    24 => 'App\\Providers\\FortifyServiceProvider',
-    25 => 'App\\Providers\\AppServiceProvider',
-    26 => 'App\\Providers\\AuthServiceProvider',
-    27 => 'App\\Providers\\EventServiceProvider',
-    28 => 'App\\Providers\\RouteServiceProvider',
-    12 => 'Laravel\\Sanctum\\SanctumServiceProvider',
-    13 => 'Laravel\\Scout\\ScoutServiceProvider',
-    14 => 'Livewire\\LivewireServiceProvider',
-    15 => 'Carbon\\Laravel\\ServiceProvider',
-    16 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    17 => 'Termwind\\Laravel\\TermwindServiceProvider',
-    18 => 'OutheBox\\BladeFlags\\BladeFlagsServiceProvider',
-    19 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    20 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
-    21 => 'Spatie\\Permission\\PermissionServiceProvider',
-    22 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
+    21 => 'Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider',
+    22 => 'Spatie\\Permission\\PermissionServiceProvider',
     23 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
-    24 => 'Laravel\\Scout\\ScoutServiceProvider',
-    25 => 'App\\Providers\\FortifyServiceProvider',
-    26 => 'App\\Providers\\AppServiceProvider',
-    27 => 'App\\Providers\\AuthServiceProvider',
-    28 => 'App\\Providers\\EventServiceProvider',
-    29 => 'App\\Providers\\RouteServiceProvider',
+    24 => 'TeamTNT\\Scout\\TNTSearchScoutServiceProvider',
+    25 => 'Laravel\\Scout\\ScoutServiceProvider',
+    26 => 'App\\Providers\\FortifyServiceProvider',
+    27 => 'App\\Providers\\AppServiceProvider',
+    28 => 'App\\Providers\\AuthServiceProvider',
+    29 => 'App\\Providers\\EventServiceProvider',
+    30 => 'App\\Providers\\RouteServiceProvider',
   ),
-  'deferred' =>
-  array(
+  'deferred' => 
+  array (
     'Illuminate\\Broadcasting\\BroadcastManager' => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
     'Illuminate\\Contracts\\Broadcasting\\Factory' => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
     'Illuminate\\Contracts\\Broadcasting\\Broadcaster' => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
@@ -263,37 +228,52 @@
     'Laravel\\Socialite\\Contracts\\Factory' => 'Laravel\\Socialite\\SocialiteServiceProvider',
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
   ),
-  'when' =>
-  array(
-    'Illuminate\\Broadcasting\\BroadcastServiceProvider' =>
-    array(),
-    'Illuminate\\Bus\\BusServiceProvider' =>
-    array(),
-    'Illuminate\\Cache\\CacheServiceProvider' =>
-    array(),
-    'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider' =>
-    array(),
-    'Illuminate\\Hashing\\HashServiceProvider' =>
-    array(),
-    'Illuminate\\Mail\\MailServiceProvider' =>
-    array(),
-    'Illuminate\\Pipeline\\PipelineServiceProvider' =>
-    array(),
-    'Illuminate\\Queue\\QueueServiceProvider' =>
-    array(),
-    'Illuminate\\Redis\\RedisServiceProvider' =>
-    array(),
-    'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider' =>
-    array(),
-    'Illuminate\\Translation\\TranslationServiceProvider' =>
-    array(),
-    'Illuminate\\Validation\\ValidationServiceProvider' =>
-    array(),
-    'Laravel\\Sail\\SailServiceProvider' =>
-    array(),
-    'Laravel\\Socialite\\SocialiteServiceProvider' =>
-    array(),
-    'Laravel\\Tinker\\TinkerServiceProvider' =>
-    array(),
+  'when' => 
+  array (
+    'Illuminate\\Broadcasting\\BroadcastServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Bus\\BusServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Cache\\CacheServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Hashing\\HashServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Mail\\MailServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Pipeline\\PipelineServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Queue\\QueueServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Redis\\RedisServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Translation\\TranslationServiceProvider' => 
+    array (
+    ),
+    'Illuminate\\Validation\\ValidationServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Sail\\SailServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Socialite\\SocialiteServiceProvider' => 
+    array (
+    ),
+    'Laravel\\Tinker\\TinkerServiceProvider' => 
+    array (
+    ),
   ),
 );
