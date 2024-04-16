@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    
     <x-navbar></x-navbar>
 
     <x-delete></x-delete>
@@ -298,6 +299,26 @@
             });
         });
     });
+
+    function toggleDisplayFlex() {
+    var menuMobileBox = document.getElementById("MenuMobileBox");
+    if (menuMobileBox.style.display === "none") {
+        menuMobileBox.style.display = "flex";
+    } else {
+        menuMobileBox.style.display = "none";
+    }
+}
+
+
+function Esc() {
+    var menuMobileBox = document.getElementById("MenuMobileBox");
+    if (menuMobileBox.style.display === "flex") {
+        menuMobileBox.style.display = "none";
+    } else {
+        menuMobileBox.style.display = "flex";
+    }
+}
+
     </script>
   
 

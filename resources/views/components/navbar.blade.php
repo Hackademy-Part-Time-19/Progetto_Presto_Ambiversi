@@ -1,4 +1,23 @@
+<div id="MenuMobileBox">
+    <i onclick="Esc()" id="EscMenuMobile" class="bi bi-x-circle"></i>
+    <div style="display: flex;flex-direction: column;margin-top:90px" class="menu">
+        <a href="{{ route('homepage') }}">HOME</a>
+        <a href="{{ route('announcements.index') }}">SHOP</a>
+        @if (!request()->routeIs('announcements.index') && !request()->routeIs('categoryShow'))
+            <div class="dropdown">
+                <button class="dropbtn">{{__('ui.allCategories')}}</button>
+                <div style="z-index: 44" class="dropdown-content">
+                    @foreach ($categories as $category)
+                        <a class="dropdown-item"
+                            href="{{ route('categoryShow', compact('category')) }}">{{ $category->name }}</a>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+    </div>
+</div>
 <nav>
+    
     <!--Inizio Registrazione PopUp -->
     <div id="RegistrazioneUtente" class="RegistrazioneUtente">
         <div class="RegistrazioneContainer">
@@ -126,8 +145,8 @@
             </div>
         @endif
     </div>
-    <div class="menuMobile">
-        <a> <i style="color: #2c2c2c" class="bi bi-list"></i></a>
+    <div onclick="toggleDisplayFlex()" class="menuMobile">
+        <a>  <i style="color: #2c2c2c" class="bi bi-list"></i></a>
     </div>
     <div class="logo">
         <h1><a style="text-decoration: none;color:#2c2c2c;    " href="{{ route('homepage') }}">PRESTO</a
